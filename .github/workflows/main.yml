@@ -56,6 +56,7 @@ jobs:
           - 3.7
           - 3.8
           - 3.9
+          - 3.10
     needs: clean
     steps:
       - uses: actions/checkout@v2
@@ -76,7 +77,7 @@ jobs:
 
       - name: Run tests
         run: |
-          pytest --cov=carculator
+          pytest --cov=carculator_utils
           coveralls
         env:
           GITHUB_TOKEN: ${{ secrets.COVERALLS }}
@@ -111,7 +112,7 @@ jobs:
 
         run: |
 
-          PKG_NAME=carculator
+          PKG_NAME=carculator_utils
           USER=romainsacchi
           conda install anaconda-client
           conda install conda-build
