@@ -2,7 +2,6 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
-
 from carculator import *
 
 DATA = Path(__file__, "..").resolve() / "fixtures" / "cars_values.xlsx"
