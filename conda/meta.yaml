@@ -36,7 +36,7 @@ test:
     - carculator_utils
 
 about:
-  home: https://github.com/romainsacchi/carculator
+  home: https://github.com/romainsacchi/carculator_utils
   license: BSD License
-  summary: 'Life Cycle Assessment for passenger cars.'
+  summary: 'Base classes and functions for the carculator package suite.
 license_family: BSD

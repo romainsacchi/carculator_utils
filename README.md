@@ -1,7 +1,7 @@
 # ``carculator_utils``
 
 
-Provides a set of classes and functions to use with the ``carculator`` packages.
+Base classes and functions for the carculator package suite.
 
 ## Support
 
@@ -13,8 +13,8 @@ Do not hesitate to contact the development team at [carculator@psi.ch](mailto:ca
 
 ## Contributing
 
-See [contributing](https://github.com/romainsacchi/carculator/blob/master/CONTRIBUTING.md).
+See [contributing](https://github.com/romainsacchi/carculator_utils/blob/master/CONTRIBUTING.md).
 
 ## License
 
-[BSD-3-Clause](https://github.com/romainsacchi/carculator/blob/master/LICENSE). Copyright 2020 Paul Scherrer Institut.
+[BSD-3-Clause](https://github.com/romainsacchi/carculator_utils/blob/master/LICENSE). Copyright 2020 Paul Scherrer Institut.
