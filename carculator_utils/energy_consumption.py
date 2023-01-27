@@ -90,6 +90,9 @@ class EnergyConsumptionModel:
         country: str = "CH",
     ) -> None:
 
+        if not isinstance(vehicle_size, list):
+            vehicle_size = [vehicle_size]
+
         self.rho_air = rho_air
         self.cycle_name = (
             cycle
