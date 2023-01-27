@@ -953,11 +953,17 @@ class VehicleModel:
                 if "type" not in specs["primary"]:
                     raise ValueError(f"Primary fuel type not specified for {fuel}")
                 if "name" not in specs["primary"]:
-                    specs["primary"]["name"] = tuple(self.bs.fuel_specs[specs["primary"]["type"]]["name"])
+                    specs["primary"]["name"] = tuple(
+                        self.bs.fuel_specs[specs["primary"]["type"]]["name"]
+                    )
                 if "CO2" not in specs["primary"]:
-                    specs["primary"]["CO2"] = self.bs.fuel_specs[specs["primary"]["type"]]["co2"]
+                    specs["primary"]["CO2"] = self.bs.fuel_specs[
+                        specs["primary"]["type"]
+                    ]["co2"]
                 if "biogenic share" not in specs["primary"]:
-                    specs["primary"]["biogenic share"] = self.bs.fuel_specs[specs["primary"]["type"]]["biogenic_share"]
+                    specs["primary"]["biogenic share"] = self.bs.fuel_specs[
+                        specs["primary"]["type"]
+                    ]["biogenic_share"]
 
             if "secondary" not in specs:
                 specs["secondary"] = {
@@ -969,16 +975,24 @@ class VehicleModel:
                     raise ValueError(f"Secondary fuel share not specified for {fuel}")
                 else:
                     if not isinstance(specs["secondary"]["share"], np.ndarray):
-                        specs["secondary"]["share"] = np.array(specs["secondary"]["share"])
+                        specs["secondary"]["share"] = np.array(
+                            specs["secondary"]["share"]
+                        )
 
                 if "type" not in specs["secondary"]:
                     raise ValueError(f"Secondary fuel type not specified for {fuel}")
                 if "name" not in specs["secondary"]:
-                    specs["secondary"]["name"] = tuple(self.bs.fuel_specs[specs["secondary"]["type"]]["name"])
+                    specs["secondary"]["name"] = tuple(
+                        self.bs.fuel_specs[specs["secondary"]["type"]]["name"]
+                    )
                 if "CO2" not in specs["secondary"]:
-                    specs["secondary"]["CO2"] = self.bs.fuel_specs[specs["secondary"]["type"]]["co2"]
+                    specs["secondary"]["CO2"] = self.bs.fuel_specs[
+                        specs["secondary"]["type"]
+                    ]["co2"]
                 if "biogenic share" not in specs["secondary"]:
-                    specs["secondary"]["biogenic share"] = self.bs.fuel_specs[specs["secondary"]["type"]]["biogenic_share"]
+                    specs["secondary"]["biogenic share"] = self.bs.fuel_specs[
+                        specs["secondary"]["type"]
+                    ]["biogenic_share"]
 
         return fuel_blend
 
@@ -1017,14 +1031,22 @@ class VehicleModel:
             fuel_type = d_map_fuel[pt]
             primary_name = self.fuel_blend[fuel_type]["primary"]["type"]
             primary_fuel_share = self.fuel_blend[fuel_type]["primary"]["share"]
-            primary_fuel_lhv = self.fuel_blend[fuel_type]["primary"].get("lhv", self.bs.fuel_specs[primary_name]["lhv"])
-            primary_fuel_density = self.fuel_blend[fuel_type]["primary"].get("density", self.bs.fuel_specs[primary_name]["density"])
+            primary_fuel_lhv = self.fuel_blend[fuel_type]["primary"].get(
+                "lhv", self.bs.fuel_specs[primary_name]["lhv"]
+            )
+            primary_fuel_density = self.fuel_blend[fuel_type]["primary"].get(
+                "density", self.bs.fuel_specs[primary_name]["density"]
+            )
 
             if "secondary" in self.fuel_blend[fuel_type]:
                 secondary_name = self.fuel_blend[fuel_type]["secondary"]["type"]
                 secondary_fuel_share = self.fuel_blend[fuel_type]["secondary"]["share"]
-                secondary_fuel_lhv = self.fuel_blend[fuel_type]["secondary"].get("lhv", self.bs.fuel_specs[secondary_name]["lhv"])
-                secondary_fuel_density = self.fuel_blend[fuel_type]["secondary"].get("density", self.bs.fuel_specs[secondary_name]["density"])
+                secondary_fuel_lhv = self.fuel_blend[fuel_type]["secondary"].get(
+                    "lhv", self.bs.fuel_specs[secondary_name]["lhv"]
+                )
+                secondary_fuel_density = self.fuel_blend[fuel_type]["secondary"].get(
+                    "density", self.bs.fuel_specs[secondary_name]["density"]
+                )
             else:
                 secondary_fuel_share = 0
                 secondary_fuel_lhv = 0
