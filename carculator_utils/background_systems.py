@@ -252,7 +252,6 @@ class BackgroundSystemModel:
             secondary_share = np.array(1) - np.zeros_like(np.array(years))
 
         else:
-
             primary = self.default_fuels[fuel_type]["primary"]
             secondary = self.default_fuels[fuel_type]["secondary"]
 

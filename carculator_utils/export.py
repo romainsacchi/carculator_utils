@@ -88,7 +88,6 @@ def load_references() -> Dict[str, Dict[str, str]]:
 
 
 def get_simapro_biosphere() -> Dict[str, str]:
-
     # Load the matching dictionary between ecoinvent and Simapro biosphere flows
     # for each ecoinvent biosphere flow name, it gives the corresponding Simapro name
 
@@ -109,7 +108,6 @@ def get_simapro_biosphere() -> Dict[str, str]:
 
 
 def get_simapro_technosphere() -> Dict[Tuple[str, str], str]:
-
     # Load the matching dictionary between ecoinvent and Simapro product flows
 
     filename = "simapro-technosphere-3.5.csv"
@@ -164,7 +162,6 @@ class ExportInventory:
         }
 
     def rename_vehicles(self) -> None:
-
         """
         Rename powertrain acronyms to full length descriptive terms
 
@@ -373,7 +370,6 @@ class ExportInventory:
         return list_act
 
     def format_data_for_lci_for_bw2(self, data: List[dict]) -> List[dict]:
-
         rows = []
         rows.extend((["Database", self.db_name], ("format", "Excel spreadsheet")))
         rows.append([])
@@ -438,7 +434,6 @@ class ExportInventory:
     def format_data_for_lci_for_simapro(
         self, data: List[Dict], ei_version: str
     ) -> List[List]:
-
         # not all biosphere flows exist in simapro
         # load list from `simapro_blacklist.yml`
         with open(
@@ -510,7 +505,6 @@ class ExportInventory:
 
             # We loop through the fields SimaPro expects to see
             for item in fields["fields"]:
-
                 # If it is a waste treatment activity, we skip the field `Products`
                 if main_category == "waste treatment" and item == "Products":
                     continue
@@ -522,7 +516,6 @@ class ExportInventory:
                 rows.append([item])
 
                 if item == "Process name":
-
                     dataset_name = f"{a['name'].capitalize()} {{{a.get('location', 'GLO')}}} | Cut-off U"
                     rows.append([dataset_name])
 
@@ -658,7 +651,6 @@ class ExportInventory:
                                     ]
                                 )
                             ):
-
                                 tupled = (
                                     e["name"],
                                     e.get("location", "GLO"),
@@ -732,7 +724,6 @@ class ExportInventory:
                             "Carbon dioxide, to soil or biomass stock",
                         ]:
                             if e["name"] not in blacklist:
-
                                 if e["name"].lower() == "water":
                                     e["unit"] = "kilogram"
                                     e["amount"] /= 1000
@@ -809,7 +800,6 @@ class ExportInventory:
                     for e in a["exchanges"]:
                         is_waste = False
                         if e["type"] == "technosphere":
-
                             # We check if this is indeed a waste treatment activity
                             if e["name"] in self.references:
                                 if self.references[e["name"]] == "waste treatment":
@@ -848,7 +838,6 @@ class ExportInventory:
 
                             # Yes, it is a waste treatment activity
                             if is_waste:
-
                                 # In SimaPro, waste inputs are positive numbers
                                 if e["amount"] < 0:
                                     e["amount"] *= -1
@@ -964,7 +953,6 @@ class ExportInventory:
         return rows
 
     def get_export_filepath(self, filename, directory=None):
-
         # check that filepath exists
         directory = directory or os.getcwd()
         if not os.path.exists(directory):
@@ -978,7 +966,6 @@ class ExportInventory:
         directory: str = None,
         filename: str = None,
     ):
-
         filename = filename or safe_filename(
             f"carculator_export_{datetime.date.today()}"
         )

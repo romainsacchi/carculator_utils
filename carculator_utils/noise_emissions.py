@@ -104,7 +104,6 @@ class NoiseEmissionsModel:
     """
 
     def __init__(self, velocity: xr.DataArray, vehicle_type: str) -> None:
-
         self.velocity = velocity / 1000 * 3600  # km/h to m/s
         self.rolling_coefficients = get_noise_coefficients(
             Path(__file__).parent
@@ -191,7 +190,6 @@ class NoiseEmissionsModel:
         constants = self.propulsion_coefficients.sel(coefficient="b")
 
         if "size" in coefficients.dims:
-
             a = coefficients.sel(
                 powertrain=[MAP_PWT[p] for p in self.velocity.powertrain.values],
                 size=[MAP_SIZES[s] for s in self.velocity.coords["size"].values],
@@ -202,7 +200,6 @@ class NoiseEmissionsModel:
             )
 
         else:
-
             a = coefficients.sel(
                 powertrain=[MAP_PWT[p] for p in self.velocity.powertrain.values],
             )

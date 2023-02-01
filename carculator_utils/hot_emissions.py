@@ -122,7 +122,6 @@ def get_mileage_degradation_factor(
 
 
 def get_driving_cycle_compartments(cycle_name, vehicle_type) -> dict:
-
     with open(FILEPATH_DC_SPECS, "r") as f:
         return yaml.safe_load(f)["environments"][vehicle_type][cycle_name]
 
@@ -147,7 +146,6 @@ class HotEmissionsModel:
         cycle_name: str,
         vehicle_type: str,
     ) -> None:
-
         self.powertrains = powertrains
         self.sizes = sizes
         self.velocity = velocity / 1000 * 3600  # m/s to km/h

@@ -52,7 +52,6 @@ class VehicleModel:
         power: dict = None,
         fuel_blend: dict = None,
     ) -> None:
-
         self.array = array
         self.country = country
 
@@ -92,7 +91,6 @@ class VehicleModel:
             )
 
     def __call__(self, key: Union[str, List]):
-
         """
         This method fixes a dimension of the `array` attribute given
         a powertrain technology selected.
@@ -148,7 +146,6 @@ class VehicleModel:
         pass
 
     def set_battery_preferences(self):
-
         l_parameters = [
             p
             for p in [
@@ -168,7 +165,6 @@ class VehicleModel:
                 & (year in self.array.year.values)
                 & (size in self.array["size"].values)
             ):
-
                 cell_params = self.array.loc[
                     dict(
                         powertrain=pwt,
@@ -328,7 +324,6 @@ class VehicleModel:
         )
 
     def override_ttw_energy(self):
-
         # override of TtW energy, provided by the user
         if self.energy_consumption:
             for key, val in self.energy_consumption.items():
@@ -371,7 +366,6 @@ class VehicleModel:
         pass
 
     def set_fuel_cell_mass(self):
-
         """
         Specific setup for fuel cells, which are mild hybrids.
         Must be called after :meth:`.set_power_parameters`.
@@ -467,7 +461,6 @@ class VehicleModel:
         )
 
     def set_recuperation(self):
-
         _ = lambda x: np.where(x == 0, 1, x)
         self["recuperation efficiency"] = _(
             self["transmission efficiency"] * (self["combustion power share"] < 1)
@@ -532,7 +525,6 @@ class VehicleModel:
         ) * (self["fuel cell lifetime hours"] > 0)
 
     def override_vehicle_mass(self):
-
         for key, target_mass in ().items():
             pwt, size, year = key
 
@@ -579,7 +571,6 @@ class VehicleModel:
         pass
 
     def override_power(self):
-
         if self.power:
             for key, power in self.power.items():
                 pwt, size, year = key
@@ -605,7 +596,6 @@ class VehicleModel:
         )
 
     def set_component_masses(self) -> None:
-
         self["combustion engine mass"] = (
             self["combustion power"] * self["combustion mass per power"]
             + self["combustion fixed mass"]
@@ -661,7 +651,6 @@ class VehicleModel:
 
         for pwt, pwtc in (("PHEV-d", "PHEV-c-d"), ("PHEV-p", "PHEV-c-p")):
             if pwt in self.array.coords["powertrain"].values:
-
                 self.array.loc[:, pwt] = (
                     self.array.loc[:, "PHEV-e"]
                     * self.array.loc[:, "PHEV-e", "electric utility factor"]
@@ -683,11 +672,19 @@ class VehicleModel:
                     )
                 ] = self.energy.loc[dict(powertrain="PHEV-e")]
 
-                self.energy.loc[dict(powertrain=pwt,)] *= self.array.loc[
+                self.energy.loc[
+                    dict(
+                        powertrain=pwt,
+                    )
+                ] *= self.array.loc[
                     dict(parameter="electric utility factor", powertrain="PHEV-e")
                 ].T.values[None, ..., None]
 
-                self.energy.loc[dict(powertrain=pwt,)] += (
+                self.energy.loc[
+                    dict(
+                        powertrain=pwt,
+                    )
+                ] += (
                     np.array(1)
                     - self.array.loc[
                         dict(parameter="electric utility factor", powertrain="PHEV-e")
@@ -940,7 +937,6 @@ class VehicleModel:
         )
 
     def check_fuel_blend(self, fuel_blend: dict) -> dict:
-
         for fuel, specs in fuel_blend.items():
             if "primary" not in specs:
                 raise ValueError(f"Primary fuel not specified for {fuel}")
@@ -1089,7 +1085,6 @@ class VehicleModel:
         )
 
     def set_power_battery_properties(self):
-
         _ = lambda x: np.where(x == 0, 1, x)
 
         self["battery power"] = self["electric power"] * (

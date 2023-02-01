@@ -52,13 +52,11 @@ class ParticulatesEmissionsModel:
     """
 
     def __init__(self, velocity: xr.DataArray, mass: xr.DataArray) -> None:
-
         self.mass = mass.values / 1000  # in tons
         self.velocity = velocity / 1000 * 3600  # in km/h
         self.distance = velocity.sum(dim="second") / 1000
 
     def get_abrasion_emissions(self) -> np.ndarray:
-
         (
             tire_pm10_urban,
             tire_pm10_rural,

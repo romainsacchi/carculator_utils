@@ -83,7 +83,6 @@ def get_dc_column_number(
 def get_data(
     filepath: Path, vehicle_type: str, vehicle_sizes: List[str], name: str
 ) -> np.ndarray:
-
     try:
         col = get_dc_column_number(vehicle_type, vehicle_sizes, name)
         arr = np.genfromtxt(filepath, delimiter=";")
@@ -99,7 +98,6 @@ def get_data(
 def get_standard_driving_cycle_and_gradient(
     vehicle_type: str, vehicle_sizes: List[str], name: str
 ) -> Tuple[np.ndarray, np.ndarray]:
-
     """Get driving cycle and gradient data as a Pandas `Series`.
 
     Driving cycles are given as km/h per second up to 3200 seconds.

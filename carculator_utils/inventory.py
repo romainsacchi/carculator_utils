@@ -138,7 +138,6 @@ def get_dict_input() -> dict:
         reader = csv.reader(f, delimiter=";")
         raw = list(reader)
         for _r, r in enumerate(raw):
-
             if len(r) == 3:
                 r[1] = eval(r[1])
             raw[_r] = tuple(r)
@@ -170,7 +169,6 @@ class Inventory:
         indicator: str = "midpoint",
         functional_unit: str = "vkm",
     ) -> None:
-
         self.vm = vm
 
         self.scope = {
@@ -332,7 +330,6 @@ class Inventory:
         return list(idx_cats.keys()), list_ind
 
     def get_load_factor(self):
-
         # If the FU is in passenger-km, we normalize the results by
         # the number of passengers
         if self.func_unit == "vkm":
@@ -366,7 +363,6 @@ class Inventory:
         return load_factor
 
     def calculate_impacts(self, sensitivity=False):
-
         if self.scenario != "static":
             B = self.B.interp(
                 year=self.scope["year"], kwargs={"fill_value": "extrapolate"}
@@ -510,7 +506,6 @@ class Inventory:
         for size in self.scope["size"]:
             for powertrain in self.scope["powertrain"]:
                 for euro_class, year in zip(list_euro_classes, self.scope["year"]):
-
                     maximum += 1
 
                     if self.func_unit == "vkm":
@@ -813,7 +808,6 @@ class Inventory:
         return indices
 
     def add_electricity_infrastructure(self, dataset, losses):
-
         for y, year in enumerate(self.scope["year"]):
             # Add transmission network for high and medium voltage
             for input in [
@@ -1144,7 +1138,6 @@ class Inventory:
             ]
 
         elif find_input_by == "unit":
-
             ins = [
                 i
                 for i in ind_inputs
@@ -1216,7 +1209,6 @@ class Inventory:
         pass
 
     def add_fuel_cell_stack(self):
-
         self.A[
             :,
             self.find_input_indices(("Ancillary BoP",)),
@@ -1245,7 +1237,6 @@ class Inventory:
         )
 
     def add_hydrogen_tank(self):
-
         hydro_tank_type = self.vm.energy_storage.get(
             "hydrogen", {"tank type": "carbon fiber"}
         )["tank type"]
@@ -1267,7 +1258,6 @@ class Inventory:
         )
 
     def add_battery(self):
-
         # Start of printout
         print(
             "****************** IMPORTANT BACKGROUND PARAMETERS ******************",
@@ -1361,7 +1351,6 @@ class Inventory:
         )
 
     def add_cng_tank(self):
-
         index = self.get_index_vehicle_from_array("ICEV-g")
         self.A[
             :,
@@ -1376,7 +1365,6 @@ class Inventory:
         )
 
     def add_vehicle_to_transport_dataset(self):
-
         self.A[
             :,
             self.find_input_indices((f"{self.vm.vehicle_type.capitalize()}, ",)),
@@ -1386,7 +1374,6 @@ class Inventory:
         )
 
     def display_renewable_rate_in_mix(self):
-
         sum_renew = self.define_renewable_rate_in_mix()
 
         for y, year in enumerate(self.scope["year"]):
@@ -1401,7 +1388,6 @@ class Inventory:
             )
 
     def add_electricity_to_electric_vehicles(self) -> None:
-
         electric_powertrains = [
             "BEV",
             "BEV-opp",
@@ -1439,9 +1425,7 @@ class Inventory:
                 ]
 
     def add_hydrogen_to_fuel_cell_vehicles(self) -> None:
-
         if "FCEV" in self.scope["powertrain"]:
-
             index = self.get_index_vehicle_from_array("FCEV")
 
             print(
@@ -1488,7 +1472,6 @@ class Inventory:
                 )
 
     def display_fuel_blend(self, fuel) -> None:
-
         print(
             "{} is completed by {}.".format(
                 self.vm.fuel_blend[fuel]["primary"]["type"],
@@ -1511,7 +1494,6 @@ class Inventory:
     def add_carbon_dioxide_emissions(
         self, year, powertrain, powertrain_short, fossil_co2, biogenic_co2
     ) -> None:
-
         ind_array = [
             x
             for x in self.get_index_vehicle_from_array(year)
@@ -1552,7 +1534,6 @@ class Inventory:
         )
 
     def add_sulphur_emissions(self, year, fuel, powertrain_short, powertrains) -> None:
-
         # Fuel-based SO2 emissions
         # Sulfur concentration value for a given country, a given year, as concentration ratio
 
@@ -1562,7 +1543,6 @@ class Inventory:
         idx.extend(powertrain_short)
 
         if sulfur_concentration:
-
             self.A[
                 :,
                 self.inputs[("Sulfur dioxide", ("air",), "kilogram")],
@@ -1578,7 +1558,6 @@ class Inventory:
             )
 
     def add_fuel_to_vehicles(self, fuel, powertrains, powertrains_short) -> None:
-
         if [i for i in self.scope["powertrain"] if i in powertrains]:
             index = self.get_index_vehicle_from_array(powertrains)
             (
@@ -1589,7 +1568,6 @@ class Inventory:
             self.display_fuel_blend(fuel)
 
             for y, year in enumerate(self.scope["year"]):
-
                 ind_array = [
                     x for x in self.get_index_vehicle_from_array(year) if x in index
                 ]
@@ -1628,7 +1606,6 @@ class Inventory:
                 self.add_sulphur_emissions(year, fuel, [powertrains_short], powertrains)
 
     def add_road_maintenance(self) -> None:
-
         # Infrastructure maintenance
         self.A[
             :,
@@ -1639,7 +1616,6 @@ class Inventory:
         )
 
     def add_road_construction(self) -> None:
-
         # Infrastructure
         self.A[
             :,
@@ -1652,7 +1628,6 @@ class Inventory:
         )
 
     def add_exhaust_emissions(self) -> None:
-
         # Exhaust emissions
         # Non-fuel based emissions
         self.A[
@@ -1669,7 +1644,6 @@ class Inventory:
         )
 
     def add_noise_emissions(self) -> None:
-
         # Noise emissions
         self.A[
             np.ix_(
@@ -1685,7 +1659,6 @@ class Inventory:
         )
 
     def add_refrigerant_emissions(self) -> None:
-
         # Emissions of air conditioner refrigerant r134a
         # Leakage assumed to amount to 53g according to
         # https://treeze.ch/fileadmin/user_upload/downloads/Publications/Case_Studies/Mobility/544-LCI-Road-NonRoad-Transport-Services-v2.0.pdf
@@ -1755,7 +1728,6 @@ class Inventory:
             ).T
 
     def add_abrasion_emissions(self) -> None:
-
         # Non-exhaust emissions
 
         abrasion_datasets = {
@@ -1828,7 +1800,6 @@ class Inventory:
             and any([w for w in self.scope["year"] if str(w) in name])
             and any([w for w in self.scope["size"] if w in name])
         ):
-
             powertrain = [w for w in self.scope["powertrain"] if w in name][0]
             size = [w for w in self.scope["size"] if w in name][0]
             year = [w for w in self.scope["year"] if str(w) in name][0]
@@ -1866,12 +1837,17 @@ class Inventory:
         self.A[:, idx, idx] = 1
 
     def change_functional_unit(self) -> None:
-
         load_factor = self.get_load_factor()
         idx_cars = self.find_input_indices((f"transport, {self.vm.vehicle_type}, ",))
         idx_others = [i for i in range(self.A.shape[1]) if i not in idx_cars]
 
-        self.A[np.ix_(np.arange(self.iterations), idx_others, idx_cars,)] *= (
+        self.A[
+            np.ix_(
+                np.arange(self.iterations),
+                idx_others,
+                idx_cars,
+            )
+        ] *= (
             1 / load_factor
         ).reshape(-1, 1, len(idx_cars))
 

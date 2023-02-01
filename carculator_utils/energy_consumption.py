@@ -89,7 +89,6 @@ class EnergyConsumptionModel:
         rho_air: float = 1.204,
         country: str = "CH",
     ) -> None:
-
         if not isinstance(vehicle_size, list):
             vehicle_size = [vehicle_size]
 
@@ -174,7 +173,6 @@ class EnergyConsumptionModel:
         ambient_temp,
         indoor_temp,
     ) -> tuple[Any, Any, Any, Any]:
-
         if ambient_temp is not None:
             ambient_temp = np.resize(ambient_temp, (12,))
         else:
@@ -251,7 +249,6 @@ class EnergyConsumptionModel:
         _o = lambda x: np.where(x == 0, 1, x)
 
         if hvac_power is not None:
-
             (
                 p_cooling,
                 p_heating,
@@ -291,7 +288,6 @@ class EnergyConsumptionModel:
         return auxiliary_energy / _o(efficiency).T
 
     def convert_to_xr(self, data):
-
         return xr.DataArray(
             data,
             dims=["second", "value", "year", "powertrain", "size", "parameter"],
