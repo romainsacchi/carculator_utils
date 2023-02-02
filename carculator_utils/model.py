@@ -731,7 +731,7 @@ class VehicleModel:
                             "recuperation efficiency",
                             "charger mass",
                             "inverter mass",
-                            "power distribution unit mass"
+                            "power distribution unit mass",
                         ],
                         powertrain=pwt,
                     )
@@ -750,7 +750,7 @@ class VehicleModel:
                             "recuperation efficiency",
                             "charger mass",
                             "inverter mass",
-                            "power distribution unit mass"
+                            "power distribution unit mass",
                         ],
                         powertrain="PHEV-e",
                     )
@@ -775,7 +775,6 @@ class VehicleModel:
                         dict(parameter="electric utility factor", powertrain="PHEV-e")
                     ]
                 )
-
 
                 self.array.loc[
                     dict(parameter="TtW energy, combustion mode", powertrain=pwt)
