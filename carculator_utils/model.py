@@ -52,6 +52,21 @@ class VehicleModel:
         power: dict = None,
         fuel_blend: dict = None,
     ) -> None:
+
+        """
+        :param array: multi-dimensional numpy-like array that contains parameters' value(s)
+        :param country: country code
+        :param cycle: name of a driving cycle, or custom driving cycle
+        :param gradient: series of gradients, for each second of the driving cycle
+        :param energy_storage: dictionary with selection of battery chemistry, capacity and origin for each powertrain-size-year combination
+        :param electric_utility_factor: fraction of electricity that is generated from renewable sources
+        :param drop_hybrids: boolean, if True, hybrid vehicles are dropped from the inventory
+        :param payload: dictionary with payload for each powertrain-size-year combination
+        :param energy_target: dictionary with energy target for each year
+        :param energy_consumption: dictionary with energy consumption for each powertrain-size-year combination
+        :param target_range: dictionary with target range for each powertrain-size-year combination
+
+        """
         self.array = array
         self.country = country
 
@@ -75,7 +90,6 @@ class VehicleModel:
         self.energy_consumption = energy_consumption or None
         # a range to reach can be defined by the user
         self.target_range = target_range
-        self.override_range()
         # a curb mass to reach can be defined by the user
         self.target_mass = target_mass
         # overrides the engine/motor power
