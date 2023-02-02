@@ -335,11 +335,12 @@ class VehicleModel:
                         f"with {val} kj/km"
                     )
 
-                    self.array.loc[
-                        dict(
-                            powertrain=pwt, size=size, year=year, parameter="TtW energy"
-                        )
-                    ] = val
+                    distance = self.energy.sel(
+                        parameter="velocity",
+                        powertrain=pwt,
+                        size=size,
+                        year=year,
+                    ).sum(dim="second") / 1000
 
                     self.energy.loc[
                         dict(
@@ -350,12 +351,21 @@ class VehicleModel:
                         )
                     ] = (
                         val  # kj/km
-                        * self.energy.distance  # km
-                        / self.energy.shape[-1]  # seconds
-                    ).reshape(
-                        1, -1
+                        * distance  # km
+                        / self.energy.shape[0]  # seconds
                     )
 
+                    self.energy.loc[
+                        dict(
+                            powertrain=pwt,
+                            size=size,
+                            year=year,
+                            parameter=[
+                                "auxiliary energy",
+                                "recuperated energy"
+                            ]
+                        )
+                    ] = 0
     def calculate_ttw_energy(self) -> None:
         """
         This method calculates the energy required to operate auxiliary
@@ -526,7 +536,7 @@ class VehicleModel:
         ) * (self["fuel cell lifetime hours"] > 0)
 
     def override_vehicle_mass(self):
-        for key, target_mass in ().items():
+        for key, target_mass in self.target_mass.items():
             pwt, size, year = key
 
             if target_mass:
@@ -535,15 +545,6 @@ class VehicleModel:
                 ]
                 mass_difference = target_mass - current_curb_mass
 
-                lightweighting = self.array.loc[
-                    dict(
-                        powertrain=pwt,
-                        size=size,
-                        year=year,
-                        parameter="lightweighting",
-                    )
-                ]
-
                 self.array.loc[
                     dict(
                         powertrain=pwt,
@@ -551,9 +552,17 @@ class VehicleModel:
                         year=year,
                         parameter="glider base mass",
                     )
-                ] += mass_difference / (np.array(1) - lightweighting)
+                ] += mass_difference / (
+                    1
+                    - self.array.loc[
+                        dict(powertrain=pwt, size=size, year=year, parameter="lightweighting")
+                    ]
+                )
 
-        self.set_vehicle_masses()
+                self.array.loc[
+                    dict(powertrain=pwt, size=size, year=year, parameter="curb mass")
+                ] = target_mass
+
 
     def set_vehicle_masses(self) -> None:
         """
@@ -587,6 +596,9 @@ class VehicleModel:
         """
         # Convert from W/kg to kW
         self["power"] = self["power to mass ratio"] * self["curb mass"] / 1000
+
+        if self.power:
+            self.override_power()
 
         self["combustion power share"] = self["combustion power share"].clip(
             min=0, max=1
@@ -924,6 +936,8 @@ class VehicleModel:
                     )
 
             self.set_battery_properties()
+            self.set_energy_stored_properties()
+            self.set_range()
 
     def set_range(self) -> None:
         """
