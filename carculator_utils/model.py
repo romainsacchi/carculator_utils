@@ -348,12 +348,15 @@ class VehicleModel:
                         f"with {val} kj/km"
                     )
 
-                    distance = self.energy.sel(
-                        parameter="velocity",
-                        powertrain=pwt,
-                        size=size,
-                        year=year,
-                    ).sum(dim="second") / 1000
+                    distance = (
+                        self.energy.sel(
+                            parameter="velocity",
+                            powertrain=pwt,
+                            size=size,
+                            year=year,
+                        ).sum(dim="second")
+                        / 1000
+                    )
 
                     self.energy.loc[
                         dict(
@@ -363,9 +366,7 @@ class VehicleModel:
                             parameter="motive energy",
                         )
                     ] = (
-                        val  # kj/km
-                        * distance  # km
-                        / self.energy.shape[0]  # seconds
+                        val * distance / self.energy.shape[0]  # kj/km  # km  # seconds
                     )
 
                     self.energy.loc[
@@ -373,12 +374,10 @@ class VehicleModel:
                             powertrain=pwt,
                             size=size,
                             year=year,
-                            parameter=[
-                                "auxiliary energy",
-                                "recuperated energy"
-                            ]
+                            parameter=["auxiliary energy", "recuperated energy"],
                         )
                     ] = 0
+
     def calculate_ttw_energy(self) -> None:
         """
         This method calculates the energy required to operate auxiliary
@@ -568,14 +567,18 @@ class VehicleModel:
                 ] += mass_difference / (
                     1
                     - self.array.loc[
-                        dict(powertrain=pwt, size=size, year=year, parameter="lightweighting")
+                        dict(
+                            powertrain=pwt,
+                            size=size,
+                            year=year,
+                            parameter="lightweighting",
+                        )
                     ]
                 )
 
                 self.array.loc[
                     dict(powertrain=pwt, size=size, year=year, parameter="curb mass")
                 ] = target_mass
-
 
     def set_vehicle_masses(self) -> None:
         """
