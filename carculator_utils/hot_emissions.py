@@ -250,7 +250,6 @@ class HotEmissionsModel:
             },
         )
 
-
         # bit of a manual calibration for N2O and NH3
         # as they do not correlate with fuel consumption
 
@@ -402,7 +401,9 @@ class HotEmissionsModel:
 
         engine_wear = self.engine_wear.sel(
             powertrain=[
-                MAP_PWT[pt] if MAP_PWT[pt] in self.engine_wear.powertrain.values else "BEV"
+                MAP_PWT[pt]
+                if MAP_PWT[pt] in self.engine_wear.powertrain.values
+                else "BEV"
                 for pt in emissions.powertrain.values
             ]
         )
@@ -477,8 +478,8 @@ class HotEmissionsModel:
 
         res = xr.DataArray(
             np.concatenate(
-            (urban_emissions, rural_emissions, highway_emissions), axis=-1
-        ),
+                (urban_emissions, rural_emissions, highway_emissions), axis=-1
+            ),
             coords=[
                 emissions.coords["value"],
                 emissions.coords["year"],
