@@ -706,7 +706,6 @@ class VehicleModel:
                 ] = self.array.loc[
                     dict(
                         parameter=[
-                            # "fuel mass",
                             "fuel tank mass",
                             "oxidation energy stored",
                             "LHV fuel MJ per kg",
@@ -730,6 +729,9 @@ class VehicleModel:
                             "battery lifetime kilometers",
                             "charger efficiency",
                             "recuperation efficiency",
+                            "charger mass",
+                            "inverter mass",
+                            "power distribution unit mass"
                         ],
                         powertrain=pwt,
                     )
@@ -746,6 +748,9 @@ class VehicleModel:
                             "battery lifetime kilometers",
                             "charger efficiency",
                             "recuperation efficiency",
+                            "charger mass",
+                            "inverter mass",
+                            "power distribution unit mass"
                         ],
                         powertrain="PHEV-e",
                     )
@@ -770,6 +775,7 @@ class VehicleModel:
                         dict(parameter="electric utility factor", powertrain="PHEV-e")
                     ]
                 )
+
 
                 self.array.loc[
                     dict(parameter="TtW energy, combustion mode", powertrain=pwt)
@@ -1277,16 +1283,18 @@ class VehicleModel:
             powertrain=self.array.coords["powertrain"].values,
         ).sum(dim="parameter")
 
-        self.array.loc[
-            dict(
-                parameter=sorted(list_direct_emissions),
-            )
-        ] = hem.get_hot_emissions(
+        hot_emissions = hem.get_hot_emissions(
             euro_class=list_euro_classes,
             lifetime_km=self["lifetime kilometers"],
             energy_consumption=energy_consumption,
             yearly_km=self["kilometers per year"],
         )
+
+        self.array.loc[
+            dict(
+                parameter=list_direct_emissions,
+            )
+        ] = hot_emissions
 
     def set_particulates_emission(self) -> None:
         """

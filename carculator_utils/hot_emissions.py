@@ -176,7 +176,7 @@ class HotEmissionsModel:
         lifetime_km: xr.DataArray,
         energy_consumption: xr.DataArray,
         yearly_km: xr.DataArray,
-    ) -> np.ndarray:
+    ) -> DataArray:
         """
         Calculate hot pollutants emissions given a powertrain type (i.e., diesel, petrol, CNG)
         and a EURO pollution class, per air sub-compartment (i.e., urban, suburban and rural).
@@ -249,6 +249,7 @@ class HotEmissionsModel:
                 "component": hot_emissions.coords["component"],
             },
         )
+
 
         # bit of a manual calibration for N2O and NH3
         # as they do not correlate with fuel consumption
@@ -401,7 +402,7 @@ class HotEmissionsModel:
 
         engine_wear = self.engine_wear.sel(
             powertrain=[
-                MAP_PWT[pt] if pt in self.engine_wear.powertrain.values else "BEV"
+                MAP_PWT[pt] if MAP_PWT[pt] in self.engine_wear.powertrain.values else "BEV"
                 for pt in emissions.powertrain.values
             ]
         )
@@ -439,6 +440,8 @@ class HotEmissionsModel:
         # along the ``second`` dimension
         # where velocity is below 50 km/h
         # converted to kg/km
+        emissions = emissions.fillna(0)
+
         urban_emissions = (
             np.where(_(self.velocity) <= 50, emissions, 0).sum(axis=0)
             / _(distance)
@@ -466,8 +469,24 @@ class HotEmissionsModel:
             / 1000
         )
 
-        res = np.concatenate(
+        list_direct_emissions = [
+            e + f", {c}"
+            for c in ["urban", "suburban", "rural"]
+            for e in emissions.coords["component"].values
+        ]
+
+        res = xr.DataArray(
+            np.concatenate(
             (urban_emissions, rural_emissions, highway_emissions), axis=-1
+        ),
+            coords=[
+                emissions.coords["value"],
+                emissions.coords["year"],
+                emissions.coords["powertrain"],
+                emissions.coords["size"],
+                list_direct_emissions,
+            ],
+            dims=["value", "year", "powertrain", "size", "component"],
         )
 
-        return res.transpose(3, 2, 4, 1, 0)
+        return res.transpose("size", "powertrain", "component", "year", "value")
