@@ -171,8 +171,7 @@ class VehicleModel:
                         size=size,
                         year=year,
                         parameter=[
-                            f"{p}, {val.split('-')[0].strip()}"
-                            for p in l_parameters
+                            f"{p}, {val.split('-')[0].strip()}" for p in l_parameters
                         ],
                     )
                 ]
