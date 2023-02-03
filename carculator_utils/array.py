@@ -174,7 +174,6 @@ def fill_xarray_from_input_parameters(input_parameters, sensitivity=False, scope
         list_params = list(set([a for a in input_parameters.input_parameters]))
 
         for param in list_params:
-
             array.loc[dict(parameter=param, value=param)] *= 1.1
 
     return (size_dict, powertrain_dict, parameter_dict, year_dict), array
