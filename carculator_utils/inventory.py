@@ -277,7 +277,7 @@ class Inventory:
 
         if sensitivity:
             # remove the `impact` dimension
-            response = response.squeeze("impact")
+            response = response.sum(dim="impact")
 
         return response
 
@@ -408,7 +408,13 @@ class Inventory:
             f_vector[a] = 1
             X = sparse.linalg.spsolve(sparse.csr_matrix(self.A[0]), f_vector.T)
 
-            new_arr[a] = (X * B).sum(axis=-1).T
+            _X = (X * B).sum(axis=-1).T
+
+            if _X.ndim == 1:
+                # add a trailing dimension
+                new_arr[a] = _X[:, None]
+            else:
+                new_arr[a] = _X
 
         new_arr = new_arr.transpose(1, 0, 2)
 
@@ -449,7 +455,7 @@ class Inventory:
 
         if sensitivity:
             results[...] = arr.sum(axis=-2)
-            results /= results.sel(parameter="reference")
+            results /= results.sel(value="reference")
         else:
             results[...] = arr
 
@@ -614,7 +620,7 @@ class Inventory:
                 )
             )
 
-            new_B[0 : initial_B.shape[0], 0 : initial_B.shape[1]] = initial_B
+            new_B[0: initial_B.shape[0], 0 : initial_B.shape[1]] = initial_B
             B[f, :, :] = new_B
 
         return xr.DataArray(
@@ -1376,6 +1382,20 @@ class Inventory:
     def display_renewable_rate_in_mix(self):
         sum_renew = self.define_renewable_rate_in_mix()
 
+        use_year = (
+            (
+                    self.array.values[self.array_inputs["lifetime kilometers"]]
+                    / self.array.values[self.array_inputs["kilometers per year"]]
+            )
+            .reshape(
+                self.iterations,
+                len(self.scope["powertrain"]),
+                len(self.scope["size"]),
+                len(self.scope["year"]),
+            )
+            .mean(axis=(0, 1, 2))
+        ).mean()
+
         for y, year in enumerate(self.scope["year"]):
             if y + 1 == len(self.scope["year"]):
                 end_str = "\n * "
@@ -1383,7 +1403,7 @@ class Inventory:
                 end_str = "\n \t * "
 
             print(
-                f"in {year}, % of renewable: {np.round(sum_renew[y] * 100)}.",
+                f"between {year} and {int(year + use_year)}, % of renewable: {np.round(sum_renew[y] * 100)}.",
                 end=end_str,
             )
 

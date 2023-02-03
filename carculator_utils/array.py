@@ -104,7 +104,8 @@ def fill_xarray_from_input_parameters(input_parameters, sensitivity=False, scope
             ],
             dims=["size", "powertrain", "parameter", "year", "value"],
         ).astype("float32")
-    # if the purpose is ot do a sensitivity analysis
+
+    # if the purpose is to do a sensitivity analysis
     # then the length of the dimensions `value` equals the number of parameters
     else:
         params = ["reference"]
@@ -134,87 +135,46 @@ def fill_xarray_from_input_parameters(input_parameters, sensitivity=False, scope
     year_dict = {k: i for i, k in enumerate(scope["year"])}
     parameter_dict = {k: i for i, k in enumerate(input_parameters.parameters)}
 
-    if not sensitivity:
-        for param in input_parameters:
-            pwt = (
-                set(input_parameters.metadata[param]["powertrain"])
-                if isinstance(input_parameters.metadata[param]["powertrain"], list)
-                else set([input_parameters.metadata[param]["powertrain"]])
-            )
+    for param in input_parameters:
+        pwt = (
+            set(input_parameters.metadata[param]["powertrain"])
+            if isinstance(input_parameters.metadata[param]["powertrain"], list)
+            else set([input_parameters.metadata[param]["powertrain"]])
+        )
 
-            size = (
-                set(input_parameters.metadata[param]["sizes"])
-                if isinstance(input_parameters.metadata[param]["sizes"], list)
-                else set([input_parameters.metadata[param]["sizes"]])
-            )
+        size = (
+            set(input_parameters.metadata[param]["sizes"])
+            if isinstance(input_parameters.metadata[param]["sizes"], list)
+            else set([input_parameters.metadata[param]["sizes"]])
+        )
 
-            year = (
-                set(input_parameters.metadata[param]["year"])
-                if isinstance(input_parameters.metadata[param]["year"], list)
-                else set([input_parameters.metadata[param]["year"]])
-            )
+        year = (
+            set(input_parameters.metadata[param]["year"])
+            if isinstance(input_parameters.metadata[param]["year"], list)
+            else set([input_parameters.metadata[param]["year"]])
+        )
 
-            if (
-                pwt.intersection(scope["powertrain"])
-                and size.intersection(scope["size"])
-                and year.intersection(scope["year"])
-            ):
-                array.loc[
-                    dict(
-                        powertrain=[p for p in pwt if p in scope["powertrain"]],
-                        size=[s for s in size if s in scope["size"]],
-                        year=[y for y in year if y in scope["year"]],
-                        parameter=input_parameters.metadata[param]["name"],
-                    )
-                ] = input_parameters.values[param]
-
-    else:
-        # if `sensitivity` == True, the values of each parameter is
-        # incremented by 10% when `value` == `parameter`
-        for x, param in enumerate(input_parameters.input_parameters):
-            names = [
-                n
-                for n in input_parameters.metadata
-                if input_parameters.metadata[n]["name"] == param
-            ]
-
-            pwt = list(
-                set(
-                    itertools.chain.from_iterable(
-                        [
-                            input_parameters.metadata[name]["powertrain"]
-                            for name in names
-                        ]
-                    )
+        if (
+            pwt.intersection(scope["powertrain"])
+            and size.intersection(scope["size"])
+            and year.intersection(scope["year"])
+        ):
+            array.loc[
+                dict(
+                    powertrain=[p for p in pwt if p in scope["powertrain"]],
+                    size=[s for s in size if s in scope["size"]],
+                    year=[y for y in year if y in scope["year"]],
+                    parameter=input_parameters.metadata[param]["name"],
                 )
-            )
+            ] = input_parameters.values[param]
 
-            size = list(
-                set(
-                    itertools.chain.from_iterable(
-                        [input_parameters.metadata[name]["sizes"] for name in names]
-                    )
-                )
-            )
+    if sensitivity:
+        # we increase each value by 10%
 
-            year = [str(input_parameters.metadata[name]["year"]) for name in names]
-            year = list(set(year))
-            year = [int(y) for y in year]
+        list_params = list(set([a for a in input_parameters.input_parameters]))
 
-            for name in names:
-                vals = [
-                    input_parameters.values[name]
-                    for _ in range(0, len(input_parameters.input_parameters) + 1)
-                ]
-                vals[input_parameters.input_parameters.index(param) + 1] *= 1.1
+        for param in list_params:
 
-                array.loc[
-                    dict(
-                        powertrain=[p for p in pwt if p in scope["powertrain"]],
-                        size=[s for s in size if s in scope["size"]],
-                        year=[y for y in year if y in scope["year"]],
-                        parameter=input_parameters.metadata[name]["name"],
-                    )
-                ] = vals
+            array.loc[dict(parameter=param, value=param)] *= 1.1
 
     return (size_dict, powertrain_dict, parameter_dict, year_dict), array

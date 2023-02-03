@@ -93,35 +93,25 @@ class EnergyConsumptionModel:
             vehicle_size = [vehicle_size]
 
         self.rho_air = rho_air
-        self.cycle_name = (
-            cycle
-            if isinstance(cycle, str)
-            else get_default_driving_cycle_name(vehicle_type)
-        )
+
+        if isinstance(cycle, np.ndarray):
+            self.cycle_name = "custom"
+            self.cycle = cycle.reshape(-1, 1)
+
+            if gradient is not None:
+                self.gradient = gradient.reshape(-1, 1)
+            else:
+                self.gradient = np.zeros_like(self.cycle)
+
+        else:
+            self.cycle_name = cycle
+            self.cycle, self.gradient = get_standard_driving_cycle_and_gradient(
+                vehicle_type, vehicle_size, self.cycle_name
+            )
+
         self.country = country
         self.vehicle_type = vehicle_type
         self.vehicle_size = vehicle_size
-
-        # If a string is passed, the corresponding driving cycle is retrieved
-
-        if self.cycle_name:
-            try:
-                cycle, gradient = get_standard_driving_cycle_and_gradient(
-                    vehicle_type, vehicle_size, self.cycle_name
-                )
-
-            except KeyError as err:
-                raise KeyError(
-                    "The driving cycle specified could not be found."
-                ) from err
-        elif isinstance(cycle, np.ndarray):
-            self.cycle_name = "custom"
-
-        else:
-            raise TypeError("The format of the driving cycle is not valid.")
-
-        self.cycle = cycle
-        self.gradient = gradient
 
         if "Micro" in vehicle_size:
             idx = vehicle_size.index("Micro")

@@ -56,6 +56,9 @@ def get_dc_column_number(
 
     dc_specs = get_driving_cycle_specs()
 
+    if isinstance(vehicle_size, str):
+        vehicle_size = [vehicle_size]
+
     if vehicle_type not in dc_specs["columns"]:
         raise KeyError(
             f"Vehicle type {vehicle_type} is not in the list of "

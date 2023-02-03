@@ -72,8 +72,7 @@ class VehicleModel:
 
         self.vehicle_type = detect_vehicle_type(list(self.array.coords["size"].values))
         self.cycle = (
-            cycle
-            if isinstance(cycle, str)
+            cycle if type(cycle) in [np.ndarray, str, list]
             else get_default_driving_cycle_name(self.vehicle_type)
         )
 
