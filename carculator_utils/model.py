@@ -52,7 +52,6 @@ class VehicleModel:
         power: dict = None,
         fuel_blend: dict = None,
     ) -> None:
-
         """
         :param array: multi-dimensional numpy-like array that contains parameters' value(s)
         :param country: country code
