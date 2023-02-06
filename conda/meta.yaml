@@ -38,5 +38,5 @@ test:
 about:
   home: https://github.com/romainsacchi/carculator_utils
   license: BSD License
-  summary: 'Base classes and functions for the carculator package suite.
+  summary: 'Base classes and functions for the carculator package suite.'
 license_family: BSD
