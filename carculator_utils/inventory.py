@@ -620,7 +620,7 @@ class Inventory:
                 )
             )
 
-            new_B[0: initial_B.shape[0], 0 : initial_B.shape[1]] = initial_B
+            new_B[0 : initial_B.shape[0], 0 : initial_B.shape[1]] = initial_B
             B[f, :, :] = new_B
 
         return xr.DataArray(
@@ -1384,8 +1384,8 @@ class Inventory:
 
         use_year = (
             (
-                    self.array.values[self.array_inputs["lifetime kilometers"]]
-                    / self.array.values[self.array_inputs["kilometers per year"]]
+                self.array.values[self.array_inputs["lifetime kilometers"]]
+                / self.array.values[self.array_inputs["kilometers per year"]]
             )
             .reshape(
                 self.iterations,
