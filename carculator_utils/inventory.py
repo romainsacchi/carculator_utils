@@ -1482,12 +1482,8 @@ class Inventory:
                         (f"transport, {self.vm.vehicle_type}, ", "FCEV", str(year))
                     ),
                 ] = (
-                    self.array[self.array_inputs["fuel mass"], :, ind_array]
-                    / self.array[
-                        self.array_inputs[RANGE_PARAM[self.vm.vehicle_type]],
-                        :,
-                        ind_array,
-                    ]
+                    self.array[self.array_inputs["fuel consumption"], :, ind_array]
+                    * self.array[self.array_inputs["fuel density per kg"], :, ind_array]
                     * -1
                 )
 
@@ -1607,12 +1603,11 @@ class Inventory:
                         excludes=("battery",),
                     ),
                 ] = (
-                    self.array[self.array_inputs["fuel mass"], :, ind_array]
-                    / self.array[
-                        self.array_inputs[RANGE_PARAM[self.vm.vehicle_type]],
-                        :,
-                        ind_array,
-                    ]
+                        (
+                            self.array[self.array_inputs["fuel consumption"], :, ind_array]
+                            * self.array[self.array_inputs["fuel density per kg"], :, ind_array]
+                            * -1
+                        )
                 ) * -1
 
                 self.add_carbon_dioxide_emissions(
