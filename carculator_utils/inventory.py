@@ -1603,11 +1603,13 @@ class Inventory:
                         excludes=("battery",),
                     ),
                 ] = (
-                        (
-                            self.array[self.array_inputs["fuel consumption"], :, ind_array]
-                            * self.array[self.array_inputs["fuel density per kg"], :, ind_array]
-                            * -1
-                        )
+                    (
+                        self.array[self.array_inputs["fuel consumption"], :, ind_array]
+                        * self.array[
+                            self.array_inputs["fuel density per kg"], :, ind_array
+                        ]
+                        * -1
+                    )
                 ) * -1
 
                 self.add_carbon_dioxide_emissions(
