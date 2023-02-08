@@ -73,7 +73,7 @@ def get_mileage_degradation_factor(
     euro_class: List[int],
     powertrains: List[str],
     vehicle_type: str,
-) -> DataArray | None:
+) -> [DataArray, None]:
     """
     Catalyst degrade overtime, leading to increased emissions
     of CO, HC and NOX. We apply a correction factor from HBEFA 4.1
