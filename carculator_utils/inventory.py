@@ -1608,7 +1608,6 @@ class Inventory:
                         * self.array[
                             self.array_inputs["fuel density per kg"], :, ind_array
                         ]
-                        * -1
                     )
                 ) * -1
 
