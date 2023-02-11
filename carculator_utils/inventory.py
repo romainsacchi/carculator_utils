@@ -1895,6 +1895,10 @@ class Inventory:
         Export the inventory. Can export to Simapro (as csv), or brightway2 (as bw2io object, file or string).
         :param db_name:
         :param ecoinvent_version: str. "3.5", "3.6", "3.7" or "3.8"
+        :param filename: str. Name of the file to be exported
+        :param directory: str. Directory where the file is saved
+        :param software: str. "brightway2" or "simapro"
+        :param format: str. "bw2io" or "file" or "string"
         ::return: inventory, or the filepath where the file is saved.
         :rtype: list
         """
@@ -1922,4 +1926,5 @@ class Inventory:
                 ecoinvent_version=ecoinvent_version,
                 directory=directory,
                 filename=filename,
+                export_format=format,
             )

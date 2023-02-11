@@ -965,6 +965,7 @@ class ExportInventory:
         ecoinvent_version: str,
         directory: str = None,
         filename: str = None,
+        format: str = "file",
     ):
         filename = filename or safe_filename(
             f"carculator_export_{datetime.date.today()}"
@@ -982,12 +983,13 @@ class ExportInventory:
             data=list_act, ei_version=ecoinvent_version
         )
 
-        with open(filepath_export, "w", newline="", encoding="latin1") as csvFile:
-            writer = csv.writer(csvFile, delimiter=";")
-            for row in rows:
-                writer.writerow(row)
-        csvFile.close()
-        return filepath_export
+        if format == "file":
+            with open(filepath_export, "w", newline="", encoding="latin1") as csvFile:
+                writer = csv.writer(csvFile, delimiter=";")
+                for row in rows:
+                    writer.writerow(row)
+            csvFile.close()
+            return filepath_export
 
         # string format
         csvFile = io.StringIO()
