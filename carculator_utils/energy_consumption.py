@@ -149,14 +149,14 @@ class EnergyConsumptionModel:
     """
 
     def __init__(
-            self,
-            vehicle_type: str,
-            vehicle_size: List[str],
-            powertrains: List[str],
-            cycle: Union[str, np.ndarray],
-            gradient: Union[str, np.ndarray],
-            rho_air: float = 1.204,
-            country: str = "CH",
+        self,
+        vehicle_type: str,
+        vehicle_size: List[str],
+        powertrains: List[str],
+        cycle: Union[str, np.ndarray],
+        gradient: Union[str, np.ndarray],
+        rho_air: float = 1.204,
+        country: str = "CH",
     ) -> None:
         if not isinstance(vehicle_size, list):
             vehicle_size = [vehicle_size]
@@ -204,12 +204,12 @@ class EnergyConsumptionModel:
         self.efficiency_coefficients = get_efficiency_coefficients(vehicle_type)
 
     def calculate_hvac_energy(
-            self,
-            hvac_power,
-            battery_cooling_unit,
-            battery_heating_unit,
-            ambient_temp,
-            indoor_temp,
+        self,
+        hvac_power,
+        battery_cooling_unit,
+        battery_heating_unit,
+        ambient_temp,
+        indoor_temp,
     ) -> tuple[Any, Any, Any, Any]:
         if ambient_temp is not None:
             ambient_temp = np.resize(ambient_temp, (12,))
@@ -227,23 +227,23 @@ class EnergyConsumptionModel:
         # Heating power as long as ambient temperature, in W
         # is below the comfort indoor temperature
         p_heating = (
-                np.where(
-                    ambient_temp < indoor_temp,
-                    np.interp(ambient_temp, amb_temp_data_points, pct_power_HVAC),
-                    0,
-                ).mean()
-                * hvac_power
+            np.where(
+                ambient_temp < indoor_temp,
+                np.interp(ambient_temp, amb_temp_data_points, pct_power_HVAC),
+                0,
+            ).mean()
+            * hvac_power
         ).values
 
         # Cooling power as long as ambient temperature, in W
         # is above the comfort indoor temperature
         p_cooling = (
-                np.where(
-                    ambient_temp >= indoor_temp,
-                    np.interp(ambient_temp, amb_temp_data_points, pct_power_HVAC),
-                    0,
-                ).mean()
-                * hvac_power
+            np.where(
+                ambient_temp >= indoor_temp,
+                np.interp(ambient_temp, amb_temp_data_points, pct_power_HVAC),
+                0,
+            ).mean()
+            * hvac_power
         ).values
 
         # We want to add power draw for battery cooling
@@ -260,18 +260,18 @@ class EnergyConsumptionModel:
         return p_cooling, p_heating, p_battery_cooling, p_battery_heating
 
     def aux_energy_per_km(
-            self,
-            aux_power: Union[xr.DataArray, np.array],
-            efficiency: Union[xr.DataArray, np.array],
-            hvac_power: Union[xr.DataArray, np.array] = None,
-            battery_cooling_unit: Union[xr.DataArray, np.array] = None,
-            battery_heating_unit: Union[xr.DataArray, np.array] = None,
-            heat_pump_cop_cooling: Union[xr.DataArray, np.array] = None,
-            heat_pump_cop_heating: Union[xr.DataArray, np.array] = None,
-            cooling_consumption: Union[xr.DataArray, np.array] = None,
-            heating_consumption: Union[xr.DataArray, np.array] = None,
-            ambient_temp: float = None,
-            indoor_temp: float = 20.0,
+        self,
+        aux_power: Union[xr.DataArray, np.array],
+        efficiency: Union[xr.DataArray, np.array],
+        hvac_power: Union[xr.DataArray, np.array] = None,
+        battery_cooling_unit: Union[xr.DataArray, np.array] = None,
+        battery_heating_unit: Union[xr.DataArray, np.array] = None,
+        heat_pump_cop_cooling: Union[xr.DataArray, np.array] = None,
+        heat_pump_cop_heating: Union[xr.DataArray, np.array] = None,
+        cooling_consumption: Union[xr.DataArray, np.array] = None,
+        heating_consumption: Union[xr.DataArray, np.array] = None,
+        ambient_temp: float = None,
+        indoor_temp: float = 20.0,
     ) -> Union[float, np.ndarray]:
         """
         Calculate energy used other than motive energy per km driven.
@@ -301,12 +301,12 @@ class EnergyConsumptionModel:
             )
 
             aux_energy = (
-                                 aux_power
-                                 + (p_cooling / _o(heat_pump_cop_cooling) * cooling_consumption)
-                                 + (p_heating / _o(heat_pump_cop_heating) * heating_consumption)
-                                 + p_battery_cooling
-                                 + p_battery_heating
-                         ).T.values * np.ones_like(self.velocity)
+                aux_power
+                + (p_cooling / _o(heat_pump_cop_cooling) * cooling_consumption)
+                + (p_heating / _o(heat_pump_cop_heating) * heating_consumption)
+                + p_battery_cooling
+                + p_battery_heating
+            ).T.values * np.ones_like(self.velocity)
 
             return aux_energy
 
@@ -314,10 +314,10 @@ class EnergyConsumptionModel:
 
         # Provide energy in kJ / km (1 J = 1 Ws)
         auxiliary_energy = (
-                _c(aux_power).T[None, ...]  # Watts
-                * np.ones_like(self.velocity)
-                * 1000  # m / km
-                / 1000  # 1 / (J / kJ)
+            _c(aux_power).T[None, ...]  # Watts
+            * np.ones_like(self.velocity)
+            * 1000  # m / km
+            / 1000  # 1 / (J / kJ)
         )
 
         efficiency = _c(efficiency)
@@ -325,12 +325,11 @@ class EnergyConsumptionModel:
         return auxiliary_energy / _o(efficiency)
 
     def calculate_efficiency(
-            self,
-            efficiency: xr.DataArray,
-            engine_load: xr.DataArray,
-            efficiency_type: str,
+        self,
+        efficiency: xr.DataArray,
+        engine_load: xr.DataArray,
+        efficiency_type: str,
     ) -> xr.DataArray:
-
         if self.efficiency_coefficients is None:
             return xr.where(efficiency == 0, 1, efficiency)
 
@@ -353,15 +352,22 @@ class EnergyConsumptionModel:
 
         # Calculate efficiency based on engine load
         for p, pwt in enumerate(self.powertrains):
-
             if pwt not in pwts:
                 continue
 
             efficiency[:, :, :, p] = np.clip(
                 np.interp(
                     engine_load[:, :, :, p],
-                    np.fromiter(self.efficiency_coefficients[pwts[pwt]][efficiency_type].keys(), dtype=float),
-                    np.fromiter(self.efficiency_coefficients[pwts[pwt]][efficiency_type].values(), dtype=float),
+                    np.fromiter(
+                        self.efficiency_coefficients[pwts[pwt]][efficiency_type].keys(),
+                        dtype=float,
+                    ),
+                    np.fromiter(
+                        self.efficiency_coefficients[pwts[pwt]][
+                            efficiency_type
+                        ].values(),
+                        dtype=float,
+                    ),
                 ),
                 0.00,
                 1.0,
@@ -370,29 +376,29 @@ class EnergyConsumptionModel:
         return efficiency
 
     def motive_energy_per_km(
-            self,
-            driving_mass: Union[xr.DataArray, np.array],
-            rr_coef: Union[xr.DataArray, np.array],
-            drag_coef: Union[xr.DataArray, np.array],
-            frontal_area: Union[xr.DataArray, np.array],
-            electric_motor_power: Union[xr.DataArray, np.array],
-            engine_power: Union[xr.DataArray, np.array],
-            recuperation_efficiency: Union[xr.DataArray, np.array],
-            aux_power: Union[xr.DataArray, np.array],
-            battery_charge_eff: Union[xr.DataArray, np.array],
-            battery_discharge_eff: Union[xr.DataArray, np.array],
-            engine_efficiency: Union[xr.DataArray, np.array, None] = None,
-            transmission_efficiency: Union[xr.DataArray, np.array, None] = None,
-            fuel_cell_system_efficiency: Union[xr.DataArray, np.array] = None,
-            hvac_power: Union[xr.DataArray, np.array] = None,
-            battery_cooling_unit: Union[xr.DataArray, np.array] = None,
-            battery_heating_unit: Union[xr.DataArray, np.array] = None,
-            heat_pump_cop_cooling: Union[xr.DataArray, np.array] = None,
-            heat_pump_cop_heating: Union[xr.DataArray, np.array] = None,
-            cooling_consumption: Union[xr.DataArray, np.array] = None,
-            heating_consumption: Union[xr.DataArray, np.array] = None,
-            ambient_temp: float = None,
-            indoor_temp: float = 20.0,
+        self,
+        driving_mass: Union[xr.DataArray, np.array],
+        rr_coef: Union[xr.DataArray, np.array],
+        drag_coef: Union[xr.DataArray, np.array],
+        frontal_area: Union[xr.DataArray, np.array],
+        electric_motor_power: Union[xr.DataArray, np.array],
+        engine_power: Union[xr.DataArray, np.array],
+        recuperation_efficiency: Union[xr.DataArray, np.array],
+        aux_power: Union[xr.DataArray, np.array],
+        battery_charge_eff: Union[xr.DataArray, np.array],
+        battery_discharge_eff: Union[xr.DataArray, np.array],
+        engine_efficiency: Union[xr.DataArray, np.array, None] = None,
+        transmission_efficiency: Union[xr.DataArray, np.array, None] = None,
+        fuel_cell_system_efficiency: Union[xr.DataArray, np.array] = None,
+        hvac_power: Union[xr.DataArray, np.array] = None,
+        battery_cooling_unit: Union[xr.DataArray, np.array] = None,
+        battery_heating_unit: Union[xr.DataArray, np.array] = None,
+        heat_pump_cop_cooling: Union[xr.DataArray, np.array] = None,
+        heat_pump_cop_heating: Union[xr.DataArray, np.array] = None,
+        cooling_consumption: Union[xr.DataArray, np.array] = None,
+        heating_consumption: Union[xr.DataArray, np.array] = None,
+        ambient_temp: float = None,
+        indoor_temp: float = 20.0,
     ) -> DataArray:
         """
         Calculate energy used and recuperated for a given vehicle per km driven.
@@ -441,18 +447,17 @@ class EnergyConsumptionModel:
         )
 
         # Resistance from road gradient: driving mass * 9.81 * sin(gradient)
-        gradient_resistance = _c((driving_mass * 9.81).T) * np.sin(
-            np.nan_to_num(self.gradient)[:, None, None, None, :]
-        ) * (self.velocity > 0)
+        gradient_resistance = (
+            _c((driving_mass * 9.81).T)
+            * np.sin(np.nan_to_num(self.gradient)[:, None, None, None, :])
+            * (self.velocity > 0)
+        )
 
         # Inertia: driving mass * acceleration
         inertia = self.acceleration * _c(driving_mass).T
 
         total_resistance = (
-                rolling_resistance
-                + air_resistance
-                + gradient_resistance
-                + inertia
+            rolling_resistance + air_resistance + gradient_resistance + inertia
         )
         motive_energy_at_wheels = xr.where(total_resistance < 0, 0, total_resistance)
         motive_energy = np.zeros_like(motive_energy_at_wheels)
@@ -471,13 +476,14 @@ class EnergyConsumptionModel:
         # we loop while the last three iterations are roughly equal
         # or while len(engine_load_iterations) < 10
 
-        while (
-                len(engine_load_iterations) < 5
-        ):
+        while len(engine_load_iterations) < 5:
+            engine_efficiency = self.calculate_efficiency(
+                engine_efficiency, engine_load, "engine"
+            )
 
-            engine_efficiency = self.calculate_efficiency(engine_efficiency, engine_load, "engine")
-
-            transmission_efficiency = self.calculate_efficiency(transmission_efficiency, engine_load, "transmission")
+            transmission_efficiency = self.calculate_efficiency(
+                transmission_efficiency, engine_load, "transmission"
+            )
 
             recuperation_efficiency = xr.where(
                 recuperation_efficiency == 0, 1, recuperation_efficiency
@@ -491,22 +497,24 @@ class EnergyConsumptionModel:
             )
 
             motive_energy = (
-                    motive_energy_at_wheels
-                    / _o(_c(engine_efficiency))
-                    / _o(_c(transmission_efficiency))
-                    / _o(_c(fuel_cell_system_efficiency)).T[None, ...]
+                motive_energy_at_wheels
+                / _o(_c(engine_efficiency))
+                / _o(_c(transmission_efficiency))
+                / _o(_c(fuel_cell_system_efficiency)).T[None, ...]
             )
 
-            engine_load = np.clip((motive_energy / (_o(_c(engine_power)).T * 1000)) * self.velocity, 0, 1)
+            engine_load = np.clip(
+                (motive_energy / (_o(_c(engine_power)).T * 1000)) * self.velocity, 0, 1
+            )
             engine_load_iterations.append(engine_load.mean())
 
         negative_motive_energy = xr.where(total_resistance > 0, 0, total_resistance)
         recuperated_energy = (
-                negative_motive_energy
-                * _c(recuperation_efficiency).T[None, ...]
-                * _c(battery_charge_eff).T[None, ...]
-                * _c(battery_discharge_eff).T[None, ...]
-                * (_c(electric_motor_power).T[None, ...] > 0)
+            negative_motive_energy
+            * _c(recuperation_efficiency).T[None, ...]
+            * _c(battery_charge_eff).T[None, ...]
+            * _c(battery_discharge_eff).T[None, ...]
+            * (_c(electric_motor_power).T[None, ...] > 0)
         )
 
         auxiliary_energy = self.aux_energy_per_km(
