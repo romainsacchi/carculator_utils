@@ -672,6 +672,7 @@ class VehicleModel:
 
     def create_PHEV(self):
         """
+        Function to create plugin-hybrid vehicles.
         PHEV-p/d is the range-weighted average
         between PHEV-c-p/PHEV-c-d and PHEV-e.
         """
