@@ -653,10 +653,9 @@ class VehicleModel:
         _ = lambda x: np.where(x == 0, 1, x)
 
         self["share recuperated energy"] = (
-            (_(self.energy.sel(parameter="recuperated energy").sum(dim="second"))
-            / _(self.energy.sel(parameter="negative motive energy").sum(dim="second"))).T
-            * (self["combustion power share"] < 1)
-        )
+            _(self.energy.sel(parameter="recuperated energy").sum(dim="second"))
+            / _(self.energy.sel(parameter="negative motive energy").sum(dim="second"))
+        ).T * (self["combustion power share"] < 1)
 
         if "PHEV-d" in self.array.powertrain:
             self.array.loc[

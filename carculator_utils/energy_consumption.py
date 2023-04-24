@@ -220,22 +220,27 @@ class EnergyConsumptionModel:
         battery_cooling_unit,
         battery_heating_unit,
     ) -> tuple[Any, Any, Any, Any]:
-
         if self.ambient_temperature is not None:
             if isinstance(self.ambient_temperature, (float, int)):
                 self.ambient_temperature = np.resize(self.ambient_temperature, (12,))
             else:
                 self.ambient_temperature = np.array(self.ambient_temperature)
-                assert len(self.ambient_temperature) == 12, "Ambient temperature must be a 12-month array"
+                assert (
+                    len(self.ambient_temperature) == 12
+                ), "Ambient temperature must be a 12-month array"
         else:
-            self.ambient_temperature = np.resize(get_country_temperature(self.country), (12,))
+            self.ambient_temperature = np.resize(
+                get_country_temperature(self.country), (12,)
+            )
 
         if self.indoor_temperature is not None:
             if isinstance(self.indoor_temperature, (float, int)):
                 self.indoor_temperature = np.resize(self.indoor_temperature, (12,))
             else:
                 self.indoor_temperature = np.array(self.indoor_temperature)
-                assert len(self.indoor_temperature) == 12, "Indoor temperature must be a 12-month array"
+                assert (
+                    len(self.indoor_temperature) == 12
+                ), "Indoor temperature must be a 12-month array"
 
         # use ambient temperature if provided, otherwise
         # monthly temperature average (12 values)
@@ -250,7 +255,9 @@ class EnergyConsumptionModel:
         p_heating = (
             np.where(
                 self.ambient_temperature < self.indoor_temperature,
-                np.interp(self.ambient_temperature, amb_temp_data_points, pct_power_HVAC),
+                np.interp(
+                    self.ambient_temperature, amb_temp_data_points, pct_power_HVAC
+                ),
                 0,
             ).mean()
             * hvac_power
@@ -261,7 +268,9 @@ class EnergyConsumptionModel:
         p_cooling = (
             np.where(
                 self.ambient_temperature >= self.indoor_temperature,
-                np.interp(self.ambient_temperature, amb_temp_data_points, pct_power_HVAC),
+                np.interp(
+                    self.ambient_temperature, amb_temp_data_points, pct_power_HVAC
+                ),
                 0,
             ).mean()
             * hvac_power
@@ -271,11 +280,15 @@ class EnergyConsumptionModel:
         # and battery heating
 
         # battery cooling occurring above 20C, in W
-        p_battery_cooling = np.where(self.ambient_temperature > 20, _(battery_cooling_unit), 0)
+        p_battery_cooling = np.where(
+            self.ambient_temperature > 20, _(battery_cooling_unit), 0
+        )
         p_battery_cooling = p_battery_cooling.mean(-1)
 
         # battery heating occurring below 5C, in W
-        p_battery_heating = np.where(self.ambient_temperature < 5, _(battery_heating_unit), 0)
+        p_battery_heating = np.where(
+            self.ambient_temperature < 5, _(battery_heating_unit), 0
+        )
         p_battery_heating = p_battery_heating.mean(-1)
 
         return p_cooling, p_heating, p_battery_cooling, p_battery_heating
@@ -293,7 +306,7 @@ class EnergyConsumptionModel:
 
         for i in range(self.velocity.shape[-1]):
             last_index = np.where(self.velocity[..., i] > 0)[0][-1]
-            driving_time[: last_index, ..., i] = 1
+            driving_time[:last_index, ..., i] = 1
 
         return driving_time
 
@@ -336,8 +349,10 @@ class EnergyConsumptionModel:
 
             return (
                 aux_power.T.values * np.where(self.velocity > 0, 1, 0),
-                (p_cooling / _o(heat_pump_cop_cooling) * cooling_consumption).T.values * self.driving_time,
-                (p_heating / _o(heat_pump_cop_heating) * heating_consumption).T.values * self.driving_time,
+                (p_cooling / _o(heat_pump_cop_cooling) * cooling_consumption).T.values
+                * self.driving_time,
+                (p_heating / _o(heat_pump_cop_heating) * heating_consumption).T.values
+                * self.driving_time,
                 p_battery_cooling.T * self.driving_time,
                 p_battery_heating.T * self.driving_time,
             )
@@ -346,9 +361,7 @@ class EnergyConsumptionModel:
 
         # Provide energy in kJ / km (1 J = 1 Ws)
         auxiliary_energy = (
-            _c(aux_power).T[None, ...]  # Watts
-            * 1000  # m / km
-            / 1000  # 1 / (J / kJ)
+            _c(aux_power).T[None, ...] * 1000 / 1000  # Watts  # m / km  # 1 / (J / kJ)
         )
 
         efficiency = _c(efficiency)
@@ -569,7 +582,13 @@ class EnergyConsumptionModel:
                 np.zeros_like(auxiliary_energy),
             )
         else:
-            auxiliary_energy, cooling_energy, heating_energy, battery_cooling, battery_heating = self.aux_energy_per_km(
+            (
+                auxiliary_energy,
+                cooling_energy,
+                heating_energy,
+                battery_cooling,
+                battery_heating,
+            ) = self.aux_energy_per_km(
                 aux_power,
                 engine_efficiency,
                 hvac_power,
