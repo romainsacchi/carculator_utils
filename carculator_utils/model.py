@@ -51,6 +51,8 @@ class VehicleModel:
         target_mass: dict = None,
         power: dict = None,
         fuel_blend: dict = None,
+        ambient_temperature: float = None,
+        indoor_temperature: float = 20,
     ) -> None:
         """
         :param array: multi-dimensional numpy-like array that contains parameters' value(s)
@@ -102,6 +104,9 @@ class VehicleModel:
             self.fuel_blend = self.bs.define_fuel_blends(
                 self.array.powertrain.values, self.country, self.array.year.values
             )
+
+        self.ambient_temperature = ambient_temperature
+        self.indoor_temperature = indoor_temperature
 
     def __call__(self, key: Union[str, List]):
         """
@@ -648,10 +653,10 @@ class VehicleModel:
         _ = lambda x: np.where(x == 0, 1, x)
 
         self["share recuperated energy"] = (
-            self.energy.sel(parameter="recuperated energy").sum(dim="second")
-            / _(self.energy.sel(parameter="negative motive energy").sum(dim="second"))
+            (_(self.energy.sel(parameter="recuperated energy").sum(dim="second"))
+            / _(self.energy.sel(parameter="negative motive energy").sum(dim="second"))).T
             * (self["combustion power share"] < 1)
-        ).T
+        )
 
         if "PHEV-d" in self.array.powertrain:
             self.array.loc[
@@ -1324,7 +1329,7 @@ class VehicleModel:
             dict(
                 parameter=list_direct_emissions,
             )
-        ] = hot_emissions
+        ] = hot_emissions.values
 
     def set_particulates_emission(self) -> None:
         """

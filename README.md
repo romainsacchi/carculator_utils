@@ -2,6 +2,12 @@
 
 
 Base classes and functions for the carculator package suite.
+Provides base classes to:
+
+* carculator
+* carculator_bus
+* carculator_truck
+* carculator_two-wheeler
 
 ## Support
 
@@ -17,4 +23,4 @@ See [contributing](https://github.com/romainsacchi/carculator_utils/blob/master/
 
 ## License
 
-[BSD-3-Clause](https://github.com/romainsacchi/carculator_utils/blob/master/LICENSE). Copyright 2020 Paul Scherrer Institut.
+[BSD-3-Clause](https://github.com/romainsacchi/carculator_utils/blob/master/LICENSE). Copyright 2023 Paul Scherrer Institut.
