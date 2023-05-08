@@ -1301,9 +1301,6 @@ class Inventory:
             * (1 + self.array[self.array_inputs["battery lifetime replacements"], :])
         ) * -1
 
-        # Set an input of electricity, given the country of manufacture
-        print(f"Battery cell, {battery_tech[0]}")
-
         electricity_batt = self.find_input_requirement(
             value_in="kilowatt hour",
             value_out=f"Battery cell, {battery_tech[0]}",

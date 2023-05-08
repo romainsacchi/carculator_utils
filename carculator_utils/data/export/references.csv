@@ -392,4 +392,5 @@ cabin, for lorry;Wolff et al. 2020, Sustainability, DOI: 10.3390/su12135396;This
 assembly operation, for lorry;Wolff et al. 2020, Sustainability, DOI: 10.3390/su12135396;This is the inventory for 1 kg of cabin for a MDV/HDV.;;transport;Road\Vehicle components
 fuel tank, for diesel vehicle;Wolff et al. 2020, Sustainability, DOI: 10.3390/su12135396;This is the inventory for 1 kg of aluminium-made fuel tank, empty. Scaling formula: 17.159*ln(volume fuel)-54.98;;transport;Road\Vehicle components
 electric bicycle production, without battery and motor;ecoinvent 3.8;Electric bicycle production, without the battery and the electric motor.;;transport;Road\Vehicle components
+electric cargo bicycle production, without battery and motor;ecoinvent 3.8;Electric cargo bicycle production, without the battery and the electric motor.;;transport;Road\Vehicle components
 maintenance, electric bicycle, without battery;ecoinvent 3.8;Electric bicycle production, without the battery and the electric motor.;;transport;Road\Vehicle components
