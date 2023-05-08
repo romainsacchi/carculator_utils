@@ -104,9 +104,7 @@ class VehicleModel:
             self.fuel_blend = self.check_fuel_blend(fuel_blend)
         else:
             self.fuel_blend = self.bs.define_fuel_blends(
-                self.array.powertrain.values,
-                self.country,
-                self.array.year.values
+                self.array.powertrain.values, self.country, self.array.year.values
             )
 
         self.ambient_temperature = ambient_temperature
@@ -348,7 +346,6 @@ class VehicleModel:
     def override_ttw_energy(self):
         # override of TtW energy, provided by the user
         if self.energy_consumption:
-
             for key, val in self.energy_consumption.items():
                 pwt, size, year = key
                 if val is not None:
@@ -389,15 +386,14 @@ class VehicleModel:
 
                     # update self["TtW energy"]
                     self["TtW energy"] = (
-                            self.energy.sel(
-                                parameter=[
-                                    "motive energy",
-                                    "auxiliary energy",
-                                    "recuperated energy"
-                                ]
-                            )
-                            .sum(dim=["second", "parameter"])
-                            / distance
+                        self.energy.sel(
+                            parameter=[
+                                "motive energy",
+                                "auxiliary energy",
+                                "recuperated energy",
+                            ]
+                        ).sum(dim=["second", "parameter"])
+                        / distance
                     ).T
 
     def calculate_ttw_energy(self) -> None:
@@ -674,9 +670,7 @@ class VehicleModel:
             self.energy.sel(parameter="recuperated energy").sum(dim="second")
             / _(self.energy.sel(parameter="negative motive energy").sum(dim="second"))
         ).values.T
-        self["share recuperated energy"] *= (
-            self["combustion power share"] < 1
-        )
+        self["share recuperated energy"] *= self["combustion power share"] < 1
 
         if "PHEV-d" in self.array.powertrain:
             self.array.loc[
@@ -1013,14 +1007,21 @@ class VehicleModel:
             if "type" not in primary:
                 raise ValueError(f"Primary fuel type not specified for {fuel}")
 
-            primary.setdefault("name", tuple(self.bs.fuel_specs[primary["type"]]["name"]))
+            primary.setdefault(
+                "name", tuple(self.bs.fuel_specs[primary["type"]]["name"])
+            )
             primary.setdefault("CO2", self.bs.fuel_specs[primary["type"]]["co2"])
-            primary.setdefault("biogenic share", self.bs.fuel_specs[primary["type"]]["biogenic_share"])
+            primary.setdefault(
+                "biogenic share", self.bs.fuel_specs[primary["type"]]["biogenic_share"]
+            )
 
-            secondary = specs.get("secondary", {
-                "type": primary["type"],
-                "share": np.array([1]) - primary["share"],
-            })
+            secondary = specs.get(
+                "secondary",
+                {
+                    "type": primary["type"],
+                    "share": np.array([1]) - primary["share"],
+                },
+            )
             specs["secondary"] = secondary
 
             if "share" not in secondary:
@@ -1032,9 +1033,14 @@ class VehicleModel:
             if "type" not in secondary:
                 raise ValueError(f"Secondary fuel type not specified for {fuel}")
 
-            secondary.setdefault("name", tuple(self.bs.fuel_specs[secondary["type"]]["name"]))
+            secondary.setdefault(
+                "name", tuple(self.bs.fuel_specs[secondary["type"]]["name"])
+            )
             secondary.setdefault("CO2", self.bs.fuel_specs[secondary["type"]]["co2"])
-            secondary.setdefault("biogenic share", self.bs.fuel_specs[secondary["type"]]["biogenic_share"])
+            secondary.setdefault(
+                "biogenic share",
+                self.bs.fuel_specs[secondary["type"]]["biogenic_share"],
+            )
 
         return fuel_blend
 
