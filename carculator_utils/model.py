@@ -52,6 +52,8 @@ class VehicleModel:
         target_mass: dict = None,
         power: dict = None,
         fuel_blend: dict = None,
+        ambient_temperature: float = None,
+        indoor_temperature: float = 20,
     ) -> None:
         """
         :param array: multi-dimensional numpy-like array that contains parameters' value(s)
@@ -106,6 +108,9 @@ class VehicleModel:
                 self.country,
                 self.array.year.values
             )
+
+        self.ambient_temperature = ambient_temperature
+        self.indoor_temperature = indoor_temperature
 
     def __call__(self, key: Union[str, List]):
         """
