@@ -48,6 +48,8 @@ class VehicleModel:
         annual_mileage=None,
         energy_target=None,
         energy_consumption: dict = None,
+        engine_efficiency: dict = None,
+        transmission_efficiency: dict = None,
         target_range: dict = None,
         target_mass: dict = None,
         power: dict = None,
@@ -91,6 +93,9 @@ class VehicleModel:
         self.electric_utility_factor = electric_utility_factor
         self.drop_hybrids = drop_hybrids
         self.energy_consumption = energy_consumption or None
+        self.engine_efficiency = engine_efficiency or None
+        self.transmission_efficiency = transmission_efficiency or None
+
         # a range to reach can be defined by the user
         self.target_range = target_range
         # a curb mass to reach can be defined by the user
@@ -1262,18 +1267,11 @@ class VehicleModel:
         """
         _ = lambda array: np.where(array == 0, 1, array)
 
-        if "FCEV" in self.array.coords["powertrain"].values:
-            self["TtW efficiency"] = (
-                _(self["fuel cell system efficiency"])
-                * self["transmission efficiency"]
-                * self["engine efficiency"]
-            )
-        else:
-
-            self["TtW efficiency"] = (
-                self["transmission efficiency"]
-                * self["engine efficiency"]
-            )
+        self["TtW efficiency"] = (
+            _(self["fuel cell system efficiency"])
+            * self["transmission efficiency"]
+            * self["engine efficiency"]
+        )
 
         self["TtW efficiency"] *= np.where(
             self["charger mass"] > 0, self["battery discharge efficiency"], 1
