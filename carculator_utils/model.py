@@ -49,7 +49,7 @@ class VehicleModel:
         energy_target=None,
         energy_consumption: dict = None,
         engine_efficiency: dict = None,
-        powertrain_efficiency: dict = None,
+        transmission_efficiency: dict = None,
         target_range: dict = None,
         target_mass: dict = None,
         power: dict = None,
