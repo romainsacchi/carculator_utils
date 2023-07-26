@@ -48,8 +48,6 @@ class VehicleModel:
         annual_mileage=None,
         energy_target=None,
         energy_consumption: dict = None,
-        engine_efficiency: dict = None,
-        transmission_efficiency: dict = None,
         target_range: dict = None,
         target_mass: dict = None,
         power: dict = None,
@@ -602,7 +600,6 @@ class VehicleModel:
                 self.array.loc[
                     dict(powertrain=pwt, size=size, year=year, parameter="curb mass")
                 ] = target_mass
-
 
     def set_vehicle_masses(self) -> None:
         """
