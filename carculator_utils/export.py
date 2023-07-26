@@ -60,6 +60,27 @@ def load_mapping(
 
     return dict_map
 
+def get_simapro_subcompartments() -> Dict[str, str]:
+    # Load the matching dictionary between ecoinvent and Simapro subcompartments
+    # contained in simapro_subcompartments.yaml
+
+    filename = "simapro_subcompartments.yaml"
+    filepath = DATA_DIR / "export" / filename
+    if not filepath.is_file():
+        raise FileNotFoundError(
+            "The dictionary of subcompartments match "
+            "between ecoinvent and Simapro could not be found."
+        )
+
+    # read YAML file
+    with open(filepath, "r") as stream:
+        try:
+            data = yaml.safe_load(stream)
+        except yaml.YAMLError as exc:
+            print(exc)
+
+    return data
+
 
 def load_references() -> Dict[str, Dict[str, str]]:
     """Load a dictionary with references/sources of datasets"""
@@ -449,6 +470,7 @@ class ExportInventory:
 
         dict_tech = get_simapro_technosphere()
         dict_bio = get_simapro_biosphere()
+        simapro_subs = get_simapro_subcompartments()
 
         rows = []
 
