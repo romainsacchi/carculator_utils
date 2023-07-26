@@ -538,13 +538,10 @@ class EnergyConsumptionModel:
                 fuel_cell_system_efficiency == 0, 1, fuel_cell_system_efficiency
             )
 
-            motive_energy = (
-                motive_energy_at_wheels
-                / (
-                    _o(_c(engine_efficiency))
-                    * _o(_c(transmission_efficiency))
-                    * _o(_c(fuel_cell_system_efficiency)).T[None, ...]
-                )
+            motive_energy = motive_energy_at_wheels / (
+                _o(_c(engine_efficiency))
+                * _o(_c(transmission_efficiency))
+                * _o(_c(fuel_cell_system_efficiency)).T[None, ...]
             )
 
             engine_load = np.clip(
