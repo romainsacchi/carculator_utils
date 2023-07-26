@@ -48,6 +48,8 @@ class VehicleModel:
         annual_mileage=None,
         energy_target=None,
         energy_consumption: dict = None,
+        engine_efficiency: dict = None,
+        powertrain_efficiency: dict = None,
         target_range: dict = None,
         target_mass: dict = None,
         power: dict = None,
