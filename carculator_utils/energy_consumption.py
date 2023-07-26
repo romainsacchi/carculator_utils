@@ -518,7 +518,7 @@ class EnergyConsumptionModel:
         # we loop while the last three iterations are roughly equal
         # or while len(engine_load_iterations) < 10
 
-        while len(engine_load_iterations) < 5:
+        while len(engine_load_iterations) < 10:
             engine_efficiency = self.calculate_efficiency(
                 engine_efficiency, engine_load, "engine"
             )
@@ -540,9 +540,11 @@ class EnergyConsumptionModel:
 
             motive_energy = (
                 motive_energy_at_wheels
-                / _o(_c(engine_efficiency))
-                / _o(_c(transmission_efficiency))
-                / _o(_c(fuel_cell_system_efficiency)).T[None, ...]
+                / (
+                    _o(_c(engine_efficiency))
+                    * _o(_c(transmission_efficiency))
+                    * _o(_c(fuel_cell_system_efficiency)).T[None, ...]
+                )
             )
 
             engine_load = np.clip(
@@ -630,7 +632,7 @@ class EnergyConsumptionModel:
 
         all_arrays[..., 5] = np.where(
             all_arrays[..., 5] > _(engine_power).T * 1,
-            _(engine_power).T * 1.15,
+            _(engine_power).T * 1,
             all_arrays[..., 5],
         )
         all_arrays[..., 7] = np.where(
