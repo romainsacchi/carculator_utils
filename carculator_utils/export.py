@@ -783,6 +783,12 @@ class ExportInventory:
                     for e in a["exchanges"]:
                         if e["type"] == "biosphere" and e["categories"][0] == "soil":
                             if e["name"] not in blacklist:
+
+                                if len(e["categories"]) > 1:
+                                    sub_compartment = simapro_subs[e["categories"][1]]
+                                else:
+                                    sub_compartment = ""
+
                                 rows.append(
                                     [
                                         dict_bio.get(e["name"], e["name"]),

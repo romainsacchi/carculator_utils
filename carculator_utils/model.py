@@ -598,6 +598,7 @@ class VehicleModel:
                     dict(powertrain=pwt, size=size, year=year, parameter="curb mass")
                 ] = target_mass
 
+
     def set_vehicle_masses(self) -> None:
         """
         Define ``curb mass``, ``driving mass``, and ``total cargo mass``.
@@ -1268,8 +1269,10 @@ class VehicleModel:
                 * self["engine efficiency"]
             )
         else:
+
             self["TtW efficiency"] = (
-                self["transmission efficiency"] * self["engine efficiency"]
+                self["transmission efficiency"]
+                * self["engine efficiency"]
             )
 
         self["TtW efficiency"] *= np.where(
