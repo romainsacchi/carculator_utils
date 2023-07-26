@@ -629,7 +629,7 @@ class EnergyConsumptionModel:
         all_arrays[..., :-9] *= _(self.velocity)
 
         all_arrays[..., 5] = np.where(
-            all_arrays[..., 5] > _(engine_power).T * 1.15,
+            all_arrays[..., 5] > _(engine_power).T * 1,
             _(engine_power).T * 1.15,
             all_arrays[..., 5],
         )
