@@ -60,6 +60,7 @@ def load_mapping(
 
     return dict_map
 
+
 def get_simapro_subcompartments() -> Dict[str, str]:
     # Load the matching dictionary between ecoinvent and Simapro subcompartments
     # contained in simapro_subcompartments.yaml
