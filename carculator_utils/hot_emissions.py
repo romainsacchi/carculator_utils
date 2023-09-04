@@ -225,7 +225,7 @@ class HotEmissionsModel:
             year=lifetime_km.coords["year"].values,
         )
 
-        distance = self.velocity.sum(dim="second") / 1000
+        distance = self.velocity.sum(dim="second") / 3600
 
         # Emissions for each second of the driving cycle equal:
         # a * energy consumption
@@ -250,7 +250,7 @@ class HotEmissionsModel:
             },
         )
 
-        # bit of a manual calibration for N2O and NH3
+        # a bit of a manual calibration for N2O and NH3
         # as they do not correlate with fuel consumption
 
         if self.vehicle_type == "car":
@@ -430,7 +430,7 @@ class HotEmissionsModel:
             "component",
         )
 
-        emissions.loc[dict(component=engine_wear.coords["component"].values)] = (
+        emissions.loc[dict(component=engine_wear.coords["component"].values)] += (
             energy_consumption * engine_wear
         ).values
 
