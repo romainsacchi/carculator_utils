@@ -1274,6 +1274,9 @@ class Inventory:
         print(f"The country of use is {self.vm.country}.", end="\n * ")
 
         battery_tech = list(set(list(self.vm.energy_storage["electric"].values())))
+        if len(battery_tech) == 0:
+            battery_tech = ["NMC-622"]
+
         battery_origin = self.vm.energy_storage.get("origin", "CN")
 
         print(
