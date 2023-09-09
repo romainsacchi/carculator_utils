@@ -538,7 +538,13 @@ class EnergyConsumptionModel:
                 fuel_cell_system_efficiency == 0, 1, fuel_cell_system_efficiency
             )
 
+            print("fuel cell system eff")
             print(_o(_c(fuel_cell_system_efficiency)).T[None, ...].mean())
+            print("engine eff")
+            print(_o(_c(engine_efficiency)).T[None, ...].mean())
+            print("transmission eff")
+            print(_o(_c(transmission_efficiency)).T[None, ...].mean())
+
 
             motive_energy = motive_energy_at_wheels / (
                 _o(_c(engine_efficiency))
