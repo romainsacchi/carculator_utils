@@ -545,7 +545,6 @@ class EnergyConsumptionModel:
             print("transmission eff")
             print(_o(_c(transmission_efficiency)).T[None, ...].mean())
 
-
             motive_energy = motive_energy_at_wheels / (
                 _o(_c(engine_efficiency))
                 * _o(_c(transmission_efficiency))
