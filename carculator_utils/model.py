@@ -465,6 +465,16 @@ class VehicleModel:
                 ]
             )
 
+            self.array.loc[
+                dict(parameter="electric energy stored", powertrain="FCEV")
+            ] = (
+                self.array.loc[dict(parameter="battery cell mass", powertrain="FCEV")]
+                * self.array.loc[
+                    dict(parameter="battery cell energy density", powertrain="FCEV")
+                ]
+            )
+
+
     def set_fuel_cell_power(self) -> None:
         """
         Specific setup for fuel cells, which are mild hybrids.
