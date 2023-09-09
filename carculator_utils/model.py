@@ -474,7 +474,6 @@ class VehicleModel:
                 ]
             )
 
-
     def set_fuel_cell_power(self) -> None:
         """
         Specific setup for fuel cells, which are mild hybrids.
