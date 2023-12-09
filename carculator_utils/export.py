@@ -340,7 +340,7 @@ class ExportInventory:
                         pwt = possible_pwt[0]
 
                     pwt = self.rev_rename_pwt[pwt]
-                    size = [w for w in available_sizes if w in tuple_output[0]][0]
+                    size = [w for w in available_sizes if w+',' in tuple_output[0]][0] # ',' is required to distinguish "Medium" vehicle and "Medium SUV"
                     year = [w for w in available_years if str(w) in tuple_output[0]][0]
 
                     for param, formatting in self.rename_parameters.items():
