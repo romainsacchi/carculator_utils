@@ -59,14 +59,14 @@ def load_mapping(
                 (
                     name_to,
                     location_to,
-                    tuple(categories_to.split("::")) if categories_to != '' else '',
+                    tuple(categories_to.split("::")) if categories_to != "" else "",
                     unit_to,
-                    ref_prod_to
+                    ref_prod_to,
                 )
             ] = (
                 name_from,
                 location_from,
-                tuple(categories_from.split("::")) if categories_from != '' else '',
+                tuple(categories_from.split("::")) if categories_from != "" else "",
                 unit_from,
                 ref_prod_from,
             )
@@ -215,8 +215,6 @@ class ExportInventory:
             "3.9": load_mapping(filename="ei38_to_ei39.csv"),
         }
 
-
-
     def rename_vehicles(self) -> None:
         """
         Rename powertrain acronyms to full length descriptive terms
@@ -281,7 +279,6 @@ class ExportInventory:
                 mult_factor = 1
 
                 if ecoinvent_version != "3.8":
-
                     tuple_output = self.flow_map[ecoinvent_version].get(
                         tuple_output, tuple_output
                     )
@@ -294,16 +291,16 @@ class ExportInventory:
                         if len(tuple_input) == 3:
                             key_input = (
                                 tuple_input[0],
-                                '',
+                                "",
                                 tuple_input[1],
                                 tuple_input[2],
-                                ''
+                                "",
                             )
                         else:
                             key_input = (
                                 tuple_input[0],
                                 tuple_input[1],
-                                '',
+                                "",
                                 tuple_input[2],
                                 tuple_input[3],
                             )
@@ -312,7 +309,7 @@ class ExportInventory:
                         )
 
                         # remove blanks from tuple
-                        tuple_input = tuple([i for i in tuple_input if i != ''])
+                        tuple_input = tuple([i for i in tuple_input if i != ""])
 
                 if tuple_output[0] in blacklist.get(ecoinvent_version, []):
                     continue
@@ -400,7 +397,9 @@ class ExportInventory:
                         pwt = possible_pwt[0]
 
                     pwt = self.rev_rename_pwt[pwt]
-                    size = [w for w in available_sizes if w in tuple_output[0]][0]
+                    size = [w for w in available_sizes if w + "," in tuple_output[0]][
+                        0
+                    ]  # ',' is required to distinguish "Medium" vehicle and "Medium SUV"
                     year = [w for w in available_years if str(w) in tuple_output[0]][0]
 
                     for param, formatting in self.rename_parameters.items():

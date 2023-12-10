@@ -1698,13 +1698,12 @@ class Inventory:
                 self.inputs[item]
                 for item in self.inputs
                 if f"transport, {self.vm.vehicle_type}, " in item[0]
-                   and (match := re.search(r"(\d{4})", item[0]))
-                   and int(match.group(1)) < 2022
+                and (match := re.search(r"(\d{4})", item[0]))
+                and int(match.group(1)) < 2022
             ]
             index = self.get_index_vehicle_from_array(
                 [i for i in self.scope["year"] if i < 2022]
             )
-
 
             self.A[
                 :,
