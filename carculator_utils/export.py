@@ -40,23 +40,54 @@ def load_mapping(
     (_, _, *header), *data = csv_list
 
     dict_map = {}
-    for row in data:
-        (
-            name_to,
-            location_to,
-            unit_to,
-            ref_prod_to,
-            name_from,
-            location_from,
-            unit_from,
-            ref_prod_from,
-        ) = row
-        dict_map[(name_to, location_to, unit_to, ref_prod_to)] = (
-            name_from,
-            location_from,
-            unit_from,
-            ref_prod_from,
-        )
+
+    if "39" in filename:
+        for row in data:
+            (
+                name_to,
+                location_to,
+                categories_to,
+                unit_to,
+                ref_prod_to,
+                name_from,
+                location_from,
+                categories_from,
+                unit_from,
+                ref_prod_from,
+            ) = row
+            dict_map[
+                (
+                    name_to,
+                    location_to,
+                    tuple(categories_to.split("::")) if categories_to != '' else '',
+                    unit_to,
+                    ref_prod_to
+                )
+            ] = (
+                name_from,
+                location_from,
+                tuple(categories_from.split("::")) if categories_from != '' else '',
+                unit_from,
+                ref_prod_from,
+            )
+    else:
+        for row in data:
+            (
+                name_to,
+                location_to,
+                unit_to,
+                ref_prod_to,
+                name_from,
+                location_from,
+                unit_from,
+                ref_prod_from,
+            ) = row
+            dict_map[(name_to, location_to, unit_to, ref_prod_to)] = (
+                name_from,
+                location_from,
+                unit_from,
+                ref_prod_from,
+            )
 
     return dict_map
 
@@ -181,7 +212,10 @@ class ExportInventory:
             "3.6": load_mapping(filename="ei37_to_ei36.csv"),
             "3.7": load_mapping(filename="ei38_to_ei37.csv"),
             "3.7.1": load_mapping(filename="ei38_to_ei37.csv"),
+            "3.9": load_mapping(filename="ei38_to_ei39.csv"),
         }
+
+
 
     def rename_vehicles(self) -> None:
         """
@@ -247,12 +281,38 @@ class ExportInventory:
                 mult_factor = 1
 
                 if ecoinvent_version != "3.8":
+
                     tuple_output = self.flow_map[ecoinvent_version].get(
                         tuple_output, tuple_output
                     )
-                    tuple_input = self.flow_map[ecoinvent_version].get(
-                        tuple_input, tuple_input
-                    )
+
+                    if ecoinvent_version != "3.9":
+                        tuple_input = self.flow_map[ecoinvent_version].get(
+                            tuple_input, tuple_input
+                        )
+                    else:
+                        if len(tuple_input) == 3:
+                            key_input = (
+                                tuple_input[0],
+                                '',
+                                tuple_input[1],
+                                tuple_input[2],
+                                ''
+                            )
+                        else:
+                            key_input = (
+                                tuple_input[0],
+                                tuple_input[1],
+                                '',
+                                tuple_input[2],
+                                tuple_input[3],
+                            )
+                        tuple_input = self.flow_map[ecoinvent_version].get(
+                            key_input, tuple_input
+                        )
+
+                        # remove blanks from tuple
+                        tuple_input = tuple([i for i in tuple_input if i != ''])
 
                 if tuple_output[0] in blacklist.get(ecoinvent_version, []):
                     continue

@@ -1695,14 +1695,16 @@ class Inventory:
 
         if any(y < 2022 for y in self.scope["year"]):
             idx_cars_before_2022 = [
-                self.inputs[i]
-                for i in self.inputs
-                if f"transport, {self.vm.vehicle_type}, " in i[0]
-                and int(re.findall(r"20(\w+)", i[0])[0]) < 22
+                self.inputs[item]
+                for item in self.inputs
+                if f"transport, {self.vm.vehicle_type}, " in item[0]
+                   and (match := re.search(r"(\d{4})", item[0]))
+                   and int(match.group(1)) < 2022
             ]
             index = self.get_index_vehicle_from_array(
                 [i for i in self.scope["year"] if i < 2022]
             )
+
 
             self.A[
                 :,
@@ -1885,7 +1887,7 @@ class Inventory:
 
     def export_lci(
         self,
-        ecoinvent_version="3.8",
+        ecoinvent_version="3.9",
         filename=f"carculator_lci",
         directory=None,
         software="brightway2",
@@ -1894,7 +1896,7 @@ class Inventory:
         """
         Export the inventory. Can export to Simapro (as csv), or brightway2 (as bw2io object, file or string).
         :param db_name:
-        :param ecoinvent_version: str. "3.5", "3.6", "3.7" or "3.8"
+        :param ecoinvent_version: str. "3.5", "3.6", "3.7", "3.8" or "3.9"
         :param filename: str. Name of the file to be exported
         :param directory: str. Directory where the file is saved
         :param software: str. "brightway2" or "simapro"
