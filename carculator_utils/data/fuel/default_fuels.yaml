@@ -1,44 +1,81 @@
 diesel: 
   primary: diesel
-  secondary: biodiesel - cooking oil
+  secondary: diesel - biodiesel - cooking oil
   all:
-  - diesel
-  - biodiesel - cooking oil
-  - biodiesel - algae
-  - biodiesel - palm oil
-  - biodiesel - rapeseed oil
-  - synthetic diesel - energy allocation
-  - synthetic diesel - economic allocation
+    - diesel
+    - diesel - biodiesel - cooking oil
+    - diesel - biodiesel - algae
+    - diesel - biodiesel - rapeseed oil
+    - diesel - biodiesel - palm oil
+    - diesel - synthetic - FT - coal - economic allocation
+    - diesel - synthetic - FT - coal - energy allocation
+    - diesel - synthetic - FT - coal with CCS - economic allocation
+    - diesel - synthetic - FT - coal with CCS - energy allocation
+    - diesel - synthetic - FT - electrolysis - economic allocation
+    - diesel - synthetic - FT - electrolysis - energy allocation
+    - diesel - synthetic - FT - wood - economic allocation
+    - diesel - synthetic - FT - wood - energy allocation
+    - diesel - synthetic - FT - wood with CCS - economic allocation
+    - diesel - synthetic - FT - wood with CCS - energy allocation
+    - diesel - synthetic - methanol - coal - economic allocation
+    - diesel - synthetic - methanol - coal - energy allocation
+    - diesel - synthetic - methanol - coal with CCS - economic allocation
+    - diesel - synthetic - methanol - coal with CCS - energy allocation
+    - diesel - synthetic - methanol - electrolysis - economic allocation
+    - diesel - synthetic - methanol - electrolysis - energy allocation
+    - diesel - synthetic - methanol - cement - economic allocation
+    - diesel - synthetic - methanol - cement - energy allocation
 
-cng: 
-  primary: cng
-  secondary: biogas - sewage sludge
+methane:
+  primary: methane
+  secondary: methane - biomethane - sewage sludge
   all:
-  - cng
-  - biogas - sewage sludge
-  - syngas biogas - biowaste
+    - methane
+    - methane - biomethane - sewage sludge
+    - methane - synthetic - coal
+    - methane - synthetic - electrochemical
+    - methane - synthetic - electrochemical - cement
+    - methane - synthetic - electrochemical - MSWI
+    - methane - synthetic - biological
+    - methane - synthetic - biological - cement
+    - methane - synthetic - biological - MSWI
 
 hydrogen: 
-  primary: electrolysis
-  secondary: smr - natural gas
+  primary: hydrogen - smr - natural gas
+  secondary: hydrogen - electrolysis - PEM
   all:
-  - electrolysis
-  - smr - natural gas
-  - smr - natural gas with CCS
-  - smr - biogas
-  - smr - biogas with CCS
-  - coal gasification
-  - wood gasification
-  - wood gasification with CCS
+    - hydrogen - electrolysis - PEM
+    - hydrogen - electrolysis - SOEC
+    - hydrogen - electrolysis - AEC
+    - hydrogen - pyrolysis
+    - hydrogen - thermochemical water splitting
+    - hydrogen - smr - natural gas
+    - hydrogen - smr - natural gas with CCS
+    - hydrogen - smr - biogas
+    - hydrogen - smr - biogas with CCS
+    - hydrogen - coal gasification
+    - hydrogen - coal gasification with CCS
+    - hydrogen - wood gasification
+    - hydrogen - wood gasification with CCS
+    - hydrogen - atr - natural gas
+    - hydrogen - atr - natural gas with CCS
+    - hydrogen - atr - biogas
+    - hydrogen - atr - biogas with CCS
 
 petrol:
   primary: petrol
-  secondary: bioethanol - wheat straw
+  secondary: petrol - bioethanol - sugarbeet
   all:
-  - petrol
-  - bioethanol - wheat straw
-  - bioethanol - maize starch
-  - bioethanol - sugarbeet
-  - bioethanol - forest residues
-  - synthetic gasoline - economic allocation
-  - synthetic gasoline - energy allocation
+    - petrol
+    - petrol - bioethanol - wheat straw
+    - petrol - bioethanol - maize starch
+    - petrol - bioethanol - sugarbeet
+    - petrol - bioethanol - forest residues
+    - petrol - synthetic - methanol - electrolysis - economic allocation
+    - petrol - synthetic - methanol - cement - economic allocation
+    - petrol - synthetic - methanol - electrolysis - energy allocation
+    - petrol - synthetic - methanol - cement - energy allocation
+    - petrol - synthetic - methanol - coal - economic allocation
+    - petrol - synthetic - methanol - coal - energy allocation
+    - petrol - synthetic - methanol - coal with CCS - economic allocation
+    - petrol - synthetic - methanol - coal with CCS - energy allocation

@@ -469,7 +469,7 @@ class Inventory:
         maximum = max(self.inputs.values())
 
         for year in self.scope["year"]:
-            for fuel in ["petrol", "diesel", "hydrogen", "cng"]:
+            for fuel in ["petrol", "diesel", "hydrogen", "methane"]:
                 maximum += 1
                 self.inputs[
                     (
@@ -566,18 +566,16 @@ class Inventory:
 
         """
 
-        filename = "A_matrix.csv"
+        filename = "A_matrix.npz"
         filepath = DATA_DIR / "IAM" / filename
         if not filepath.is_file():
             raise FileNotFoundError("The IAM files could not be found.")
 
-        # build matrix A from coordinates
-        A_coords = np.genfromtxt(filepath, delimiter=";")
-        I = A_coords[:, 0].astype(int)
-        J = A_coords[:, 1].astype(int)
-        initial_A = sparse.csr_matrix((A_coords[:, 2], (I, J))).toarray()
+        # load matrix A
+        initial_A = sparse.load_npz(filepath).toarray()
+
         new_A = np.identity(len(self.inputs))
-        new_A[0 : np.shape(initial_A)[0], 0 : np.shape(initial_A)[0]] = initial_A
+        new_A[0: np.shape(initial_A)[0], 0 : np.shape(initial_A)[0]] = initial_A
 
         # Resize the matrix to fit the number of iterations in `array`
         new_A = np.resize(
@@ -603,7 +601,7 @@ class Inventory:
 
         filepaths = [
             str(fp)
-            for fp in list(Path(IAM_FILES_DIR).glob("*.csv"))
+            for fp in list(Path(IAM_FILES_DIR).glob("*.npz"))
             if all(x in str(fp) for x in [self.method, self.indicator, self.scenario])
         ]
 
@@ -612,7 +610,7 @@ class Inventory:
         B = np.zeros((len(filepaths), len(self.impact_categories), len(self.inputs)))
 
         for f, filepath in enumerate(filepaths):
-            initial_B = np.genfromtxt(filepath, delimiter=";")
+            initial_B = sparse.load_npz(filepath).toarray()
             new_B = np.zeros(
                 (
                     initial_B.shape[0],
@@ -828,11 +826,6 @@ class Inventory:
                     1.86e-8 * -1 * losses,
                 ),
                 (
-                    "transmission network construction, long-distance",
-                    dataset,
-                    3.17e-10 * -1 * losses,
-                ),
-                (
                     "distribution network construction, electricity, low voltage",
                     dataset,
                     8.74e-8 * -1 * losses,
@@ -969,7 +962,8 @@ class Inventory:
             int(year)
         except ValueError:
             raise ValueError(
-                "The year for which to fetch sulfur concentration values is not valid."
+                "The year for which to fetch sulfur concentration "
+                "values is not valid."
             )
 
         if location in self.bs.sulfur.country.values:
@@ -981,7 +975,8 @@ class Inventory:
             # we use the European average
 
             print(
-                f"The sulfur content for {fuel} fuel in {location} could not be found."
+                f"The sulfur content for {fuel} fuel in {location} "
+                f"could not be found."
                 "European average sulfur content is used instead."
             )
 
@@ -998,12 +993,20 @@ class Inventory:
         """
 
         amount_h2 = {
-            "electrolysis": 1,
-            "synthetic gasoline - energy allocation": 0.338,
-            "synthetic gasoline - economic allocation": 0.6385,
-            "synthetic diesel - energy allocation": 0.42,
-            "synthetic diesel - economic allocation": 0.183,
+            "hydrogen - electrolysis - PEM": 1,
+            "hydrogen - electrolysis - SOEC": 1,
+            "hydrogen - electrolysis - AEC": 1,
+            "diesel - synthetic - FT - electrolysis - economic allocation": 0.6385,
+            "diesel - synthetic - FT - electrolysis - energy allocation": 0.6385,
+            "diesel - synthetic - methanol - electrolysis - economic allocation": 0.6385,
+            "diesel - synthetic - methanol - electrolysis - energy allocation": 0.6385,
+            "petrol - synthetic - methanol - electrolysis - economic allocation": 0.338,
+            "petrol - synthetic - methanol - cement - economic allocation": 0.338,
+            "petrol - synthetic - methanol - electrolysis - energy allocation": 0.338,
+            "petrol - synthetic - methanol - cement - energy allocation": 0.338,
+
         }
+
         year = float(year)
         electrolysis_electricity = -0.3538 * (year - 2010) + 58.589
         electricity = val - (amount_h2.get(fuel, 0) * 58)
@@ -1024,7 +1027,7 @@ class Inventory:
         d_dataset_name = {
             "petrol": "fuel supply for petrol vehicles, ",
             "diesel": "fuel supply for diesel vehicles, ",
-            "cng": "fuel supply for cng vehicles, ",
+            "methane": "fuel supply for methane vehicles, ",
             "hydrogen": "fuel supply for hydrogen vehicles, ",
         }
 
@@ -1217,7 +1220,7 @@ class Inventory:
     def add_fuel_cell_stack(self):
         self.A[
             :,
-            self.find_input_indices(("Ancillary BoP",)),
+            self.find_input_indices(("ancillary BoP components for fuel cell system",)),
             self.find_input_indices((f"{self.vm.vehicle_type.capitalize()}, ",)),
         ] = (
             self.array[self.array_inputs["fuel cell ancillary BoP mass"], :] * -1
@@ -1225,7 +1228,7 @@ class Inventory:
 
         self.A[
             :,
-            self.find_input_indices(("Essential BoP",)),
+            self.find_input_indices(("essential BoP components for fuel cell system",)),
             self.find_input_indices((f"{self.vm.vehicle_type.capitalize()}, ",)),
         ] = (
             self.array[self.array_inputs["fuel cell essential BoP mass"], :] * -1
@@ -1234,7 +1237,7 @@ class Inventory:
         # note: `Stack`refers to the power of the stack, not mass
         self.A[
             :,
-            self.find_input_indices(contains=("Stack",), excludes=("PEM",)),
+            self.find_input_indices(contains=("fuel cell stack production, 1 kW",), excludes=("PEM",)),
             self.find_input_indices((f"{self.vm.vehicle_type.capitalize()}, ",)),
         ] = (
             self.array[self.array_inputs["fuel cell power"], :]
@@ -1248,9 +1251,9 @@ class Inventory:
         )["tank type"]
 
         dict_tank_map = {
-            "carbon fiber": "Fuel tank, compressed hydrogen gas, 700bar, with carbon fiber",
-            "hdpe": "Fuel tank, compressed hydrogen gas, 700bar, with HDPE liner",
-            "aluminium": "Fuel tank, compressed hydrogen gas, 700bar, with aluminium liner",
+            "carbon fiber": "fuel tank production, compressed hydrogen gas, 700bar, with carbon fiber",
+            "hdpe": "fuel tank production, compressed hydrogen gas, 700bar",
+            "aluminium": "fuel tank production, compressed hydrogen gas, 700bar, with aluminium liner",
         }
 
         index = self.get_index_vehicle_from_array(["FCEV"])
@@ -1288,7 +1291,7 @@ class Inventory:
         # Use the NMC inventory of Schmidt et al. 2019
         self.A[
             :,
-            self.find_input_indices(("Battery BoP",)),
+            self.find_input_indices(("battery BoP",)),
             self.find_input_indices((f"{self.vm.vehicle_type.capitalize()}, ",)),
         ] = (
             self.array[self.array_inputs["battery BoP mass"], :]
@@ -1297,7 +1300,7 @@ class Inventory:
 
         self.A[
             :,
-            self.find_input_indices((f"Battery cell, {battery_tech[0]}",)),
+            self.find_input_indices((f"battery cell, {battery_tech[0]}",)),
             self.find_input_indices((f"{self.vm.vehicle_type.capitalize()}, ",)),
         ] = (
             self.array[self.array_inputs["battery cell mass"], :]
@@ -1361,7 +1364,7 @@ class Inventory:
         self.A[
             :,
             self.find_input_indices(
-                contains=("Fuel tank, compressed natural gas, 200 bar",)
+                contains=("fuel tank production, compressed natural gas, 200 bar",)
             ),
             self.find_input_indices(
                 contains=(f"{self.vm.vehicle_type.capitalize()}, ", "ICEV-g")

@@ -1,155 +1,188 @@
-electrolysis:
+hydrogen - electrolysis - PEM:
   lhv: 120
   co2: 0
   density: 0.042
   name:
-      - Hydrogen, gaseous, 700 bar, from electrolysis, at fuelling station
+      - hydrogen supply, distributed by pipeline, produced by Electrolysis, PEM using electricity from grid
       - RER
       - kilogram
-      - Hydrogen, gaseous, 700 bar
+      - hydrogen, gaseous, from pipeline
   biogenic_share: 1
 
-smr - natural gas:
+hydrogen - electrolysis - SOEC:
   lhv: 120
   co2: 0
   density: 0.042
   name:
-      - Hydrogen, gaseous, 700 bar, from SMR of NG, at fuelling station
+      - hydrogen supply, distributed by pipeline, produced by Electrolysis, SOEC using electricity from grid
       - RER
       - kilogram
-      - Hydrogen, gaseous, 700 bar
+      - hydrogen, gaseous, from pipeline
   biogenic_share: 1
 
-smr - natural gas with CCS:
+hydrogen - electrolysis - AEC:
   lhv: 120
   co2: 0
   density: 0.042
   name:
-      - Hydrogen, gaseous, 700 bar, from SMR of NG, with CCS, at fuelling station
+      - hydrogen supply, distributed by pipeline, produced by Electrolysis, AEC using electricity from grid
       - RER
       - kilogram
-      - Hydrogen, gaseous, 700 bar
+      - hydrogen, gaseous, from pipeline
   biogenic_share: 1
 
-smr - biogas:
+hydrogen - pyrolysis:
   lhv: 120
   co2: 0
   density: 0.042
   name:
-      - Hydrogen, gaseous, 700 bar, from SMR of biogas, at fuelling station
+      - hydrogen supply, distributed by pipeline, produced by methane pyrolysis using natural gas
       - RER
       - kilogram
-      - Hydrogen, gaseous, 700 bar
+      - hydrogen, gaseous, from pipeline
   biogenic_share: 1
 
-smr - biogas with CCS:
+hydrogen - thermochemical water splitting:
   lhv: 120
   co2: 0
   density: 0.042
   name:
-      - Hydrogen, gaseous, 700 bar, from SMR of biogas with CCS, at fuelling station
+      - hydrogen supply, distributed by pipeline, produced by thermochemical water splitting
       - RER
       - kilogram
-      - Hydrogen, gaseous, 700 bar
+      - hydrogen, gaseous, from pipeline
   biogenic_share: 1
 
-coal gasification:
+hydrogen - smr - natural gas:
   lhv: 120
   co2: 0
   density: 0.042
   name:
-      - Hydrogen, gaseous, 700 bar, from coal gasification, at fuelling station
+      - hydrogen supply, distributed by pipeline, produced by SMR using natural gas
       - RER
       - kilogram
-      - Hydrogen, gaseous, 700 bar
+      - hydrogen, gaseous, from pipeline
   biogenic_share: 1
 
-wood gasification:
+hydrogen - smr - natural gas with CCS:
   lhv: 120
   co2: 0
   density: 0.042
   name:
-      - Hydrogen, gaseous, 700 bar, from heatpipe reformer gasification of woody biomass, at fuelling station
+      - hydrogen supply, distributed by pipeline, produced by SMR using natural gas, with carbon capture and storage
       - RER
       - kilogram
-      - Hydrogen, gaseous, 700 bar
+      - hydrogen, gaseous, from pipeline
   biogenic_share: 1
 
-wood gasification with CCS:
+hydrogen - smr - biogas:
   lhv: 120
   co2: 0
   density: 0.042
   name:
-      - Hydrogen, gaseous, 700 bar, from heatpipe reformer gasification of woody biomass with CCS, at fuelling station
+      - hydrogen supply, distributed by pipeline, produced by SMR using biomethane
       - RER
       - kilogram
-      - Hydrogen, gaseous, 700 bar
+      - hydrogen, gaseous, from pipeline
   biogenic_share: 1
 
-wood gasification with EF:
+hydrogen - smr - biogas with CCS:
   lhv: 120
   co2: 0
   density: 0.042
   name:
-      - Hydrogen, gaseous, 700 bar, from gasification of woody biomass in entrained flow gasifier, at fuelling station
+      - hydrogen supply, distributed by pipeline, produced by SMR using biomethane, with carbon capture and storage
       - RER
       - kilogram
-      - Hydrogen, gaseous, 700 bar
+      - hydrogen, gaseous, from pipeline
   biogenic_share: 1
 
-wood gasification with EF with CCS:
+hydrogen - coal gasification:
   lhv: 120
   co2: 0
   density: 0.042
   name:
-      - Hydrogen, gaseous, 700 bar, from gasification of woody biomass in entrained flow gasifier, with CCS, at fuelling station
+      - hydrogen supply, distributed by pipeline, produced by coal gasification
       - RER
       - kilogram
-      - Hydrogen, gaseous, 700 bar
+      - hydrogen, gaseous, from pipeline
   biogenic_share: 1
 
-atr - natural gas:
+hydrogen - coal gasification with CCS:
   lhv: 120
   co2: 0
   density: 0.042
   name:
-      - Hydrogen, gaseous, 700 bar, ATR of NG, at fuelling station
+      - hydrogen supply, distributed by pipeline, produced by coal gasification, with carbon capture and storage
       - RER
       - kilogram
-      - Hydrogen, gaseous, 700 bar
+      - hydrogen, gaseous, from pipeline
   biogenic_share: 1
 
-atr - natural gas with CCS:
+hydrogen - wood gasification:
   lhv: 120
   co2: 0
   density: 0.042
   name:
-      - Hydrogen, gaseous, 700 bar, ATR of NG, with CCS, at fuelling station
+      - hydrogen supply, distributed by pipeline, produced by wood gasification
       - RER
       - kilogram
-      - Hydrogen, gaseous, 700 bar
+      - hydrogen, gaseous, from pipeline
   biogenic_share: 1
 
-atr - biogas:
+hydrogen - wood gasification with CCS:
   lhv: 120
   co2: 0
   density: 0.042
   name:
-      - Hydrogen, gaseous, 700 bar, from ATR of biogas, at fuelling station
+      - hydrogen supply, distributed by pipeline, produced by wood gasification, with carbon capture and storage
       - RER
       - kilogram
-      - Hydrogen, gaseous, 700 bar
+      - hydrogen, gaseous, from pipeline
   biogenic_share: 1
 
-atr - biogas with CCS:
+hydrogen - atr - natural gas:
   lhv: 120
   co2: 0
   density: 0.042
   name:
-      - Hydrogen, gaseous, 700 bar, from ATR of biogas with CCS, at fuelling station
+      - hydrogen supply, distributed by pipeline, produced by ATR using natural gas
       - RER
       - kilogram
-      - Hydrogen, gaseous, 700 bar
+      - hydrogen, gaseous, from pipeline
+  biogenic_share: 1
+
+hydrogen - atr - natural gas with CCS:
+  lhv: 120
+  co2: 0
+  density: 0.042
+  name:
+      - hydrogen supply, distributed by pipeline, produced by ATR using natural gas, with carbon capture and storage
+      - RER
+      - kilogram
+      - hydrogen, gaseous, from pipeline
+  biogenic_share: 1
+
+hydrogen - atr - biogas:
+  lhv: 120
+  co2: 0
+  density: 0.042
+  name:
+      - hydrogen supply, distributed by pipeline, produced by ATR using biomethane
+      - RER
+      - kilogram
+      - hydrogen, gaseous, from pipeline
+  biogenic_share: 1
+
+hydrogen - atr - biogas with CCS:
+  lhv: 120
+  co2: 0
+  density: 0.042
+  name:
+      - hydrogen supply, distributed by pipeline, produced by ATR using biomethane, with carbon capture and storage
+      - RER
+      - kilogram
+      - hydrogen, gaseous, from pipeline
   biogenic_share: 1
 
 petrol:
@@ -163,71 +196,137 @@ petrol:
       - petrol, low-sulfur
   biogenic_share: 0
 
-bioethanol - wheat straw:
+petrol - bioethanol - wheat straw:
   lhv: 26.5
   co2: 1.96
   density: 0.785
   name:
-      - Ethanol, from wheat straw, at fuelling station
+      - ethanol, from wheat straw, at fuelling station
       - RER
       - kilogram
       - ethanol, without water, in 99.7% solution state, vehicle grade
   biogenic_share: 1
 
-bioethanol - maize starch:
+petrol - bioethanol - maize starch:
   lhv: 26.5
   co2: 1.96
   density: 0.785
   name:
-      - Ethanol, from corn starch, at fuelling station
+      - ethanol, from corn starch, at fuelling station
       - RER
       - kilogram
       - ethanol, without water, in 99.7% solution state, vehicle grade
   biogenic_share: 1
 
-bioethanol - sugarbeet:
+petrol - bioethanol - sugarbeet:
   lhv: 26.5
   co2: 1.96
   density: 0.785
   name:
-      - Ethanol, from sugarbeet, at fuelling station
+      - ethanol, from sugarbeet, at fuelling station
       - RER
       - kilogram
       - ethanol, without water, in 99.7% solution state, vehicle grade
   biogenic_share: 1
 
-bioethanol - forest residues:
+petrol - bioethanol - forest residues:
   lhv: 26.5
   co2: 1.96
   density: 0.785
   name:
-      - Ethanol, from forest residues, at fuelling station
+      - ethanol, from forest residues, at fuelling station
       - RER
       - kilogram
       - ethanol, without water, in 99.7% solution state, vehicle grade
   biogenic_share: 1
 
-synthetic gasoline - economic allocation:
+petrol - synthetic - methanol - electrolysis - economic allocation:
   lhv: 42.4
   co2: 3.14
   density: 0.75
   name:
-      - gasoline production, synthetic, from methanol, hydrogen from electrolysis, CO2 from DAC, economic allocation, at fuelling station
+      - gasoline production, synthetic, from methanol, hydrogen from electrolysis, CO2 from cement plant, economic allocation, at fuelling station
       - RER
       - kilogram
       - gasoline, synthetic, vehicle grade
   biogenic_share: 1
 
-synthetic gasoline - energy allocation:
+petrol - synthetic - methanol - cement - economic allocation:
   lhv: 42.4
   co2: 3.14
   density: 0.75
   name:
-      - gasoline production, synthetic, from methanol, hydrogen from electrolysis, CO2 from DAC, energy allocation, at fuelling station
+      - gasoline production, synthetic, from methanol, hydrogen from electrolysis, CO2 from cement plant, economic allocation, at fuelling station
       - RER
       - kilogram
       - gasoline, synthetic, vehicle grade
   biogenic_share: 1
+
+petrol - synthetic - methanol - electrolysis - energy allocation:
+  lhv: 42.4
+  co2: 3.14
+  density: 0.75
+  name:
+      - gasoline production, synthetic, from methanol, hydrogen from electrolysis, CO2 from cement plant, economic allocation, at fuelling station
+      - RER
+      - kilogram
+      - gasoline, synthetic, vehicle grade
+  biogenic_share: 1
+
+petrol - synthetic - methanol - cement - energy allocation:
+  lhv: 42.4
+  co2: 3.14
+  density: 0.75
+  name:
+      - gasoline production, synthetic, from methanol, hydrogen from electrolysis, CO2 from cement plant, energy allocation, at fuelling station
+      - RER
+      - kilogram
+      - gasoline, synthetic, vehicle grade
+  biogenic_share: 1
+
+petrol - synthetic - methanol - coal - economic allocation:
+  lhv: 42.4
+  co2: 3.14
+  density: 0.75
+  name:
+      - gasoline production, synthetic, from methanol, hydrogen from coal gasification, economic allocation, at fuelling station
+      - RER
+      - kilogram
+      - gasoline, synthetic, vehicle grade
+  biogenic_share: 0
+
+petrol - synthetic - methanol - coal - energy allocation:
+  lhv: 42.4
+  co2: 3.14
+  density: 0.75
+  name:
+      - gasoline production, synthetic, from methanol, hydrogen from coal gasification, energy allocation, at fuelling station
+      - RER
+      - kilogram
+      - gasoline, synthetic, vehicle grade
+  biogenic_share: 0
+
+petrol - synthetic - methanol - coal with CCS - economic allocation:
+  lhv: 42.4
+  co2: 3.14
+  density: 0.75
+  name:
+      - gasoline production, synthetic, from methanol, hydrogen from coal gasification, with CCS, economic allocation, at fuelling station
+      - RER
+      - kilogram
+      - gasoline, synthetic, vehicle grade
+  biogenic_share: 0
+
+petrol - synthetic - methanol - coal with CCS - energy allocation:
+  lhv: 42.4
+  co2: 3.14
+  density: 0.75
+  name:
+      - gasoline production, synthetic, from methanol, hydrogen from coal gasification, with CCS, energy allocation, at fuelling station
+      - RER
+      - kilogram
+      - gasoline, synthetic, vehicle grade
+  biogenic_share: 0
 
 diesel:
   lhv: 43
@@ -240,73 +339,249 @@ diesel:
       - diesel, low-sulfur
   biogenic_share: 0
 
-biodiesel - cooking oil:
+diesel - biodiesel - cooking oil:
   lhv: 38
   co2: 2.79
   density: 0.88
   name:
-      - Biodiesel, from used cooking oil, at fuelling station
+      - biodiesel, from used cooking oil, at fuelling station
       - RER
       - kilogram
       - biodiesel, vehicle grade
   biogenic_share: 1
 
-biodiesel - algae:
+diesel - biodiesel - algae:
   lhv: 38
   co2: 2.79
   density: 0.88
   name:
-      - Biodiesel, from algae, at fuelling station
+      - biodiesel, from algae, at fuelling station
       - RER
       - kilogram
       - biodiesel, vehicle grade
   biogenic_share: 1
 
-biodiesel - rapeseed oil:
+diesel - biodiesel - rapeseed oil:
   lhv: 38
   co2: 2.79
   density: 0.88
   name:
-      - Biodiesel, from rapeseed oil, at fuelling station
+      - biodiesel, from rapeseed oil, at fuelling station
       - RER
       - kilogram
       - biodiesel, vehicle grade
   biogenic_share: 1
 
-biodiesel - palm oil:
+diesel - biodiesel - palm oil:
   lhv: 38
   co2: 2.79
   density: 0.88
   name:
-      - Biodiesel, from palm oil, at fuelling station
+      - biodiesel, from palm oil, at fuelling station
       - ID
       - kilogram
       - biodiesel, vehicle grade
   biogenic_share: 1
 
-synthetic diesel - economic allocation:
+diesel - synthetic - FT - coal - economic allocation:
   lhv: 43.3
   co2: 3.15
   density: 0.83
   name:
-      - diesel production, synthetic, from electrolysis-based hydrogen, economic allocation, at fuelling station
-      - RER
-      - kilogram
-      - diesel, synthetic, vehicle grade
-  biogenic_share: 1
+    - diesel production, synthetic, from Fischer Tropsch process, hydrogen from coal gasification, economic allocation, at fuelling station
+    - RER
+    - kilogram
+    - diesel, synthetic, vehicle grade
+  biogenic_share: 0
 
-synthetic diesel - energy allocation:
+diesel - synthetic - FT - coal - energy allocation:
   lhv: 43.3
   co2: 3.15
   density: 0.83
   name:
-      - diesel production, synthetic, from electrolysis-based hydrogen, energy allocation, at fuelling station
-      - RER
-      - kilogram
-      - diesel, synthetic, vehicle grade
+    - diesel production, synthetic, from Fischer Tropsch process, hydrogen from coal gasification, energy allocation, at fuelling station
+    - RER
+    - kilogram
+    - diesel, synthetic, vehicle grade
+  biogenic_share: 0
+
+diesel - synthetic - FT - coal with CCS - economic allocation:
+  lhv: 43.3
+  co2: 3.15
+  density: 0.83
+  name:
+    - diesel production, synthetic, from Fischer Tropsch process, hydrogen from coal gasification, with CCS, economic allocation, at fuelling station
+    - RER
+    - kilogram
+    - diesel, synthetic, vehicle grade
+  biogenic_share: 0
+
+diesel - synthetic - FT - coal with CCS - energy allocation:
+  lhv: 43.3
+  co2: 3.15
+  density: 0.83
+  name:
+    - diesel production, synthetic, from Fischer Tropsch process, hydrogen from coal gasification, with CCS, energy allocation, at fuelling station
+    - RER
+    - kilogram
+    - diesel, synthetic, vehicle grade
+  biogenic_share: 0
+
+diesel - synthetic - FT - electrolysis - economic allocation:
+  lhv: 43.3
+  co2: 3.15
+  density: 0.83
+  name:
+    - diesel production, synthetic, from Fischer Tropsch process, hydrogen from electrolysis, economic allocation, at fuelling station
+    - RER
+    - kilogram
+    - diesel, synthetic, vehicle grade
   biogenic_share: 1
 
-cng:
+diesel - synthetic - FT - electrolysis - energy allocation:
+  lhv: 43.3
+  co2: 3.15
+  density: 0.83
+  name:
+    - diesel production, synthetic, from Fischer Tropsch process, hydrogen from electrolysis, energy allocation, at fuelling station
+    - RER
+    - kilogram
+    - diesel, synthetic, vehicle grade
+  biogenic_share: 1
+
+diesel - synthetic - FT - wood - economic allocation:
+  lhv: 43.3
+  co2: 3.15
+  density: 0.83
+  name:
+    - diesel production, synthetic, from Fischer Tropsch process, hydrogen from wood gasification, economic allocation, at fuelling station
+    - RER
+    - kilogram
+    - diesel, synthetic, vehicle grade
+  biogenic_share: 1
+
+diesel - synthetic - FT - wood - energy allocation:
+  lhv: 43.3
+  co2: 3.15
+  density: 0.83
+  name:
+    - diesel production, synthetic, from Fischer Tropsch process, hydrogen from wood gasification, energy allocation, at fuelling station
+    - RER
+    - kilogram
+    - diesel, synthetic, vehicle grade
+  biogenic_share: 1
+
+diesel - synthetic - FT - wood with CCS - economic allocation:
+  lhv: 43.3
+  co2: 3.15
+  density: 0.83
+  name:
+    - diesel production, synthetic, from Fischer Tropsch process, hydrogen from wood gasification, with CCS, economic allocation, at fuelling station
+    - RER
+    - kilogram
+    - diesel, synthetic, vehicle grade
+  biogenic_share: 1
+
+diesel - synthetic - FT - wood with CCS - energy allocation:
+  lhv: 43.3
+  co2: 3.15
+  density: 0.83
+  name:
+    - diesel production, synthetic, from Fischer Tropsch process, hydrogen from wood gasification, with CCS, energy allocation, at fuelling station
+    - RER
+    - kilogram
+    - diesel, synthetic, vehicle grade
+  biogenic_share: 1
+
+diesel - synthetic - methanol - coal - economic allocation:
+  lhv: 43.3
+  co2: 3.15
+  density: 0.83
+  name:
+    - diesel production, synthetic, from methanol, hydrogen from coal gasification, economic allocation, at fuelling station
+    - RER
+    - kilogram
+    - diesel, synthetic, vehicle grade
+  biogenic_share: 0
+
+diesel - synthetic - methanol - coal - energy allocation:
+  lhv: 43.3
+  co2: 3.15
+  density: 0.83
+  name:
+    - diesel production, synthetic, from methanol, hydrogen from coal gasification, energy allocation, at fuelling station
+    - RER
+    - kilogram
+    - diesel, synthetic, vehicle grade
+  biogenic_share: 0
+
+diesel - synthetic - methanol - coal with CCS - economic allocation:
+  lhv: 43.3
+  co2: 3.15
+  density: 0.83
+  name:
+    - diesel production, synthetic, from methanol, hydrogen from coal gasification, with CCS, economic allocation, at fuelling station
+    - RER
+    - kilogram
+    - diesel, synthetic, vehicle grade
+  biogenic_share: 0
+
+diesel - synthetic - methanol - coal with CCS - energy allocation:
+  lhv: 43.3
+  co2: 3.15
+  density: 0.83
+  name:
+    - diesel production, synthetic, from methanol, hydrogen from coal gasification, with CCS, energy allocation, at fuelling station
+    - RER
+    - kilogram
+    - diesel, synthetic, vehicle grade
+  biogenic_share: 0
+
+diesel - synthetic - methanol - electrolysis - economic allocation:
+  lhv: 43.3
+  co2: 3.15
+  density: 0.83
+  name:
+    - diesel production, synthetic, from methanol, hydrogen from electrolysis, CO2 from cement plant, economic allocation, at fuelling station
+    - RER
+    - kilogram
+    - diesel, synthetic, vehicle grade
+  biogenic_share: 1
+
+diesel - synthetic - methanol - electrolysis - energy allocation:
+  lhv: 43.3
+  co2: 3.15
+  density: 0.83
+  name:
+    - diesel production, synthetic, from methanol, hydrogen from electrolysis, CO2 from cement plant, energy allocation, at fuelling station
+    - RER
+    - kilogram
+    - diesel, synthetic, vehicle grade
+  biogenic_share: 1
+
+diesel - synthetic - methanol - cement - economic allocation:
+  lhv: 43.3
+  co2: 3.15
+  density: 0.83
+  name:
+    - diesel production, synthetic, from methanol, hydrogen from electrolysis, CO2 from DAC, economic allocation, at fuelling station
+    - RER
+    - kilogram
+    - diesel, synthetic, vehicle grade
+  biogenic_share: 1
+
+diesel - synthetic - methanol - cement - energy allocation:
+  lhv: 43.3
+  co2: 3.15
+  density: 0.83
+  name:
+    - diesel production, synthetic, from methanol, hydrogen from electrolysis, CO2 from DAC, energy allocation, at fuelling station
+    - RER
+    - kilogram
+    - diesel, synthetic, vehicle grade
+  biogenic_share: 1
+
+methane:
   lhv: 47.5
   co2: 2.68
   density: 0.639
@@ -317,35 +592,244 @@ cng:
       - natural gas, high pressure, vehicle grade
   biogenic_share: 0
 
-biogas - sewage sludge:
+methane - biomethane - sewage sludge:
   lhv: 47.5
   co2: 2.68
   density: 0.639
   name:
-      - Biomethane, gaseous, 5 bar, from sewage sludge fermentation, at fuelling station
+      - biomethane, gaseous, 5 bar, from sewage sludge fermentation, at fuelling station
       - RER
       - kilogram
       - biomethane, high pressure
   biogenic_share: 1
 
-biogas - biowaste:
+methane - synthetic - coal:
   lhv: 47.5
   co2: 2.68
   density: 0.639
   name:
-      - biomethane from biogas upgrading - biowaste - amine scrubbing
-      - CH
+      - methane, synthetic, gaseous, 5 bar, from coal-based hydrogen, at fuelling station
+      - RER
       - kilogram
-      - biomethane
-  biogenic_share: 1
+      - biomethane, high pressure
+  biogenic_share: 0
 
-syngas:
+methane - synthetic - electrochemical:
   lhv: 47.5
   co2: 2.68
   density: 0.639
   name:
-      - Methane, synthetic, gaseous, 5 bar, from electrochemical methanation, at fuelling station
+      - methane, synthetic, gaseous, 5 bar, from electrochemical methanation and carbon from atmosphere, at fuelling station
       - RER
       - kilogram
       - methane, high pressure
+  biogenic_share: 1
+
+methane - synthetic - electrochemical - cement:
+  lhv: 47.5
+  co2: 2.68
+  density: 0.639
+  name:
+      - methane, synthetic, gaseous, 5 bar, from electrochemical methanation and carbon from cement plant, at fuelling station
+      - RER
+      - kilogram
+      - methane, high pressure
+  biogenic_share: 1
+
+methane - synthetic - electrochemical - MSWI:
+  lhv: 47.5
+  co2: 2.68
+  density: 0.639
+  name:
+      - methane, synthetic, gaseous, 5 bar, from electrochemical methanation and carbon from MSWI plant, at fuelling station
+      - RER
+      - kilogram
+      - methane, high pressure
+  biogenic_share: 1
+
+methane - synthetic - biological:
+  lhv: 47.5
+  co2: 2.68
+  density: 0.639
+  name:
+      - methane, synthetic, gaseous, 5 bar, from biological methanation and carbon from atmosphere, at fuelling station
+      - RER
+      - kilogram
+      - methane, high pressure
+  biogenic_share: 1
+
+methane - synthetic - biological - cement:
+  lhv: 47.5
+  co2: 2.68
+  density: 0.639
+  name:
+      - methane, synthetic, gaseous, 5 bar, from biological methanation and carbon from cement plant, at fuelling station
+      - RER
+      - kilogram
+      - methane, high pressure
+  biogenic_share: 1
+
+methane - synthetic - biological - MSWI:
+  lhv: 47.5
+  co2: 2.68
+  density: 0.639
+  name:
+      - methane, synthetic, gaseous, 5 bar, from biological methanation and carbon from MSWI plant, at fuelling station
+      - RER
+      - kilogram
+      - methane, high pressure
+  biogenic_share: 1
+
+kerosene:
+  lhv: 43.0
+  co2: 3.16
+  density: 0.82
+  name:
+    - kerosene production, petroleum refinery operation
+    - Europe without Switzerland
+    - kilogram
+    - kerosene
+  biogenic_share: 0
+
+kerosene - coal - economic allocation:
+  lhv: 43.0
+  co2: 3.16
+  density: 0.82
+  name:
+    - kerosene production, synthetic, from methanol, hydrogen from coal gasification, economic allocation, at fuelling station
+    - RER
+    - kilogram
+    - kerosene, synthetic, vehicle grade
+  biogenic_share: 0
+
+kerosene - coal - energy allocation:
+  lhv: 43.0
+  co2: 3.16
+  density: 0.82
+  name:
+    - kerosene production, synthetic, from methanol, hydrogen from coal gasification, energy allocation, at fuelling station
+    - RER
+    - kilogram
+    - kerosene, synthetic, vehicle grade
+  biogenic_share: 0
+
+kerosene - coal with CCS - economic allocation:
+  lhv: 43.0
+  co2: 3.16
+  density: 0.82
+  name:
+    - kerosene production, synthetic, from methanol, hydrogen from coal gasification, with CCS, economic allocation, at fuelling station
+    - RER
+    - kilogram
+    - kerosene, synthetic, vehicle grade
+  biogenic_share: 0
+
+kerosene - coal with CCS - energy allocation:
+  lhv: 43.0
+  co2: 3.16
+  density: 0.82
+  name:
+    - kerosene production, synthetic, from methanol, hydrogen from coal gasification, with CCS, energy allocation, at fuelling station
+    - RER
+    - kilogram
+    - kerosene, synthetic, vehicle grade
+  biogenic_share: 0
+
+kerosene - wood - economic allocation:
+  lhv: 43.0
+  co2: 3.16
+  density: 0.82
+  name:
+    - kerosene production, synthetic, Fischer Tropsch process, hydrogen from wood gasification, economic allocation
+    - RER
+    - kilogram
+    - kerosene, synthetic, vehicle grade
+  biogenic_share: 1
+
+kerosene - wood - energy allocation:
+  lhv: 43.0
+  co2: 3.16
+  density: 0.82
+  name:
+    - kerosene production, synthetic, Fischer Tropsch process, hydrogen from wood gasification, energy allocation
+    - RER
+    - kilogram
+    - kerosene, synthetic, vehicle grade
+  biogenic_share: 1
+
+kerosene - wood with CCS - economic allocation:
+  lhv: 43.0
+  co2: 3.16
+  density: 0.82
+  name:
+    - kerosene production, synthetic, Fischer Tropsch process, hydrogen from wood gasification, with CCS, economic allocation
+    - RER
+    - kilogram
+    - kerosene, synthetic, vehicle grade
+  biogenic_share: 1
+
+kerosene - wood with CCS - energy allocation:
+  lhv: 43.0
+  co2: 3.16
+  density: 0.82
+  name:
+    - kerosene production, synthetic, Fischer Tropsch process, hydrogen from wood gasification, with CCS, energy allocation
+    - RER
+    - kilogram
+    - kerosene, synthetic, vehicle grade
+  biogenic_share: 1
+
+kerosene - electrolysis - economic allocation:
+  lhv: 43.0
+  co2: 3.16
+  density: 0.82
+  name:
+    - kerosene production, synthetic, from methanol, hydrogen from electrolysis, CO2 from DAC, economic allocation, at fuelling station
+    - RER
+    - kilogram
+    - kerosene, synthetic, vehicle grade
+  biogenic_share: 1
+
+kerosene - electrolysis - energy allocation:
+  lhv: 43.0
+  co2: 3.16
+  density: 0.82
+  name:
+    - kerosene production, synthetic, from methanol, hydrogen from electrolysis, CO2 from DAC, energy allocation, at fuelling station
+    - RER
+    - kilogram
+    - kerosene, synthetic, vehicle grade
+  biogenic_share: 1
+
+kerosene - forest residues:
+  lhv: 43.0
+  co2: 3.16
+  density: 0.82
+  name:
+    - kerosene production, via Fischer-Tropsch, from forest residues, energy allocation
+    - RER
+    - kilogram
+    - kerosene, synthetic, vehicle grade
+  biogenic_share: 1
+
+kerosene - forest biomass - energy allocation:
+  lhv: 43.0
+  co2: 3.16
+  density: 0.82
+  name:
+    - kerosene production, via Fischer-Tropsch, from forest product (non-residual), energy allocation
+    - RER
+    - kilogram
+    - kerosene, synthetic, vehicle grade
+  biogenic_share: 1
+
+kerosene - forest biomass with CCS - energy allocation:
+  lhv: 43.0
+  co2: 3.16
+  density: 0.82
+  name:
+    - kerosene production, via Fischer-Tropsch, from forest product (non-residual), with carbon capture and storage, energy allocation
+    - RER
+    - kilogram
+    - kerosene, synthetic, vehicle grade
   biogenic_share: 1

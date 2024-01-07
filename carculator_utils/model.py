@@ -1071,7 +1071,7 @@ class VehicleModel:
             "HEV-p": "petrol",
             "PHEV-c-d": "diesel",
             "PHEV-c-p": "petrol",
-            "ICEV-g": "cng",
+            "ICEV-g": "methane",
             "FCEV": "hydrogen",
         }
 
