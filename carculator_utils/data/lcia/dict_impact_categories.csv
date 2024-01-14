@@ -1,6 +1,6 @@
-recipe;IPCC 2021;climate change w h;midpoint;GWP h;kg CO2-Eq;
+recipe;IPCC 2021;climate change;midpoint;GWP h;kg CO2-Eq;
+recipe;IPCC 2021;climate change w bio CO2;midpoint;GWP h+bio;kg CO2-Eq;
 recipe;ReCiPe 2016 v1.03, midpoint (H);acidification: terrestrial;midpoint;TAP;kg SO2-Eq;
-recipe;ReCiPe 2016 v1.03, midpoint (H);climate change;midpoint;GWP100;kg CO2-Eq;
 recipe;ReCiPe 2016 v1.03, midpoint (H);ecotoxicity: freshwater;midpoint;FETP;kg 1,4-DCB-Eq;
 recipe;ReCiPe 2016 v1.03, midpoint (H);ecotoxicity: marine;midpoint;METP;kg 1,4-DCB-Eq;
 recipe;ReCiPe 2016 v1.03, midpoint (H);ecotoxicity: terrestrial;midpoint;TETP;kg 1,4-DCB-Eq;
@@ -17,7 +17,6 @@ recipe;ReCiPe 2016 v1.03, midpoint (H);particulate matter formation;midpoint;PMF
 recipe;ReCiPe 2016 v1.03, midpoint (H);photochemical oxidant formation: human health;midpoint;HOFP;kg NOx-Eq;
 recipe;ReCiPe 2016 v1.03, midpoint (H);photochemical oxidant formation: terrestrial ecosystems;midpoint;EOFP;kg NOx-Eq;
 recipe;ReCiPe 2016 v1.03, midpoint (H);water consumption potential;midpoint;WCP;cubic meter;
-recipe;IPCC 2021;climate change w bio CO2;midpoint;GWP h+bio;kg CO2-Eq;
 recipe;Cucurachi et al.;Human noise impacts;midpoint;HN;person-Pa/W;
 recipe;Cumulative Energy Demand (CED);non-renewable energy;midpoint;NREN;MJ-Eq;
 recipe;Cumulative Energy Demand (CED);renewable energy;midpoint;REN;MJ-Eq;

@@ -18,6 +18,12 @@ from .particulates_emissions import ParticulatesEmissionsModel
 def finite(array, mask_value=0):
     return np.where(np.isfinite(array), array, mask_value)
 
+def load_default_specs_for_fuels():
+    """
+    Load default_fuels.yaml file and return a dictionary with fuel specifications.
+    """
+    with open(Path(__file__).parent / "data" / "fuel" / "default_fuels.yaml") as file:
+        return yaml.load(file, Loader=yaml.FullLoader)
 
 class VehicleModel:
 
@@ -1006,6 +1012,7 @@ class VehicleModel:
         )
 
     def check_fuel_blend(self, fuel_blend: dict) -> dict:
+        default_specs = load_default_specs_for_fuels()
         for fuel, specs in fuel_blend.items():
             if "primary" not in specs:
                 raise ValueError(f"Primary fuel not specified for {fuel}")
@@ -1032,7 +1039,7 @@ class VehicleModel:
             secondary = specs.get(
                 "secondary",
                 {
-                    "type": primary["type"],
+                    "type": default_specs[fuel]["secondary"],
                     "share": np.array([1]) - primary["share"],
                 },
             )
