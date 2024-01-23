@@ -724,8 +724,8 @@ class Inventory:
                 [2005, 2010, 2020, 2030, 2040, 2050]
                 if self.scenario != "static"
                 else [2020],
-                list(self.impact_categories.keys()),
-                list(self.inputs.keys()),
+                np.asarray(list(self.inputs.keys()), dtype="object"),
+                np.asarray(list(self.impact_categories.keys()), dtype="object"),
             ],
             dims=["year", "category", "activity"],
         )
