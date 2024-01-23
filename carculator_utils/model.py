@@ -19,6 +19,14 @@ def finite(array, mask_value=0):
     return np.where(np.isfinite(array), array, mask_value)
 
 
+def load_default_specs_for_fuels():
+    """
+    Load default_fuels.yaml file and return a dictionary with fuel specifications.
+    """
+    with open(Path(__file__).parent / "data" / "fuel" / "default_fuels.yaml") as file:
+        return yaml.load(file, Loader=yaml.FullLoader)
+
+
 class VehicleModel:
 
     """
@@ -539,14 +547,38 @@ class VehicleModel:
             in other terms, e.g., charging cycles.
 
         """
-        # Here we assume that we can use fractions of a battery
-        # (averaged across the fleet)
-        self["battery lifetime replacements"] = finite(
+        # We estimate here battery replacements
+        # We use two methods:
+        # 1) the lifetime of the battery (in km) over the vehicle's lifetime (in km)
+        # 2) the lifetime of the vehicle (in years) over the lifetime of the battery (in years)
+        # Which ever is the highest is used to calculate the number of replacements
+
+        # The number of battery replacements is based on the
+        # average distance driven with a set of batteries given
+        # their lifetime expressed in kilometers.
+
+        battery_replacement_km = finite(
             np.clip(
                 (self["lifetime kilometers"] / self["battery lifetime kilometers"]) - 1,
                 0,
                 None,
             )
+        )
+
+        battery_replacement_years = finite(
+            np.clip(
+                (
+                    (self["lifetime kilometers"] / self["kilometers per year"])
+                    / 18  # 18 years is the maximum lifetime of a battery
+                )
+                - 1,
+                0,
+                None,
+            )
+        )
+
+        self["battery lifetime replacements"] = np.maximum(
+            battery_replacement_km, battery_replacement_years
         )
 
         # The number of fuel cell replacements is based on the
@@ -1006,6 +1038,7 @@ class VehicleModel:
         )
 
     def check_fuel_blend(self, fuel_blend: dict) -> dict:
+        default_specs = load_default_specs_for_fuels()
         for fuel, specs in fuel_blend.items():
             if "primary" not in specs:
                 raise ValueError(f"Primary fuel not specified for {fuel}")
@@ -1032,7 +1065,11 @@ class VehicleModel:
             secondary = specs.get(
                 "secondary",
                 {
-                    "type": primary["type"],
+                    "type": default_specs[fuel]["secondary"]
+                    if default_specs[fuel]["secondary"] != primary["type"]
+                    else [
+                        f for f in default_specs[fuel]["all"] if f != primary["type"]
+                    ][0],
                     "share": np.array([1]) - primary["share"],
                 },
             )
@@ -1071,7 +1108,7 @@ class VehicleModel:
             "HEV-p": "petrol",
             "PHEV-c-d": "diesel",
             "PHEV-c-p": "petrol",
-            "ICEV-g": "cng",
+            "ICEV-g": "methane",
             "FCEV": "hydrogen",
         }
 
@@ -1275,11 +1312,16 @@ class VehicleModel:
         """
         _ = lambda array: np.where(array == 0, 1, array)
 
-        self["TtW efficiency"] = (
-            _(self["fuel cell system efficiency"])
-            * self["transmission efficiency"]
-            * self["engine efficiency"]
-        )
+        if "fuel cell system efficiency" not in self.array.coords["parameter"].values:
+            self["TtW efficiency"] = (
+                self["transmission efficiency"] * self["engine efficiency"]
+            )
+        else:
+            self["TtW efficiency"] = (
+                _(self["fuel cell system efficiency"])
+                * self["transmission efficiency"]
+                * self["engine efficiency"]
+            )
 
         self["TtW efficiency"] *= np.where(
             self["charger mass"] > 0, self["battery discharge efficiency"], 1

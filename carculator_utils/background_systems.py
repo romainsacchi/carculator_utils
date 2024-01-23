@@ -269,7 +269,7 @@ class BackgroundSystemModel:
                             "biodiesel", "RER", years
                         )
 
-                elif fuel_type == "cng":
+                elif fuel_type == "methane":
                     if country in self.biomethane.country.values:
                         secondary_share = self.get_share_biofuel(
                             "biomethane", country, years
@@ -312,7 +312,7 @@ class BackgroundSystemModel:
         fuel_to_powertrains_map = {
             "diesel": ["ICEV-d", "HEV-d", "PHEV-d", "PHEV-c-d"],
             "petrol": ["ICEV-p", "HEV-p", "PHEV-p", "PHEV-c-p"],
-            "cng": ["ICEV-g"],
+            "methane": ["ICEV-g"],
             "hydrogen": ["FCEV"],
         }
 

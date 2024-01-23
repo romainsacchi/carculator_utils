@@ -59,31 +59,31 @@ Waste:
   - electricity, for reuse in municipal waste incineration only
 
 Biogas CCS:
-  - electricity production, at power plant/biogas, post, pipeline 200km, storage 1000m
+  - electricity production, at biomethane-fired power plant, post, pipeline 200km, storage 1000m
   - RER
   - kilowatt hour
   - electricity, high voltage
 
 Biomass CCS:
-  - electricity production, at BIGCC power plant 450MW, pre, pipeline 200km, storage 1000m
+  - electricity production, at biomass-fired IGCC power plant, pre, pipeline 200km, storage 1000m
   - RER
   - kilowatt hour
   - electricity, high voltage
 
 Coal CCS:
-  - electricity production, at power plant/hard coal, post, pipeline 200km, storage 1000m
+  - electricity production, at hard coal-fired power plant, post, pipeline 200km, storage 1000m
   - RER
   - kilowatt hour
   - electricity, high voltage
 
 Gas CCS:
-  - electricity production, at power plant/natural gas, post, pipeline 200km, storage 1000m
+  - electricity production, at natural gas-fired combined cycle power plant, post, pipeline 200km, storage 1000m
   - RER
   - kilowatt hour
   - electricity, high voltage
 
 Wood CCS:
-  - electricity production, at wood burning power plant 20 MW, truck 25km, post, pipeline 200km, storage 1000m
+  - electricity production, at wood burning power plant, post, pipeline 200km, storage 1000m
   - RER
   - kilowatt hour
   - electricity, high voltage

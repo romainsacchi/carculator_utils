@@ -1,0 +1,1930 @@
+car:
+  - 1-Pentene
+  - 2,4-D
+  - AOX, Adsorbable Organic Halogen
+  - Acetaldehyde
+  - Acetamide
+  - Acetic acid
+  - Acetochlor
+  - Acetone
+  - Acrolein
+  - Alachlor
+  - Aluminium III
+  - Ammonia
+  - Argon-40
+  - Arsenic ion
+  - Atrazine
+  - BOD5, Biological Oxygen Demand
+  - Barium II
+  - Benzaldehyde
+  - Benzene
+  - Benzene, hexachloro-
+  - Benzo(a)pyrene
+  - Beta-cyfluthrin
+  - Bifenthrin
+  - Boron
+  - Bromoxynil
+  - Butane
+  - COD, Chemical Oxygen Demand
+  - Cadmium II
+  - Carbon dioxide, fossil
+  - Carbon dioxide, in air
+  - Carbon dioxide, non-fossil
+  - Carbon monoxide, fossil
+  - Chloride
+  - Chlorine
+  - Chlorpyrifos
+  - Chromium III
+  - Chromium VI
+  - Cobalt
+  - Copper
+  - Copper ion
+  - Cyclohexane
+  - Cypermethrin
+  - Cyproconazole
+  - Desmedipham
+  - Dicamba
+  - Diflufenzopyr-sodium
+  - Dimethenamid
+  - Dinitrogen monoxide
+  - Dioxins, measured as 2,3,7,8-tetrachlorodibenzo-p-dioxin
+  - Energy, gross calorific value, in biomass
+  - Ethane
+  - Ethane, 1,1,1,2-tetrafluoro-, HFC-134a
+  - Ethofumesate
+  - Fipronil
+  - Flumetsulam
+  - Flumioxazin
+  - Fluoride
+  - Foramsulfuron
+  - Formaldehyde
+  - Glufosinate
+  - Glyphosate
+  - Heat, waste
+  - Heptane
+  - Hexane
+  - Hydrocarbons, aromatic
+  - Hydrocarbons, chlorinated
+  - Hydrocarbons, unspecified
+  - Hydrochloric acid
+  - Hydrogen
+  - Hydrogen fluoride
+  - Hydrogen sulfide
+  - Imazapyr
+  - Imazethapyr
+  - Imidacloprid
+  - Iridium
+  - Iron ion
+  - Isoxaflutole
+  - Lambda-cyhalothrin
+  - Lead II
+  - Lithium
+  - MEA hot pressing, for fuel cell system
+  - Magnesium
+  - Manganese II
+  - Mercury II
+  - Mesotrione
+  - Methane, dichloro-, HCC-30
+  - Methane, fossil
+  - Methane, non-fossil
+  - Methane, tetrachloro-, R-10
+  - Methyl ethyl ketone
+  - Metolachlor
+  - Monoethanolamine
+  - NCA hydroxide
+  - NCA oxide
+  - NMC-111 hydroxide
+  - NMC-111 oxide
+  - NMC-622 hydroxide
+  - NMC-622 oxide
+  - NMVOC, non-methane volatile organic compounds
+  - Nickel II
+  - Nicosulfuron
+  - Nitrate
+  - Nitrogen
+  - Nitrogen oxides
+  - Occupation, annual crop
+  - Occupation, annual crop, non-irrigated, intensive
+  - Occupation, construction site
+  - Occupation, industrial area
+  - Occupation, mineral extraction site
+  - Oil, crude
+  - Oils, unspecified
+  - Oxygen
+  - PAH, polycyclic aromatic hydrocarbons
+  - Paraquat
+  - Particulate Matter, < 2.5 um
+  - Particulate Matter, > 10 um
+  - Particulate Matter, > 2.5 um and < 10um
+  - Pendimethalin
+  - Pentane
+  - Perfluoropentane
+  - Permethrin
+  - Pesticides, unspecified
+  - Phenmedipham
+  - Phenol, pentachloro-
+  - Phosphate
+  - Phosphorus
+  - Polychlorinated biphenyls
+  - Potassium I
+  - Primisulfuron
+  - Propane
+  - Propene
+  - Propionic acid
+  - Prosulfuron
+  - Rimsulfuron
+  - Selenium IV
+  - Silicon
+  - Simazine
+  - Sodium
+  - Sodium I
+  - Strontium
+  - Styrene
+  - Sulfite
+  - Sulfur
+  - Sulfur dioxide
+  - Sulfur hexafluoride
+  - Suspended solids, unspecified
+  - TOC, Total Organic Carbon
+  - Tebupirimfos
+  - Tefluthrin
+  - Terbufos
+  - Toluene
+  - Transformation, from annual crop
+  - Transformation, from annual crop, non-irrigated
+  - Transformation, from forest, unspecified
+  - Transformation, from industrial area
+  - Transformation, from unspecified
+  - Transformation, to annual crop
+  - Transformation, to annual crop, non-irrigated, intensive
+  - Transformation, to industrial area
+  - Transformation, to mineral extraction site
+  - Trifloxystrobin
+  - Water
+  - Water, cooling, unspecified natural origin
+  - Water, river
+  - Water, unspecified natural origin
+  - Water, well, in ground
+  - Zinc II
+  - activated bentonite production
+  - activated silica production
+  - air separation, cryogenic
+  - aluminium collector foil, for Li-ion battery
+  - aluminium ingot, primary, to aluminium, wrought alloy market
+  - amine-based silica production, for sorbent-based direct air capture system
+  - ancillary BoP components for fuel cell system
+  - anode, graphite, for Li-ion battery
+  - barite production
+  - battery BoP
+  - battery cell, NMC-111
+  - battery cell, NMC-622
+  - battery separator
+  - biodiesel production, via transesterification, from used cooking oil, energy allocation
+  - biodiesel, from used cooking oil, at fuelling station
+  - biomethane production, from biogas upgrading, using amine scrubbing
+  - biomethane, gaseous, 5 bar, from sewage sludge fermentation, at fuelling station
+  - bipolar plate production, for fuel cell system
+  - building construction, hall, steel construction
+  - building construction, multi-storey
+  - carbon black production
+  - carbon fiber production, exhaust gas treatment 1
+  - carbon fiber production, exhaust gas treatment 2
+  - carbon fiber production, fiber coagulation, stretching, washing, sizing and drying
+  - carbon fiber production, fiber drying and sizing
+  - carbon fiber production, fiber relaxation
+  - carbon fiber production, fiber stabilization, carbonization, electrolysis and washing
+  - carbon fiber production, fiber winding and unwinding
+  - carbon fiber production, weaved, at factory
+  - catalyst layer production, for fuel cell system
+  - cathode, NCA, for Li-ion battery
+  - cathode, NMC-111, for Li-ion battery
+  - cathode, NMC-622, for Li-ion battery
+  - cement production, Portland
+  - chemical factory construction, organics
+  - coal coking, for coal tar pitch production
+  - coating and curing, general manufacturing
+  - cobalt hydroxide, via hydrometallurigcal ore procesing, economic allocation
+  - cobalt sulfate production, from copper mining, economic allocation
+  - coking
+  - compressor assembly for transmission hydrogen pipeline
+  - copper collector foil, for Li-ion battery
+  - copper-cobalt mining, artisanal
+  - copper-cobalt mining, industrial, economic allocation
+  - crude oil extraction
+  - dearomatized hydrocarbon fluid production
+  - diesel production, low-sulfur, petroleum refinery operation
+  - diesel, burned in diesel-electric generating set, 18.5kW
+  - direct air capture system, solvent-based, 1MtCO2
+  - disodium disulphite
+  - distribution network construction, electricity, low voltage
+  - drilling, deep borehole
+  - electricity production, deep geothermal
+  - electricity production, hard coal
+  - electricity production, hydro, reservoir, alpine region
+  - electricity production, hydro, run-of-river
+  - electricity production, lignite
+  - electricity production, natural gas, combined cycle power plant
+  - electricity production, natural gas, conventional power plant
+  - electricity production, nuclear, pressure water reactor
+  - electricity production, oil
+  - electricity production, photovoltaic, 3kWp slanted-roof installation, multi-Si, panel, mounted
+  - electricity production, wind, 1-3MW turbine, offshore
+  - electricity production, wind, 1-3MW turbine, onshore
+  - electricity production, at biomethane-fired power plant, post, pipeline 200km, storage 1000m
+  - electricity production, at biomass-fired IGCC power plant, pre, pipeline 200km, storage 1000m
+  - electricity production, at hard coal-fired power plant, post, pipeline 200km, storage 1000m
+  - electricity production, at natural gas-fired combined cycle power plant, post, pipeline 200km, storage 1000m
+  - electricity production, at wood burning power plant, post, pipeline 200km, storage 1000m
+  - electricity production, solar thermal parabolic trough, 50 MW
+  - electrolyte, for Li-ion battery
+  - electrolyzer production, 1MWe, PEM, Balance of Plant
+  - electrolyzer production, 1MWe, PEM, Stack
+  - electrolyzer production, 1MWe, SOEC, Balance of Plant
+  - electronics production, for control units
+  - end plate production, for fuel cell system
+  - epoxy resin production, liquid
+  - essential BoP components for fuel cell system
+  - ethanol production, via fermentation, from sugarbeet, energy allocation
+  - ethanol, from sugarbeet, at fuelling station
+  - excavation, hydraulic digger
+  - excavation, skid-steer loader
+  - extrusion, plastic film
+  - farming and supply of corn
+  - farming and supply of eucalyptus
+  - farming and supply of sugarbeet
+  - fertilising, by broadcaster
+  - filtering, through water ion exchanger
+  - fixed bed reactor for RWGS
+  - fuel cell stack production, 1 kW
+  - fuel tank production, compressed hydrogen gas, 700bar, with carbon fiber
+  - fuel tank production, compressed natural gas, 200 bar
+  - gas diffusion layer production, for fuel cell system
+  - geological hydrogen storage
+  - glider lightweighting
+  - graphite ore mining
+  - graphite precursor production
+  - graphite production
+  - graphite purification
+  - green coke production
+  - heat and power co-generation, biogas, gas engine
+  - heat and power co-generation, natural gas, 1MW electrical, lean burn
+  - heat and power co-generation, natural gas, conventional power plant, 100MW electrical
+  - heat and power co-generation, wood chips, 6667 kW, state-of-the-art 2014
+  - heat production, light fuel oil, at boiler 100kW, non-modulating
+  - heat production, natural gas, at boiler condensing modulating >100kW
+  - heat production, natural gas, at industrial furnace >100kW
+  - heat production, natural gas, at industrial furnace low-NOx >100kW
+  - high voltage system, for Li-ion battery
+  - high-density polyethylene tank liner production
+  - hydrogen distribution pipeline construction
+  - hydrogen distribution pipeline installation
+  - hydrogen fluoride production
+  - hydrogen production, gaseous, 30 bar, from PEM electrolysis, from grid electricity
+  - hydrogen production, steam methane reforming of natural gas, 25 bar
+  - hydrogen supply, distributed by pipeline, produced by Electrolysis, PEM using electricity from grid
+  - hydrogen supply, distributed by pipeline, produced by SMR using natural gas
+  - hydrogen transmission pipeline construction
+  - hydrogen transmission pipeline installation
+  - infrastructure construction, for regional distribution of oil product
+  - injection moulding
+  - integrated interface system production, for Li-ion battery
+  - iridium production
+  - lignite mine operation
+  - lithium brine filtering, via ion exchanger
+  - lithium brine production, boron removal
+  - lithium brine production, boron removal, from Salar de Cauchari-Olaroz
+  - lithium brine production, boron removal, from Salar del Hombre Muerto
+  - lithium brine production, from Li-ion selective adsorption
+  - lithium brine production, from evaporation pond
+  - lithium brine production, from evaporation pond, from Salar de Cauchari-Olaroz
+  - lithium brine production, from evaporation pond, from Salar de Olaroz
+  - lithium brine production, from evaporation pond, from Salar del Hombre Muerto
+  - lithium brine production, lime removal
+  - lithium brine production, lime removal, from Salar de Cauchari-Olaroz
+  - lithium brine production, manganese removal
+  - lithium brine production, manganese removal, from Salar de Cauchari-Olaroz
+  - lithium brine production, manganese removal, from Salar del Hombre Muerto
+  - lithium brine production, sulfate removal, from Salar de Cauchari-Olaroz
+  - lithium brine purifying, via membrane separation
+  - lithium carbonate precipitation 1
+  - lithium carbonate precipitation 1, from Salar de Cauchari-Olaroz
+  - lithium carbonate precipitation 1, from Salar de Olaroz
+  - lithium carbonate precipitation 1, from Salar del Hombre Muerto
+  - lithium carbonate precipitation 2
+  - lithium carbonate precipitation 2, from Salar de Cauchari-Olaroz
+  - lithium carbonate precipitation 2, from Salar de Olaroz
+  - lithium carbonate precipitation 2, from Salar del Hombre Muerto
+  - lithium carbonate production, from Chaerhan salt lake
+  - lithium carbonate production, from Salar de Atacama
+  - lithium carbonate production, from Salar de Cauchari-Olaroz
+  - lithium carbonate production, from Salar de Olaroz
+  - lithium carbonate production, from Salar del Hombre Muerto
+  - lithium carbonate washing
+  - lithium hydroxide production, battery grade
+  - low voltage system, for Li-ion battery
+  - lubricating oil production
+  - m-Xylene
+  - machine operation, diesel, >= 74.57 kW, high load factor
+  - maintenance, passenger car
+  - management sytem production, for Li-ion battery
+  - market for N-methyl-2-pyrrolidone
+  - market for NOx retained, by selective catalytic reduction
+  - market for acetone, liquid
+  - market for acrylic acid
+  - market for acrylonitrile
+  - market for acrylonitrile-butadiene-styrene copolymer
+  - market for activated carbon, granular
+  - market for aluminium alloy, AlLi
+  - market for aluminium casting facility
+  - market for aluminium oxide, metallurgical
+  - market for aluminium sulfate, powder
+  - market for aluminium, wrought alloy
+  - market for ammonia, anhydrous, liquid
+  - market for ammonium bicarbonate
+  - market for ammonium chloride
+  - market for bipyridylium-compound
+  - market for brake wear emissions, passenger car
+  - market for brass
+  - market for cable, ribbon cable, 20-pin, with plugs
+  - market for calcium carbonate, precipitated
+  - market for calcium chloride
+  - market for carbon black
+  - market for carboxymethyl cellulose, powder
+  - market for cast iron
+  - market for casting, brass
+  - market for charger, electric passenger car
+  - market for chemical factory
+  - market for chemical factory, organics
+  - market for chemical, inorganic
+  - market for chemical, organic
+  - market for chlorine, liquid
+  - market for chromium oxide, flakes
+  - market for compressed air, 1000 kPa gauge
+  - market for compressed air, 700 kPa gauge
+  - market for concrete, normal strength
+  - market for converter, for electric passenger car
+  - market for copper oxide
+  - market for copper sulfate
+  - market for copper, anode
+  - market for copper, cathode
+  - market for diesel
+  - market for diesel, burned in agricultural machinery
+  - market for diesel, burned in building machine
+  - market for diesel, burned in diesel-electric generating set, 18.5kW
+  - market for diethyl ether, without water, in 99.95% solution state
+  - market for dimethyl carbonate
+  - market for dimethyl sulfoxide
+  - market for drawing of pipe, steel
+  - market for electric arc furnace dust
+  - market for electric connector, wire clamp
+  - market for electric motor, electric passenger car
+  - market for electricity, high voltage
+  - market for electricity, medium voltage, cobalt industry
+  - market for electronic component factory
+  - market for electronic component, passive, unspecified
+  - market for electronics, for control units
+  - market for energy and auxilliary inputs, metal working factory
+  - market for epoxy resin, liquid
+  - market for ethanol, without water, in 99.7% solution state, from fermentation
+  - market for ethylene carbonate
+  - market for ethylene glycol
+  - market for eucalyptus seedling, for planting
+  - market for explosive, tovex
+  - market for extrusion, plastic film
+  - market for extrusion, plastic pipes
+  - market for fly ash and scrubber sludge
+  - market for glass fibre
+  - market for glass fibre reinforced plastic, polyamide, injection moulded
+  - market for glider, passenger car
+  - market for glyphosate
+  - market for graphite, battery grade
+  - market for gypsum, mineral
+  - market for hard coal
+  - market for hazardous waste, for incineration
+  - market for heat, central or small-scale, natural gas
+  - market for heat, central or small-scale, other than natural gas
+  - market for heat, district or industrial, natural gas
+  - market for heat, from steam, in chemical industry
+  - market for hexafluoroethane
+  - market for hydrochloric acid, without water, in 30% solution state
+  - market for impact extrusion of aluminium, 1 stroke
+  - market for inert waste, for final disposal
+  - market for injection moulding
+  - market for inorganic nitrogen fertiliser, as N
+  - market for inorganic phosphorus fertiliser, as P2O5
+  - market for inorganic potassium fertiliser, as K2O
+  - market for integrated circuit, logic type
+  - market for internal combustion engine, passenger car
+  - market for inverter, for electric passenger car
+  - market for iodine
+  - market for irrigation
+  - market for kerosene
+  - market for latex
+  - market for lime
+  - market for lime, hydraulic
+  - market for limestone, crushed, for mill
+  - market for limestone, crushed, washed
+  - market for liquid storage tank, chemicals, organics
+  - market for lithium carbonate, battery grade
+  - market for lithium hexafluorophosphate
+  - market for lithium hydroxide, battery grade
+  - market for lubricating oil
+  - market for magnesium oxide
+  - market for maize seed, for sowing
+  - market for manganese sulfate
+  - market for metal working factory
+  - market for metal working machine, unspecified
+  - market for metal working, average for aluminium product manufacturing
+  - market for metal working, average for copper product manufacturing
+  - market for metal working, average for metal product manufacturing
+  - market for metal working, average for steel product manufacturing
+  - market for methanol
+  - market for methyl acrylate
+  - market for molybdenum trioxide
+  - market for monoethanolamine
+  - market for mulching
+  - market for municipal solid waste
+  - market for natural gas service station
+  - market for natural gas, high pressure
+  - market for natural gas, high pressure, vehicle grade
+  - market for natural gas, medium pressure, vehicle grade
+  - market for nickel sulfate
+  - market for nickel, class 1
+  - market for nitric acid, without water, in 50% solution state
+  - market for nitrogen, liquid
+  - market for non-sulfidic tailing, off-site
+  - market for nylon 6
+  - market for nylon 6-6
+  - market for packaging film, low density polyethylene
+  - market for packaging, for fertilisers
+  - market for packaging, for pesticides
+  - market for pesticide, unspecified
+  - market for phosphoric acid, industrial grade, without water, in 85% solution state
+  - market for phthalic anhydride
+  - market for pitch
+  - market for planting
+  - market for platinum
+  - market for polyethylene terephthalate, granulate, amorphous
+  - market for polyethylene, high density, granulate
+  - market for polyethylene, low density, granulate
+  - market for polyphenylene sulfide
+  - market for polypropylene, granulate
+  - market for polyurethane, flexible foam
+  - market for polyvinylchloride, bulk polymerised
+  - market for polyvinylfluoride
+  - market for portafer
+  - market for potassium hydroxide
+  - market for potassium permanganate
+  - market for potassium sulfate
+  - market for power distribution unit, for electric passenger car
+  - market for printed wiring board, surface mounted, unspecified, Pb free
+  - market for quicklime, milled, packed
+  - market for rainwater mineral oil storage
+  - market for refractory, basic, packed
+  - market for refrigerant R134a
+  - market for reinforcing steel
+  - market for residue from shredder fraction from manual dismantling
+  - market for road
+  - market for road maintenance
+  - market for road wear emissions, passenger car
+  - market for rolling mill
+  - market for sand
+  - market for scrap aluminium
+  - market for scrap copper
+  - market for scrap steel
+  - market for sheet rolling, aluminium
+  - market for sheet rolling, chromium steel
+  - market for sheet rolling, copper
+  - market for sheet rolling, steel
+  - market for silica sand
+  - market for silicone product
+  - market for skidding, skidder
+  - market for sludge from steel rolling
+  - market for soda ash, dense
+  - market for soda ash, light
+  - market for sodium hydroxide, without water, in 50% solution state
+  - market for sodium silicate, solid
+  - market for sodium sulfate, anhydrite
+  - market for soil pH raising agent, as CaCO3
+  - market for spent solvent mixture
+  - market for steel, chromium steel 18/8
+  - market for steel, chromium steel 18/8, hot rolled
+  - market for steel, low-alloyed
+  - market for steel, low-alloyed, hot rolled
+  - market for steel, unalloyed
+  - market for sugar beet seed, for sowing
+  - market for sulfidic tailings, from copper mine operation
+  - market for sulfur
+  - market for sulfur dioxide, liquid
+  - market for sulfur hexafluoride, liquid
+  - market for sulfuric acid
+  - market for synthetic rubber
+  - market for tap water
+  - market for tetrafluoroethylene
+  - market for thermoforming, with calendering
+  - market for tillage, ploughing
+  - market for tin
+  - market for titanium
+  - market for titanium dioxide
+  - market for transformer, high voltage use
+  - market for transport, freight train
+  - market for transport, freight, aircraft, unspecified
+  - market for transport, freight, inland waterways, barge
+  - market for transport, freight, lorry, unspecified
+  - market for transport, freight, sea, bulk carrier for dry goods
+  - market for transport, freight, sea, container ship
+  - market for transport, freight, sea, tanker for petroleum
+  - market for triethyl amine
+  - market for tube insulation, elastomere
+  - market for tyre wear emissions, passenger car
+  - market for used Li-ion battery
+  - market for used powertrain from electric passenger car, manual dismantling
+  - market for used vegetable cooking oil
+  - market for waste concrete, not reinforced
+  - market for waste mineral oil
+  - market for waste plastic, industrial electronics
+  - market for waste plastic, mixture
+  - market for waste rubber, unspecified
+  - market for wastewater, average
+  - market for water, decarbonised
+  - market for water, deionised
+  - market for water, ultrapure
+  - market for welding, arc, steel
+  - market for wire drawing, copper
+  - market for zeolite, powder
+  - market for zinc oxide
+  - market group for electricity, high voltage
+  - market group for electricity, low voltage
+  - market group for electricity, medium voltage
+  - market group for heat, district or industrial, natural gas
+  - market group for light fuel oil
+  - market group for natural gas, high pressure
+  - market group for tap water
+  - market group for transport, freight train
+  - market group for transport, freight, inland waterways, barge
+  - market group for transport, freight, light commercial vehicle
+  - market group for transport, freight, lorry, unspecified
+  - membrane production, for fuel cell system
+  - metal coating facility construction
+  - metal working factory construction
+  - metal working, average for aluminium product manufacturing
+  - metal working, average for chromium steel product manufacturing
+  - natural graphite concentration
+  - natural graphite production, coated
+  - natural graphite spheronization
+  - needle coke production
+  - noise, octave 1, day time, rural
+  - noise, octave 1, day time, suburban
+  - noise, octave 1, day time, urban
+  - noise, octave 2, day time, rural
+  - noise, octave 2, day time, suburban
+  - noise, octave 2, day time, urban
+  - noise, octave 3, day time, rural
+  - noise, octave 3, day time, suburban
+  - noise, octave 3, day time, urban
+  - noise, octave 4, day time, rural
+  - noise, octave 4, day time, suburban
+  - noise, octave 4, day time, urban
+  - noise, octave 5, day time, rural
+  - noise, octave 5, day time, suburban
+  - noise, octave 5, day time, urban
+  - noise, octave 6, day time, rural
+  - noise, octave 6, day time, suburban
+  - noise, octave 6, day time, urban
+  - noise, octave 7, day time, rural
+  - noise, octave 7, day time, suburban
+  - noise, octave 7, day time, urban
+  - noise, octave 8, day time, rural
+  - noise, octave 8, day time, suburban
+  - noise, octave 8, day time, urban
+  - o-Xylene
+  - packaging production, for Li-ion battery module
+  - petrol production, low-sulfur
+  - phenolic resin production
+  - pipeline construction, natural gas, high pressure distribution network
+  - pipeline, hydrogen, high pressure transmission network
+  - pipeline, hydrogen, low pressure distribution network
+  - polyacrylonitrile production (PAN) by polymerisation
+  - polyethylene production, high density, granulate
+  - powder coating, steel
+  - production of 2 wt-% potassium iodide solution
+  - reverse water gas shift (RWGS) catalyst
+  - sodium hydroxide to generic market for neutralising agent
+  - solution mining for geological hydrogen storage
+  - steam production, as energy carrier, in chemical industry
+  - steel production, chromium steel 18/8, hot rolled
+  - steel production, low-alloyed, hot rolled
+  - sulfuric acid production
+  - supply and refining of waste cooking oil
+  - synthetic graphite production
+  - tetrafluoroethylene production
+  - tie-rods production, for fuel cell system
+  - transmission network construction, electricity, high voltage
+  - transmission network construction, electricity, medium voltage
+  - transport, freight, lorry >32 metric ton, EURO3
+  - transport, helicopter
+  - transport, helicopter, LTO cycle
+  - treatment of decommissioned pipeline, natural gas, inert material landfill
+  - treatment of drilling waste, landfarming
+  - treatment of drilling waste, residual material landfill
+  - treatment of fuel cell balance of plant, 1MWe, AEC
+  - treatment of fuel cell balance of plant, 1MWe, PEM
+  - treatment of fuel cell balance of plant, 1MWe, SOEC
+  - treatment of fuel cell stack, 1MWe, PEM
+  - treatment of hazardous waste, hazardous waste incineration
+  - treatment of hydrogen distribution pipeline
+  - treatment of hydrogen transmission pipeline
+  - treatment of municipal solid waste, incineration
+  - treatment of non-sulfidic tailing, off-site
+  - treatment of scrap printed wiring boards, shredding and separation
+  - treatment of sewage sludge by anaerobic digestion
+  - treatment of spent anion exchange resin from potable water production, municipal incineration
+  - treatment of spent solvent mixture, hazardous waste incineration
+  - treatment of used cable
+  - treatment of waste bulk iron, excluding reinforcement, sorting plant
+  - treatment of waste mineral oil, hazardous waste incineration
+  - treatment of waste polyethylene/polypropylene product, collection for final disposal
+  - treatment of waste reinforcement steel, sorting plant
+  - treatment of waste zeolite, inert material landfill
+  - treatment of wastewater, average, wastewater treatment
+  - vinyl carbonate
+  - water, pure, via reverse osmosis
+  - zinc coating for hydrogen pipeline
+  - electricity supply for electric vehicles
+  - electricity supply for fuel preparation
+  - fuel supply for diesel vehicles
+  - fuel supply for methane vehicles
+  - fuel supply for petrol vehicles
+  - fuel supply for hydrogen vehicles
+  - Car, BEV, NMC-622 battery, Micro
+  - Car, BEV, NMC-111 battery, Micro
+  - Car, BEV, NMC-811 battery, Micro
+  - Car, BEV, NCA battery, Micro
+  - Car, BEV, LFP battery, Micro
+  - Car, HEV-d, Micro
+  - Car, HEV-p, Micro
+  - Car, ICEV-d, Micro
+  - Car, ICEV-p, Micro
+  - Car, ICEV-g, Micro
+  - Car, PHEV-d, Micro
+  - Car, PHEV-p, Micro
+  - Car, FCEV, Micro
+  - Car, BEV, NMC-622 battery, Mini
+  - Car, BEV, NMC-111 battery, Mini
+  - Car, BEV, NMC-811 battery, Mini
+  - Car, BEV, NCA battery, Mini
+  - Car, BEV, LFP battery, Mini
+  - Car, HEV-d, Mini
+  - Car, HEV-p, Mini
+  - Car, ICEV-d, Mini
+  - Car, ICEV-p, Mini
+  - Car, ICEV-g, Mini
+  - Car, PHEV-d, Mini
+  - Car, PHEV-p, Mini
+  - Car, FCEV, Mini
+  - Car, BEV, NMC-622 battery, Small
+  - Car, BEV, NMC-111 battery, Small
+  - Car, BEV, NMC-811 battery, Small
+  - Car, BEV, NCA battery, Small
+  - Car, BEV, LFP battery, Small
+  - Car, HEV-d, Small
+  - Car, HEV-p, Small
+  - Car, ICEV-d, Small
+  - Car, ICEV-p, Small
+  - Car, ICEV-g, Small
+  - Car, PHEV-d, Small
+  - Car, PHEV-p, Small
+  - Car, FCEV, Small
+  - Car, BEV, NMC-622 battery, Lower medium
+  - Car, BEV, NMC-111 battery, Lower medium
+  - Car, BEV, NMC-811 battery, Lower medium
+  - Car, BEV, NCA battery, Lower medium
+  - Car, BEV, LFP battery, Lower medium
+  - Car, HEV-d, Lower medium
+  - Car, HEV-p, Lower medium
+  - Car, ICEV-d, Lower medium
+  - Car, ICEV-p, Lower medium
+  - Car, ICEV-g, Lower medium
+  - Car, PHEV-d, Lower medium
+  - Car, PHEV-p, Lower medium
+  - Car, FCEV, Lower medium
+  - Car, BEV, NMC-622 battery, Medium
+  - Car, BEV, NMC-111 battery, Medium
+  - Car, BEV, NMC-811 battery, Medium
+  - Car, BEV, NCA battery, Medium
+  - Car, BEV, LFP battery, Medium
+  - Car, HEV-d, Medium
+  - Car, HEV-p, Medium
+  - Car, ICEV-d, Medium
+  - Car, ICEV-p, Medium
+  - Car, ICEV-g, Medium
+  - Car, PHEV-d, Medium
+  - Car, PHEV-p, Medium
+  - Car, FCEV, Medium
+  - Car, BEV, NMC-622 battery, Medium SUV
+  - Car, BEV, NMC-111 battery, Medium SUV
+  - Car, BEV, NMC-811 battery, Medium SUV
+  - Car, BEV, NCA battery, Medium SUV
+  - Car, BEV, LFP battery, Medium SUV
+  - Car, HEV-d, Medium SUV
+  - Car, HEV-p, Medium SUV
+  - Car, ICEV-d, Medium SUV
+  - Car, ICEV-p, Medium SUV
+  - Car, ICEV-g, Medium SUV
+  - Car, PHEV-d, Medium SUV
+  - Car, PHEV-p, Medium SUV
+  - Car, FCEV, Medium SUV
+  - Car, BEV, NMC-622 battery, Large
+  - Car, BEV, NMC-111 battery, Large
+  - Car, BEV, NMC-811 battery, Large
+  - Car, BEV, NCA battery, Large
+  - Car, BEV, LFP battery, Large
+  - Car, HEV-d, Large
+  - Car, HEV-p, Large
+  - Car, ICEV-d, Large
+  - Car, ICEV-p, Large
+  - Car, ICEV-g, Large
+  - Car, PHEV-d, Large
+  - Car, PHEV-p, Large
+  - Car, FCEV, Large
+  - Car, BEV, NMC-622 battery, Large SUV
+  - Car, BEV, NMC-111 battery, Large SUV
+  - Car, BEV, NMC-811 battery, Large SUV
+  - Car, BEV, NCA battery, Large SUV
+  - Car, BEV, LFP battery, Large SUV
+  - Car, HEV-d, Large SUV
+  - Car, HEV-p, Large SUV
+  - Car, ICEV-d, Large SUV
+  - Car, ICEV-p, Large SUV
+  - Car, ICEV-g, Large SUV
+  - Car, PHEV-d, Large SUV
+  - Car, PHEV-p, Large SUV
+  - Car, FCEV, Large SUV
+  - Car, BEV, NMC-622 battery, Van
+  - Car, BEV, NMC-111 battery, Van
+  - Car, BEV, NMC-811 battery, Van
+  - Car, BEV, NCA battery, Van
+  - Car, BEV, LFP battery, Van
+  - Car, HEV-d, Van
+  - Car, HEV-p, Van
+  - Car, ICEV-d, Van
+  - Car, ICEV-p, Van
+  - Car, ICEV-g, Van
+  - Car, PHEV-d, Van
+  - Car, PHEV-p, Van
+  - Car, FCEV, Van
+  - transport, car, BEV, NMC-622 battery, Micro
+  - transport, car, BEV, NMC-111 battery, Micro
+  - transport, car, BEV, NMC-811 battery, Micro
+  - transport, car, BEV, NCA battery, Micro
+  - transport, car, BEV, LFP battery, Micro
+  - transport, car, HEV-d, Micro
+  - transport, car, HEV-p, Micro
+  - transport, car, ICEV-d, Micro
+  - transport, car, ICEV-p, Micro
+  - transport, car, ICEV-g, Micro
+  - transport, car, PHEV-d, Micro
+  - transport, car, PHEV-p, Micro
+  - transport, car, FCEV, Micro
+  - transport, car, BEV, NMC-622 battery, Mini
+  - transport, car, BEV, NMC-111 battery, Mini
+  - transport, car, BEV, NMC-811 battery, Mini
+  - transport, car, BEV, NCA battery, Mini
+  - transport, car, BEV, LFP battery, Mini
+  - transport, car, HEV-d, Mini
+  - transport, car, HEV-p, Mini
+  - transport, car, ICEV-d, Mini
+  - transport, car, ICEV-p, Mini
+  - transport, car, ICEV-g, Mini
+  - transport, car, PHEV-d, Mini
+  - transport, car, PHEV-p, Mini
+  - transport, car, FCEV, Mini
+  - transport, car, BEV, NMC-622 battery, Small
+  - transport, car, BEV, NMC-111 battery, Small
+  - transport, car, BEV, NMC-811 battery, Small
+  - transport, car, BEV, NCA battery, Small
+  - transport, car, BEV, LFP battery, Small
+  - transport, car, HEV-d, Small
+  - transport, car, HEV-p, Small
+  - transport, car, ICEV-d, Small
+  - transport, car, ICEV-p, Small
+  - transport, car, ICEV-g, Small
+  - transport, car, PHEV-d, Small
+  - transport, car, PHEV-p, Small
+  - transport, car, FCEV, Small
+  - transport, car, BEV, NMC-622 battery, Lower medium
+  - transport, car, BEV, NMC-111 battery, Lower medium
+  - transport, car, BEV, NMC-811 battery, Lower medium
+  - transport, car, BEV, NCA battery, Lower medium
+  - transport, car, BEV, LFP battery, Lower medium
+  - transport, car, HEV-d, Lower medium
+  - transport, car, HEV-p, Lower medium
+  - transport, car, ICEV-d, Lower medium
+  - transport, car, ICEV-p, Lower medium
+  - transport, car, ICEV-g, Lower medium
+  - transport, car, PHEV-d, Lower medium
+  - transport, car, PHEV-p, Lower medium
+  - transport, car, FCEV, Lower medium
+  - transport, car, BEV, NMC-622 battery, Medium
+  - transport, car, BEV, NMC-111 battery, Medium
+  - transport, car, BEV, NMC-811 battery, Medium
+  - transport, car, BEV, NCA battery, Medium
+  - transport, car, BEV, LFP battery, Medium
+  - transport, car, HEV-d, Medium
+  - transport, car, HEV-p, Medium
+  - transport, car, ICEV-d, Medium
+  - transport, car, ICEV-p, Medium
+  - transport, car, ICEV-g, Medium
+  - transport, car, PHEV-d, Medium
+  - transport, car, PHEV-p, Medium
+  - transport, car, FCEV, Medium
+  - transport, car, BEV, NMC-622 battery, Medium SUV
+  - transport, car, BEV, NMC-111 battery, Medium SUV
+  - transport, car, BEV, NMC-811 battery, Medium SUV
+  - transport, car, BEV, NCA battery, Medium SUV
+  - transport, car, BEV, LFP battery, Medium SUV
+  - transport, car, HEV-d, Medium SUV
+  - transport, car, HEV-p, Medium SUV
+  - transport, car, ICEV-d, Medium SUV
+  - transport, car, ICEV-p, Medium SUV
+  - transport, car, ICEV-g, Medium SUV
+  - transport, car, PHEV-d, Medium SUV
+  - transport, car, PHEV-p, Medium SUV
+  - transport, car, FCEV, Medium SUV
+  - transport, car, BEV, NMC-622 battery, Large
+  - transport, car, BEV, NMC-111 battery, Large
+  - transport, car, BEV, NMC-811 battery, Large
+  - transport, car, BEV, NCA battery, Large
+  - transport, car, BEV, LFP battery, Large
+  - transport, car, HEV-d, Large
+  - transport, car, HEV-p, Large
+  - transport, car, ICEV-d, Large
+  - transport, car, ICEV-p, Large
+  - transport, car, ICEV-g, Large
+  - transport, car, PHEV-d, Large
+  - transport, car, PHEV-p, Large
+  - transport, car, FCEV, Large
+  - transport, car, BEV, NMC-622 battery, Large SUV
+  - transport, car, BEV, NMC-111 battery, Large SUV
+  - transport, car, BEV, NMC-811 battery, Large SUV
+  - transport, car, BEV, NCA battery, Large SUV
+  - transport, car, BEV, LFP battery, Large SUV
+  - transport, car, HEV-d, Large SUV
+  - transport, car, HEV-p, Large SUV
+  - transport, car, ICEV-d, Large SUV
+  - transport, car, ICEV-p, Large SUV
+  - transport, car, ICEV-g, Large SUV
+  - transport, car, PHEV-d, Large SUV
+  - transport, car, PHEV-p, Large SUV
+  - transport, car, FCEV, Large SUV
+  - transport, car, BEV, NMC-622 battery, Van
+  - transport, car, BEV, NMC-111 battery, Van
+  - transport, car, BEV, NMC-811 battery, Van
+  - transport, car, BEV, NCA battery, Van
+  - transport, car, BEV, LFP battery, Van
+  - transport, car, HEV-d, Van
+  - transport, car, HEV-p, Van
+  - transport, car, ICEV-d, Van
+  - transport, car, ICEV-p, Van
+  - transport, car, ICEV-g, Van
+  - transport, car, PHEV-d, Van
+  - transport, car, PHEV-p, Van
+  - transport, car, FCEV, Van
+
+bus:
+  - 1-Pentene
+  - 2,4-D
+  - AOX, Adsorbable Organic Halogen
+  - Acetaldehyde
+  - Acetamide
+  - Acetic acid
+  - Acetochlor
+  - Acetone
+  - Acrolein
+  - Alachlor
+  - Aluminium III
+  - Ammonia
+  - Argon-40
+  - Arsenic ion
+  - Atrazine
+  - BOD5, Biological Oxygen Demand
+  - Barium II
+  - Benzaldehyde
+  - Benzene
+  - Benzene, hexachloro-
+  - Benzo(a)pyrene
+  - Beta-cyfluthrin
+  - Bifenthrin
+  - Boron
+  - Bromoxynil
+  - Butane
+  - COD, Chemical Oxygen Demand
+  - Cadmium II
+  - Carbon dioxide, fossil
+  - Carbon dioxide, in air
+  - Carbon dioxide, non-fossil
+  - Carbon monoxide, fossil
+  - Chloride
+  - Chlorine
+  - Chlorpyrifos
+  - Chromium III
+  - Chromium VI
+  - Cobalt
+  - Copper
+  - Copper ion
+  - Cyclohexane
+  - Cypermethrin
+  - Cyproconazole
+  - Desmedipham
+  - Dicamba
+  - Diflufenzopyr-sodium
+  - Dimethenamid
+  - Dinitrogen monoxide
+  - Dioxins, measured as 2,3,7,8-tetrachlorodibenzo-p-dioxin
+  - Energy, gross calorific value, in biomass
+  - Ethane
+  - Ethane, 1,1,1,2-tetrafluoro-, HFC-134a
+  - Ethofumesate
+  - Fipronil
+  - Flumetsulam
+  - Flumioxazin
+  - Fluoride
+  - Foramsulfuron
+  - Formaldehyde
+  - Glufosinate
+  - Glyphosate
+  - Heat, waste
+  - Heptane
+  - Hexane
+  - Hydrocarbons, aromatic
+  - Hydrocarbons, chlorinated
+  - Hydrocarbons, unspecified
+  - Hydrochloric acid
+  - Hydrogen
+  - Hydrogen fluoride
+  - Hydrogen sulfide
+  - Imazapyr
+  - Imazethapyr
+  - Imidacloprid
+  - Iridium
+  - Iron ion
+  - Isoxaflutole
+  - Lambda-cyhalothrin
+  - Lead II
+  - Lithium
+  - MEA hot pressing, for fuel cell system
+  - Magnesium
+  - Manganese II
+  - Mercury II
+  - Mesotrione
+  - Methane, dichloro-, HCC-30
+  - Methane, fossil
+  - Methane, non-fossil
+  - Methane, tetrachloro-, R-10
+  - Methyl ethyl ketone
+  - Metolachlor
+  - Monoethanolamine
+  - NCA hydroxide
+  - NCA oxide
+  - NMC-111 hydroxide
+  - NMC-111 oxide
+  - NMC-622 hydroxide
+  - NMC-622 oxide
+  - NMVOC, non-methane volatile organic compounds
+  - Nickel II
+  - Nicosulfuron
+  - Nitrate
+  - Nitrogen
+  - Nitrogen oxides
+  - Occupation, annual crop
+  - Occupation, annual crop, non-irrigated, intensive
+  - Occupation, construction site
+  - Occupation, industrial area
+  - Occupation, mineral extraction site
+  - Oil, crude
+  - Oils, unspecified
+  - Oxygen
+  - PAH, polycyclic aromatic hydrocarbons
+  - Paraquat
+  - Particulate Matter, < 2.5 um
+  - Particulate Matter, > 10 um
+  - Particulate Matter, > 2.5 um and < 10um
+  - Pendimethalin
+  - Pentane
+  - Perfluoropentane
+  - Permethrin
+  - Pesticides, unspecified
+  - Phenmedipham
+  - Phenol, pentachloro-
+  - Phosphate
+  - Phosphorus
+  - Polychlorinated biphenyls
+  - Potassium I
+  - Primisulfuron
+  - Propane
+  - Propene
+  - Propionic acid
+  - Prosulfuron
+  - Rimsulfuron
+  - Selenium IV
+  - Silicon
+  - Simazine
+  - Sodium
+  - Sodium I
+  - Strontium
+  - Styrene
+  - Sulfite
+  - Sulfur
+  - Sulfur dioxide
+  - Sulfur hexafluoride
+  - Suspended solids, unspecified
+  - TOC, Total Organic Carbon
+  - Tebupirimfos
+  - Tefluthrin
+  - Terbufos
+  - Toluene
+  - Zinc II
+  - noise, octave 1, day time, rural
+  - noise, octave 1, day time, suburban
+  - noise, octave 1, day time, urban
+  - noise, octave 2, day time, rural
+  - noise, octave 2, day time, suburban
+  - noise, octave 2, day time, urban
+  - noise, octave 3, day time, rural
+  - noise, octave 3, day time, suburban
+  - noise, octave 3, day time, urban
+  - noise, octave 4, day time, rural
+  - noise, octave 4, day time, suburban
+  - noise, octave 4, day time, urban
+  - noise, octave 5, day time, rural
+  - noise, octave 5, day time, suburban
+  - noise, octave 5, day time, urban
+  - noise, octave 6, day time, rural
+  - noise, octave 6, day time, suburban
+  - noise, octave 6, day time, urban
+  - noise, octave 7, day time, rural
+  - noise, octave 7, day time, suburban
+  - noise, octave 7, day time, urban
+  - noise, octave 8, day time, rural
+  - noise, octave 8, day time, suburban
+  - noise, octave 8, day time, urban
+  - activated bentonite production
+  - activated silica production
+  - air separation, cryogenic
+  - air separation, cryogenic
+  - aluminium collector foil, for Li-ion battery
+  - aluminium ingot, primary, to aluminium, wrought alloy market
+  - aluminium production, primary, ingot
+  - amine-based silica production, for sorbent-based direct air capture system
+  - ancillary BoP components for fuel cell system
+  - anode current collector, LTO
+  - anode paste, LTO
+  - anode, graphite, for Li-ion battery
+  - arsine production
+  - assembly operation, for lorry
+  - barite production
+  - battery BoP
+  - battery cell, LTO
+  - battery cell, NMC-111
+  - battery cell, NMC-622
+  - battery separator
+  - biodiesel production, via transesterification, from used cooking oil, energy allocation
+  - biodiesel, from used cooking oil, at fuelling station
+  - biomethane production, from biogas upgrading, using amine scrubbing
+  - biomethane, gaseous, 5 bar, from sewage sludge fermentation, at fuelling station
+  - bipolar plate production, for fuel cell system
+  - building construction, hall, steel construction
+  - building construction, multi-storey
+  - cables production, for trolleybus track
+  - carbon black production
+  - carbon dioxide, captured from atmosphere, with a solvent-based direct air capture system, 1MtCO2
+  - carbon dioxide, captured from atmosphere, with a sorbent-based direct air capture system, 100ktCO2
+  - carbon fiber production, exhaust gas treatment 1
+  - carbon fiber production, exhaust gas treatment 2
+  - carbon fiber production, fiber coagulation, stretching, washing, sizing and drying
+  - carbon fiber production, fiber drying and sizing
+  - carbon fiber production, fiber relaxation
+  - carbon fiber production, fiber stabilization, carbonization, electrolysis and washing
+  - carbon fiber production, fiber winding and unwinding
+  - carbon fiber production, weaved, at factory
+  - casting, brass
+  - catalyst layer production, for fuel cell system
+  - catenary masts production, for catenary system
+  - catenary system assembly, with overhead lines, for trolleybus
+  - cathode current collector, LTO
+  - cathode, NCA, for Li-ion battery
+  - cathode, NMC-111, for Li-ion battery
+  - cathode, NMC-622, for Li-ion battery
+  - cell container
+  - cement production, Portland
+  - charger production, for electric vehicles, 200 kW
+  - charger, for electric vehicles, level 3, plugin, 200 kW
+  - charger, for electric vehicles, level 3, with pantograph, 450 kW
+  - charging stand assembly, for electric vehicles
+  - chemical factory construction, organics
+  - coal coking, for coal tar pitch production
+  - coating and curing, general manufacturing
+  - cobalt hydroxide, via hydrometallurigcal ore procesing, economic allocation
+  - cobalt sulfate production, from copper mining, economic allocation
+  - coking
+  - compressor assembly for transmission hydrogen pipeline
+  - computer production, laptop
+  - copper collector foil, for Li-ion battery
+  - copper-cobalt mining, artisanal
+  - copper-cobalt mining, industrial, economic allocation
+  - crude oil extraction
+  - dearomatized hydrocarbon fluid production
+  - diesel production, low-sulfur, petroleum refinery operation
+  - diesel, burned in diesel-electric generating set, 18.5kW
+  - direct air capture system, sorbent-based, 100ktCO2
+  - disodium disulphite
+  - display production, liquid crystal, 17 inches
+  - distribution network construction, electricity, low voltage
+  - distribution sheds construction, for trolleybus track
+  - drilling, deep borehole
+  - electrical equipment production, for trolleybus track
+  - electricity production, deep geothermal
+  - electricity production, hard coal
+  - electricity production, hydro, reservoir, alpine region
+  - electricity production, hydro, run-of-river
+  - electricity production, lignite
+  - electricity production, natural gas, combined cycle power plant
+  - electricity production, natural gas, conventional power plant
+  - electricity production, nuclear, pressure water reactor
+  - electricity production, oil
+  - electricity production, photovoltaic, 3kWp slanted-roof installation, multi-Si, panel, mounted
+  - electricity production, wind, 1-3MW turbine, offshore
+  - electricity production, wind, 1-3MW turbine, onshore
+  - electricity production, at biomethane-fired power plant, post, pipeline 200km, storage 1000m
+  - electricity production, at biomass-fired IGCC power plant, pre, pipeline 200km, storage 1000m
+  - electricity production, at hard coal-fired power plant, post, pipeline 200km, storage 1000m
+  - electricity production, at natural gas-fired combined cycle power plant, post, pipeline 200km, storage 1000m
+  - electricity production, at wood burning power plant, post, pipeline 200km, storage 1000m
+  - electricity production, solar thermal parabolic trough, 50 MW
+  - electrolyte, LTO
+  - electrolyte, for Li-ion battery
+  - electrolyzer production, 1MWe, PEM, Balance of Plant
+  - electrolyzer production, 1MWe, PEM, Stack
+  - electrolyzer production, 1MWe, SOEC, Balance of Plant
+  - electronics production, for control units
+  - electronics production, for control units
+  - end plate production, for fuel cell system
+  - epoxy resin production, liquid
+  - epoxy resin production, liquid
+  - essential BoP components for fuel cell system
+  - excavation, hydraulic digger
+  - excavation, skid-steer loader
+  - exhaust system, for lorry
+  - extrusion, plastic film
+  - filtering, through water ion exchanger
+  - frame, blanks and saddle, for lorry
+  - fuel cell stack production, 1 kW
+  - fuel tank production, compressed hydrogen gas, 700bar, with carbon fiber
+  - fuel tank production, compressed natural gas, 200 bar
+  - fuel tank production, for diesel vehicle
+  - gas diffusion layer production, for fuel cell system
+  - gearbox, for lorry
+  - geological hydrogen storage
+  - glass fibre reinforced plastic production, polyamide, injection moulded
+  - glider lightweighting
+  - graphite ore mining
+  - graphite precursor production
+  - graphite production
+  - graphite purification
+  - green coke production
+  - heat and power co-generation, biogas, gas engine
+  - heat and power co-generation, natural gas, 1MW electrical, lean burn
+  - heat and power co-generation, natural gas, 1MW electrical, lean burn
+  - heat and power co-generation, natural gas, 1MW electrical, lean burn
+  - heat and power co-generation, natural gas, conventional power plant, 100MW electrical
+  - heat and power co-generation, wood chips, 6667 kW, state-of-the-art 2014
+  - heat production, light fuel oil, at boiler 100kW, non-modulating
+  - heat production, natural gas, at boiler condensing modulating >100kW
+  - heat production, natural gas, at industrial furnace >100kW
+  - heat production, natural gas, at industrial furnace >100kW
+  - heat production, natural gas, at industrial furnace low-NOx >100kW
+  - high voltage system, for Li-ion battery
+  - high-density polyethylene tank liner production
+  - hydrogen distribution pipeline construction
+  - hydrogen distribution pipeline installation
+  - hydrogen fluoride production
+  - hydrogen production, gaseous, 30 bar, from PEM electrolysis, from grid electricity
+  - hydrogen production, steam methane reforming of natural gas, 25 bar
+  - hydrogen supply, distributed by pipeline, produced by Electrolysis, PEM using electricity from grid
+  - hydrogen supply, distributed by pipeline, produced by SMR using natural gas
+  - hydrogen transmission pipeline construction
+  - hydrogen transmission pipeline installation
+  - infrastructure construction, for regional distribution of oil product
+  - injection moulding
+  - integrated interface system production, for Li-ion battery
+  - internal combustion engine, for lorry
+  - iridium production
+  - laminating service, foil, with acrylic binder
+  - lead acid battery, for lorry
+  - lignite mine operation
+  - lithium brine filtering, via ion exchanger
+  - lithium brine production, boron removal
+  - lithium brine production, boron removal, from Salar de Cauchari-Olaroz
+  - lithium brine production, boron removal, from Salar del Hombre Muerto
+  - lithium brine production, from Li-ion selective adsorption
+  - lithium brine production, from evaporation pond
+  - lithium brine production, from evaporation pond, from Salar de Cauchari-Olaroz
+  - lithium brine production, from evaporation pond, from Salar de Olaroz
+  - lithium brine production, from evaporation pond, from Salar del Hombre Muerto
+  - lithium brine production, lime removal
+  - lithium brine production, lime removal, from Salar de Cauchari-Olaroz
+  - lithium brine production, manganese removal
+  - lithium brine production, manganese removal, from Salar de Cauchari-Olaroz
+  - lithium brine production, manganese removal, from Salar del Hombre Muerto
+  - lithium brine production, sulfate removal, from Salar de Cauchari-Olaroz
+  - lithium brine purifying, via membrane separation
+  - lithium carbonate precipitation 1
+  - lithium carbonate precipitation 1
+  - lithium carbonate precipitation 1, from Salar de Cauchari-Olaroz
+  - lithium carbonate precipitation 1, from Salar de Olaroz
+  - lithium carbonate precipitation 1, from Salar del Hombre Muerto
+  - lithium carbonate precipitation 2
+  - lithium carbonate precipitation 2
+  - lithium carbonate precipitation 2, from Salar de Cauchari-Olaroz
+  - lithium carbonate precipitation 2, from Salar de Olaroz
+  - lithium carbonate precipitation 2, from Salar del Hombre Muerto
+  - lithium carbonate production, from Chaerhan salt lake
+  - lithium carbonate production, from Salar de Atacama
+  - lithium carbonate production, from Salar de Cauchari-Olaroz
+  - lithium carbonate production, from Salar de Olaroz
+  - lithium carbonate production, from Salar del Hombre Muerto
+  - lithium carbonate washing
+  - lithium hydroxide production, battery grade
+  - low voltage system, for Li-ion battery
+  - lubricating oil production
+  - m-Xylene
+  - m-Xylene
+  - machine operation, diesel, >= 74.57 kW, high load factor
+  - maintenance, bus
+  - management sytem production, for Li-ion battery
+  - market for N-methyl-2-pyrrolidone
+  - market for NOx retained, by selective catalytic reduction
+  - market for acetone, liquid
+  - market for acetylene
+  - market for acrylic acid
+  - market for acrylonitrile
+  - market for acrylonitrile-butadiene-styrene copolymer
+  - market for activated carbon, granular
+  - market for alkyd paint, white, without solvent, in 60% solution state
+  - market for aluminium alloy, AlLi
+  - market for aluminium alloy, AlMg3
+  - market for aluminium casting facility
+  - market for aluminium oxide, metallurgical
+  - market for aluminium sulfate, powder
+  - market for aluminium sulfate, powder
+  - market for aluminium, wrought alloy
+  - market for ammonia, anhydrous, liquid
+  - market for ammonia, anhydrous, liquid
+  - market for ammonium bicarbonate
+  - market for ammonium bicarbonate
+  - market for ammonium chloride
+  - market for antimony
+  - market for brass
+  - market for brass
+  - market for butadiene
+  - market for cable, ribbon cable, 20-pin, with plugs
+  - market for calcium carbonate, precipitated
+  - market for calcium chloride
+  - market for carbon black
+  - market for carbon dioxide, liquid
+  - market for carboxymethyl cellulose, powder
+  - market for cast iron
+  - market for casting, brass
+  - market for ceramic tile
+  - market for chemical factory
+  - market for chemical factory, organics
+  - market for chemical, inorganic
+  - market for chemical, organic
+  - market for chlorine, liquid
+  - market for chlorine, liquid
+  - market for chromium oxide, flakes
+  - market for compressed air, 1000 kPa gauge
+  - market for compressed air, 700 kPa gauge
+  - market for concrete, normal strength
+  - market for converter, for electric passenger car
+  - market for copper oxide
+  - market for copper, anode
+  - market for copper, cathode
+  - market for cyclohexane
+  - market for diesel
+  - market for diesel
+  - market for diesel, burned in building machine
+  - market for diesel, burned in diesel-electric generating set, 18.5kW
+  - market for diethyl ether, without water, in 99.95% solution state
+  - market for dimethyl carbonate
+  - market for dimethyl sulfoxide
+  - market for drawing of pipe, steel
+  - market for electric arc furnace dust
+  - market for electric connector, wire clamp
+  - market for electric motor, electric passenger car
+  - market for electricity, high voltage
+  - market for electricity, high voltage
+  - market for electricity, medium voltage, cobalt industry
+  - market for electronic component factory
+  - market for electronic component, passive, unspecified
+  - market for electronics, for control units
+  - market for energy and auxilliary inputs, metal working factory
+  - market for epoxy resin, liquid
+  - market for ethanol, without water, in 99.7% solution state, from fermentation
+  - market for ethylene carbonate
+  - market for ethylene glycol
+  - market for explosive, tovex
+  - market for extrusion, plastic film
+  - market for extrusion, plastic pipes
+  - market for fly ash and scrubber sludge
+  - market for glass fibre
+  - market for glass fibre reinforced plastic, polyamide, injection moulded
+  - market for gold
+  - market for graphite, battery grade
+  - market for hard coal
+  - market for hazardous waste, for incineration
+  - market for heat, central or small-scale, natural gas
+  - market for heat, central or small-scale, natural gas
+  - market for heat, central or small-scale, other than natural gas
+  - market for heat, district or industrial, natural gas
+  - market for heat, from steam, in chemical industry
+  - market for hexafluoroethane
+  - market for hydrochloric acid, without water, in 30% solution state
+  - market for hydrochloric acid, without water, in 30% solution state
+  - market for impact extrusion of aluminium, 1 stroke
+  - market for inert waste, for final disposal
+  - market for inert waste, for final disposal
+  - market for injection moulding
+  - market for integrated circuit, logic type
+  - market for inverter, for electric passenger car
+  - market for iodine
+  - market for isopropanol
+  - market for kerosene
+  - market for latex
+  - market for lead
+  - market for lime
+  - market for lime, hydraulic
+  - market for limestone, crushed, for mill
+  - market for limestone, crushed, for mill
+  - market for limestone, crushed, washed
+  - market for liquefied petroleum gas
+  - market for liquid storage tank, chemicals, organics
+  - market for lithium carbonate, battery grade
+  - market for lithium hexafluorophosphate
+  - market for lithium hydroxide, battery grade
+  - market for lubricating oil
+  - market for magnesium oxide
+  - market for manganese sulfate
+  - market for metal working factory
+  - market for metal working machine, unspecified
+  - market for metal working, average for aluminium product manufacturing
+  - market for metal working, average for copper product manufacturing
+  - market for metal working, average for metal product manufacturing
+  - market for metal working, average for steel product manufacturing
+  - market for methanol
+  - market for methyl acrylate
+  - market for molybdenum trioxide
+  - market for monoethanolamine
+  - market for municipal solid waste
+  - market for natural gas service station
+  - market for natural gas, high pressure
+  - market for natural gas, high pressure
+  - market for natural gas, high pressure, vehicle grade
+  - market for natural gas, medium pressure, vehicle grade
+  - market for nickel sulfate
+  - market for nickel, class 1
+  - market for nitric acid, without water, in 50% solution state
+  - market for nitric acid, without water, in 50% solution state
+  - market for nitrogen, liquid
+  - market for nitrogen, liquid
+  - market for non-sulfidic tailing, off-site
+  - market for nylon 6
+  - market for nylon 6
+  - market for nylon 6-6
+  - market for nylon 6-6
+  - market for nylon 6-6, glass-filled
+  - market for packaging film, low density polyethylene
+  - market for phenolic resin
+  - market for phosphoric acid, industrial grade, without water, in 85% solution state
+  - market for phthalic anhydride
+  - market for pitch
+  - market for plastic processing factory
+  - market for platinum
+  - market for polycarbonate
+  - market for polyethylene terephthalate, granulate, amorphous
+  - market for polyethylene, high density, granulate
+  - market for polyethylene, high density, granulate, recycled
+  - market for polyethylene, low density, granulate
+  - market for polyphenylene sulfide
+  - market for polypropylene, granulate
+  - market for polystyrene foam slab for perimeter insulation
+  - market for polyurethane, rigid foam
+  - market for polyvinylchloride, bulk polymerised
+  - market for polyvinylfluoride
+  - market for portafer
+  - market for potassium carbonate
+  - market for potassium hydroxide
+  - market for potassium permanganate
+  - market for potassium sulfate
+  - market for power distribution unit, for electric passenger car
+  - market for printed wiring board, surface mounted, unspecified, Pb free
+  - market for quicklime, milled, packed
+  - market for quicklime, milled, packed
+  - market for rainwater mineral oil storage
+  - market for refractory, basic, packed
+  - market for refrigerant R134a
+  - market for reinforcing steel
+  - market for residue from shredder fraction from manual dismantling
+  - market for road
+  - market for road maintenance
+  - market for rolling mill
+  - market for sand
+  - market for scrap aluminium
+  - market for scrap copper
+  - market for scrap steel
+  - market for sheet rolling, aluminium
+  - market for sheet rolling, chromium steel
+  - market for sheet rolling, copper
+  - market for sheet rolling, steel
+  - market for silica sand
+  - market for silicone product
+  - market for sludge from steel rolling
+  - market for soap
+  - market for soda ash, dense
+  - market for soda ash, light
+  - market for sodium hydroxide, without water, in 50% solution state
+  - market for sodium persulfate
+  - market for sodium silicate, solid
+  - market for sodium sulfate, anhydrite
+  - market for soft solder, Sn97Cu3
+  - market for spent anion exchange resin from potable water production
+  - market for spent solvent mixture
+  - market for spent solvent mixture
+  - market for spent solvent mixture
+  - market for steel, chromium steel 18/8
+  - market for steel, chromium steel 18/8, hot rolled
+  - market for steel, low-alloyed
+  - market for steel, low-alloyed, hot rolled
+  - market for steel, unalloyed
+  - market for stone wool
+  - market for styrene
+  - market for styrene butadiene rubber (SBR)
+  - market for sulfidic tailings, from copper mine operation
+  - market for sulfur
+  - market for sulfur dioxide, liquid
+  - market for sulfur dioxide, liquid
+  - market for sulfur hexafluoride, liquid
+  - market for sulfuric acid
+  - market for sulfuric acid
+  - market for synthetic rubber
+  - market for tap water
+  - market for tap water
+  - market for tetrafluoroethylene
+  - market for thermoforming, with calendering
+  - market for tin
+  - market for titanium
+  - market for titanium dioxide
+  - market for titanium dioxide
+  - market for transformer, high voltage use
+  - market for transport, freight train
+  - market for transport, freight train
+  - market for transport, freight train
+  - market for transport, freight, aircraft, unspecified
+  - market for transport, freight, inland waterways, barge
+  - market for transport, freight, inland waterways, barge
+  - market for transport, freight, lorry >32 metric ton, EURO5
+  - market for transport, freight, lorry, unspecified
+  - market for transport, freight, lorry, unspecified
+  - market for transport, freight, sea, bulk carrier for dry goods
+  - market for transport, freight, sea, container ship
+  - market for transport, freight, sea, tanker for petroleum
+  - market for triethyl amine
+  - market for tube insulation, elastomere
+  - market for used Li-ion battery
+  - market for used vegetable cooking oil
+  - market for waste concrete, not reinforced
+  - market for waste mineral oil
+  - market for waste plastic, industrial electronics
+  - market for waste plastic, mixture
+  - market for waste rubber, unspecified
+  - market for wastewater, average
+  - market for wastewater, average
+  - market for wastewater, average
+  - market for water, decarbonised
+  - market for water, deionised
+  - market for water, deionised
+  - market for water, ultrapure
+  - market for water, ultrapure
+  - market for welding, arc, steel
+  - market for wire drawing, copper
+  - market for zeolite, powder
+  - market for zinc
+  - market for zinc oxide
+  - market group for electricity, high voltage
+  - market group for electricity, low voltage
+  - market group for electricity, low voltage
+  - market group for electricity, medium voltage
+  - market group for electricity, medium voltage
+  - market group for electricity, medium voltage
+  - market group for heat, central or small-scale, natural gas
+  - market group for heat, district or industrial, natural gas
+  - market group for natural gas, high pressure
+  - market group for tap water
+  - market group for transport, freight train
+  - market group for transport, freight, inland waterways, barge
+  - market group for transport, freight, light commercial vehicle
+  - market group for transport, freight, lorry, unspecified
+  - membrane production, for fuel cell system
+  - metal coating facility construction
+  - metal working factory construction
+  - metal working, average for aluminium product manufacturing
+  - metal working, average for aluminium product manufacturing
+  - metal working, average for chromium steel product manufacturing
+  - metal working, average for chromium steel product manufacturing
+  - metal working, average for copper product manufacturing
+  - metal working, average for steel product manufacturing
+  - methane, from electrochemical methanation, with carbon from atmosphere
+  - multilayer pouch
+  - natural graphite concentration
+  - natural graphite production, coated
+  - natural graphite spheronization
+  - needle coke production
+  - noise, octave 1, day time, suburban
+  - noise, octave 1, day time, urban
+  - noise, octave 2, day time, suburban
+  - noise, octave 2, day time, urban
+  - noise, octave 3, day time, suburban
+  - noise, octave 3, day time, urban
+  - noise, octave 4, day time, suburban
+  - noise, octave 4, day time, urban
+  - noise, octave 5, day time, suburban
+  - noise, octave 5, day time, urban
+  - noise, octave 6, day time, suburban
+  - noise, octave 6, day time, urban
+  - noise, octave 7, day time, suburban
+  - noise, octave 7, day time, urban
+  - noise, octave 8, day time, suburban
+  - noise, octave 8, day time, urban
+  - o-Xylene
+  - o-Xylene
+  - other components, for electric lorry
+  - other components, for hybrid electric lorry
+  - overhead lines assembly, for trolleybus
+  - packaging production, for Li-ion battery module
+  - phenolic resin production
+  - pipeline construction, natural gas, high pressure distribution network
+  - pipeline, hydrogen, high pressure transmission network
+  - pipeline, hydrogen, low pressure distribution network
+  - polyacrylonitrile production (PAN) by polymerisation
+  - polyethylene production, high density, granulate
+  - powder coating, steel
+  - power electronics, for lorry
+  - production of 2 wt-% potassium iodide solution
+  - production of nickel-based catalyst for methanation
+  - reinforcing steel production
+  - retarder, for lorry
+  - sabatier reaction methanation unit construction
+  - semi-rigid roadside barriers construction, for trolleybus track
+  - sodium hydroxide to generic market for neutralising agent
+  - solution mining for geological hydrogen storage
+  - steam production, as energy carrier, in chemical industry
+  - steel production, chromium steel 18/8, hot rolled
+  - steel production, chromium steel 18/8, hot rolled
+  - steel production, low-alloyed, hot rolled
+  - storage battery production, for electric vehicles
+  - sulfuric acid production
+  - supply and refining of waste cooking oil
+  - suspension, for lorry
+  - synthetic graphite production
+  - tab Aluminum
+  - tab Copper
+  - tetrafluoroethylene production
+  - tie-rods production, for fuel cell system
+  - tires and wheels, for lorry
+  - transformers assembly, for trolleybus track
+  - transmission network construction, electricity, high voltage
+  - transmission network construction, electricity, medium voltage
+  - transmission, for lorry
+  - transport, freight, lorry >32 metric ton, EURO3
+  - transport, helicopter
+  - transport, helicopter, LTO cycle
+  - treatment of aluminium scrap, post-consumer, prepared for recycling, at remelter
+  - treatment of brake wear emissions, lorry
+  - treatment of decommissioned pipeline, natural gas, inert material landfill
+  - treatment of direct air capture system, solvent-based, 1MtCO2
+  - treatment of direct air capture system, sorbent-based, 100ktCO2
+  - treatment of drilling waste, landfarming
+  - treatment of drilling waste, residual material landfill
+  - treatment of fuel cell balance of plant, 1MWe, AEC
+  - treatment of fuel cell balance of plant, 1MWe, PEM
+  - treatment of fuel cell balance of plant, 1MWe, SOEC
+  - treatment of fuel cell stack, 1MWe, PEM
+  - treatment of hazardous waste, hazardous waste incineration
+  - treatment of hazardous waste, hazardous waste incineration
+  - treatment of hydrogen distribution pipeline
+  - treatment of hydrogen transmission pipeline
+  - treatment of limestone residue, inert material landfill
+  - treatment of municipal solid waste, incineration
+  - treatment of non-sulfidic tailing, off-site
+  - treatment of road wear emissions, lorry
+  - treatment of scrap copper, municipal incineration
+  - treatment of scrap printed wiring boards, shredding and separation
+  - treatment of sewage sludge by anaerobic digestion
+  - treatment of spent anion exchange resin from potable water production, municipal incineration
+  - treatment of spent solvent mixture, hazardous waste incineration
+  - treatment of tyre wear emissions, lorry
+  - treatment of used bus
+  - treatment of used cable
+  - treatment of waste brick, collection for final disposal
+  - treatment of waste bulk iron, excluding reinforcement, sorting plant
+  - treatment of waste concrete, inert material landfill
+  - treatment of waste mineral oil, hazardous waste incineration
+  - treatment of waste mineral wool, inert material landfill
+  - treatment of waste plastic, mixture, municipal incineration
+  - treatment of waste polyethylene/polypropylene product, collection for final disposal
+  - treatment of waste polyurethane, municipal incineration
+  - treatment of waste reinforcement steel, recycling
+  - treatment of waste reinforcement steel, sorting plant
+  - treatment of waste zeolite, inert material landfill
+  - treatment of wastewater from lorry production, wastewater treatment, urban
+  - treatment of wastewater, average, wastewater treatment
+  - treatment of wastewater, average, wastewater treatment
+  - treatment of wastewater, average, wastewater treatment
+  - treatment of wastewater, unpolluted, wastewater treatment
+  - vinyl carbonate
+  - water, pure, via reverse osmosis
+  - water, pure, via reverse osmosis
+  - water, pure, via reverse osmosis
+  - welding, arc, aluminium
+  - zinc coating for hydrogen pipeline
+  - fuel supply for diesel vehicles
+  - fuel supply for hydrogen vehicles
+  - fuel supply for methane vehicles
+  - electricity supply for electric vehicles
+  - electricity supply for fuel preparation
+  - Bus, BEV-depot, NMC-622 battery, 13m-city
+  - Bus, BEV-motion, NMC-622 battery, 13m-city
+  - Bus, BEV-opp, NMC-622 battery, 13m-city
+  - Bus, BEV-depot, NMC-111 battery, 13m-city
+  - Bus, BEV-motion, NMC-111 battery, 13m-city
+  - Bus, BEV-opp, NMC-111 battery, 13m-city
+  - Bus, BEV-depot, NMC-811 battery, 13m-city
+  - Bus, BEV-motion, NMC-811 battery, 13m-city
+  - Bus, BEV-opp, NMC-811 battery, 13m-city
+  - Bus, BEV-depot, NCA battery, 13m-city
+  - Bus, BEV-motion, NCA battery, 13m-city
+  - Bus, BEV-opp, NCA battery, 13m-city
+  - Bus, BEV-depot, LFP battery, 13m-city
+  - Bus, BEV-motion, LFP battery, 13m-city
+  - Bus, BEV-opp, LFP battery, 13m-city
+  - Bus, BEV-depot, LTO battery, 13m-city
+  - Bus, BEV-motion, LTO battery, 13m-city
+  - Bus, BEV-opp, LTO battery, 13m-city
+  - Bus, HEV-d, 13m-city
+  - Bus, ICEV-d, 13m-city
+  - Bus, ICEV-g, 13m-city
+  - Bus, FCEV, 13m-city
+  - Bus, BEV-depot, NMC-622 battery, 13m-city-double
+  - Bus, BEV-motion, NMC-622 battery, 13m-city-double
+  - Bus, BEV-opp, NMC-622 battery, 13m-city-double
+  - Bus, BEV-depot, NMC-111 battery, 13m-city-double
+  - Bus, BEV-motion, NMC-111 battery, 13m-city-double
+  - Bus, BEV-opp, NMC-111 battery, 13m-city-double
+  - Bus, BEV-depot, NMC-811 battery, 13m-city-double
+  - Bus, BEV-motion, NMC-811 battery, 13m-city-double
+  - Bus, BEV-opp, NMC-811 battery, 13m-city-double
+  - Bus, BEV-depot, NCA battery, 13m-city-double
+  - Bus, BEV-motion, NCA battery, 13m-city-double
+  - Bus, BEV-opp, NCA battery, 13m-city-double
+  - Bus, BEV-depot, LFP battery, 13m-city-double
+  - Bus, BEV-motion, LFP battery, 13m-city-double
+  - Bus, BEV-opp, LFP battery, 13m-city-double
+  - Bus, BEV-depot, LTO battery, 13m-city-double
+  - Bus, BEV-motion, LTO battery, 13m-city-double
+  - Bus, BEV-opp, LTO battery, 13m-city-double
+  - Bus, HEV-d, 13m-city-double
+  - Bus, ICEV-d, 13m-city-double
+  - Bus, ICEV-g, 13m-city-double
+  - Bus, FCEV, 13m-city-double
+  - Bus, BEV-depot, NMC-622 battery, 13m-coach
+  - Bus, BEV-motion, NMC-622 battery, 13m-coach
+  - Bus, BEV-opp, NMC-622 battery, 13m-coach
+  - Bus, BEV-depot, NMC-111 battery, 13m-coach
+  - Bus, BEV-motion, NMC-111 battery, 13m-coach
+  - Bus, BEV-opp, NMC-111 battery, 13m-coach
+  - Bus, BEV-depot, NMC-811 battery, 13m-coach
+  - Bus, BEV-motion, NMC-811 battery, 13m-coach
+  - Bus, BEV-opp, NMC-811 battery, 13m-coach
+  - Bus, BEV-depot, NCA battery, 13m-coach
+  - Bus, BEV-motion, NCA battery, 13m-coach
+  - Bus, BEV-opp, NCA battery, 13m-coach
+  - Bus, BEV-depot, LFP battery, 13m-coach
+  - Bus, BEV-motion, LFP battery, 13m-coach
+  - Bus, BEV-opp, LFP battery, 13m-coach
+  - Bus, BEV-depot, LTO battery, 13m-coach
+  - Bus, BEV-motion, LTO battery, 13m-coach
+  - Bus, BEV-opp, LTO battery, 13m-coach
+  - Bus, HEV-d, 13m-coach
+  - Bus, ICEV-d, 13m-coach
+  - Bus, ICEV-g, 13m-coach
+  - Bus, FCEV, 13m-coach
+  - Bus, BEV-depot, NMC-622 battery, 13m-coach-double
+  - Bus, BEV-motion, NMC-622 battery, 13m-coach-double
+  - Bus, BEV-opp, NMC-622 battery, 13m-coach-double
+  - Bus, BEV-depot, NMC-111 battery, 13m-coach-double
+  - Bus, BEV-motion, NMC-111 battery, 13m-coach-double
+  - Bus, BEV-opp, NMC-111 battery, 13m-coach-double
+  - Bus, BEV-depot, NMC-811 battery, 13m-coach-double
+  - Bus, BEV-motion, NMC-811 battery, 13m-coach-double
+  - Bus, BEV-opp, NMC-811 battery, 13m-coach-double
+  - Bus, BEV-depot, NCA battery, 13m-coach-double
+  - Bus, BEV-motion, NCA battery, 13m-coach-double
+  - Bus, BEV-opp, NCA battery, 13m-coach-double
+  - Bus, BEV-depot, LFP battery, 13m-coach-double
+  - Bus, BEV-motion, LFP battery, 13m-coach-double
+  - Bus, BEV-opp, LFP battery, 13m-coach-double
+  - Bus, BEV-depot, LTO battery, 13m-coach-double
+  - Bus, BEV-motion, LTO battery, 13m-coach-double
+  - Bus, BEV-opp, LTO battery, 13m-coach-double
+  - Bus, HEV-d, 13m-coach-double
+  - Bus, ICEV-d, 13m-coach-double
+  - Bus, ICEV-g, 13m-coach-double
+  - Bus, FCEV, 13m-coach-double
+  - Bus, BEV-depot, NMC-622 battery, 18m
+  - Bus, BEV-motion, NMC-622 battery, 18m
+  - Bus, BEV-opp, NMC-622 battery, 18m
+  - Bus, BEV-depot, NMC-111 battery, 18m
+  - Bus, BEV-motion, NMC-111 battery, 18m
+  - Bus, BEV-opp, NMC-111 battery, 18m
+  - Bus, BEV-depot, NMC-811 battery, 18m
+  - Bus, BEV-motion, NMC-811 battery, 18m
+  - Bus, BEV-opp, NMC-811 battery, 18m
+  - Bus, BEV-depot, NCA battery, 18m
+  - Bus, BEV-motion, NCA battery, 18m
+  - Bus, BEV-opp, NCA battery, 18m
+  - Bus, BEV-depot, LFP battery, 18m
+  - Bus, BEV-motion, LFP battery, 18m
+  - Bus, BEV-opp, LFP battery, 18m
+  - Bus, BEV-depot, LTO battery, 18m
+  - Bus, BEV-motion, LTO battery, 18m
+  - Bus, BEV-opp, LTO battery, 18m
+  - Bus, HEV-d, 18m
+  - Bus, ICEV-d, 18m
+  - Bus, ICEV-g, 18m
+  - Bus, FCEV, 18m
+  - Bus, BEV-depot, NMC-622 battery, 9m
+  - Bus, BEV-motion, NMC-622 battery, 9m
+  - Bus, BEV-opp, NMC-622 battery, 9m
+  - Bus, BEV-depot, NMC-111 battery, 9m
+  - Bus, BEV-motion, NMC-111 battery, 9m
+  - Bus, BEV-opp, NMC-111 battery, 9m
+  - Bus, BEV-depot, NMC-811 battery, 9m
+  - Bus, BEV-motion, NMC-811 battery, 9m
+  - Bus, BEV-opp, NMC-811 battery, 9m
+  - Bus, BEV-depot, NCA battery, 9m
+  - Bus, BEV-motion, NCA battery, 9m
+  - Bus, BEV-opp, NCA battery, 9m
+  - Bus, BEV-depot, LFP battery, 9m
+  - Bus, BEV-motion, LFP battery, 9m
+  - Bus, BEV-opp, LFP battery, 9m
+  - Bus, BEV-depot, LTO battery, 9m
+  - Bus, BEV-motion, LTO battery, 9m
+  - Bus, BEV-opp, LTO battery, 9m
+  - Bus, HEV-d, 9m
+  - Bus, ICEV-d, 9m
+  - Bus, ICEV-g, 9m
+  - Bus, FCEV, 9m
+  - transport, bus, BEV-depot, NMC-622 battery, 13m-city
+  - transport, bus, BEV-motion, NMC-622 battery, 13m-city
+  - transport, bus, BEV-opp, NMC-622 battery, 13m-city
+  - transport, bus, BEV-depot, NMC-111 battery, 13m-city
+  - transport, bus, BEV-motion, NMC-111 battery, 13m-city
+  - transport, bus, BEV-opp, NMC-111 battery, 13m-city
+  - transport, bus, BEV-depot, NMC-811 battery, 13m-city
+  - transport, bus, BEV-motion, NMC-811 battery, 13m-city
+  - transport, bus, BEV-opp, NMC-811 battery, 13m-city
+  - transport, bus, BEV-depot, NCA battery, 13m-city
+  - transport, bus, BEV-motion, NCA battery, 13m-city
+  - transport, bus, BEV-opp, NCA battery, 13m-city
+  - transport, bus, BEV-depot, LFP battery, 13m-city
+  - transport, bus, BEV-motion, LFP battery, 13m-city
+  - transport, bus, BEV-opp, LFP battery, 13m-city
+  - transport, bus, BEV-depot, LTO battery, 13m-city
+  - transport, bus, BEV-motion, LTO battery, 13m-city
+  - transport, bus, BEV-opp, LTO battery, 13m-city
+  - transport, bus, HEV-d, 13m-city
+  - transport, bus, ICEV-d, 13m-city
+  - transport, bus, ICEV-g, 13m-city
+  - transport, bus, FCEV, 13m-city
+  - transport, bus, BEV-depot, NMC-622 battery, 13m-city-double
+  - transport, bus, BEV-motion, NMC-622 battery, 13m-city-double
+  - transport, bus, BEV-opp, NMC-622 battery, 13m-city-double
+  - transport, bus, BEV-depot, NMC-111 battery, 13m-city-double
+  - transport, bus, BEV-motion, NMC-111 battery, 13m-city-double
+  - transport, bus, BEV-opp, NMC-111 battery, 13m-city-double
+  - transport, bus, BEV-depot, NMC-811 battery, 13m-city-double
+  - transport, bus, BEV-motion, NMC-811 battery, 13m-city-double
+  - transport, bus, BEV-opp, NMC-811 battery, 13m-city-double
+  - transport, bus, BEV-depot, NCA battery, 13m-city-double
+  - transport, bus, BEV-motion, NCA battery, 13m-city-double
+  - transport, bus, BEV-opp, NCA battery, 13m-city-double
+  - transport, bus, BEV-depot, LFP battery, 13m-city-double
+  - transport, bus, BEV-motion, LFP battery, 13m-city-double
+  - transport, bus, BEV-opp, LFP battery, 13m-city-double
+  - transport, bus, BEV-depot, LTO battery, 13m-city-double
+  - transport, bus, BEV-motion, LTO battery, 13m-city-double
+  - transport, bus, BEV-opp, LTO battery, 13m-city-double
+  - transport, bus, HEV-d, 13m-city-double
+  - transport, bus, ICEV-d, 13m-city-double
+  - transport, bus, ICEV-g, 13m-city-double
+  - transport, bus, FCEV, 13m-city-double
+  - transport, bus, BEV-depot, NMC-622 battery, 13m-coach
+  - transport, bus, BEV-motion, NMC-622 battery, 13m-coach
+  - transport, bus, BEV-opp, NMC-622 battery, 13m-coach
+  - transport, bus, BEV-depot, NMC-111 battery, 13m-coach
+  - transport, bus, BEV-motion, NMC-111 battery, 13m-coach
+  - transport, bus, BEV-opp, NMC-111 battery, 13m-coach
+  - transport, bus, BEV-depot, NMC-811 battery, 13m-coach
+  - transport, bus, BEV-motion, NMC-811 battery, 13m-coach
+  - transport, bus, BEV-opp, NMC-811 battery, 13m-coach
+  - transport, bus, BEV-depot, NCA battery, 13m-coach
+  - transport, bus, BEV-motion, NCA battery, 13m-coach
+  - transport, bus, BEV-opp, NCA battery, 13m-coach
+  - transport, bus, BEV-depot, LFP battery, 13m-coach
+  - transport, bus, BEV-motion, LFP battery, 13m-coach
+  - transport, bus, BEV-opp, LFP battery, 13m-coach
+  - transport, bus, BEV-depot, LTO battery, 13m-coach
+  - transport, bus, BEV-motion, LTO battery, 13m-coach
+  - transport, bus, BEV-opp, LTO battery, 13m-coach
+  - transport, bus, HEV-d, 13m-coach
+  - transport, bus, ICEV-d, 13m-coach
+  - transport, bus, ICEV-g, 13m-coach
+  - transport, bus, FCEV, 13m-coach
+  - transport, bus, BEV-depot, NMC-622 battery, 13m-coach-double
+  - transport, bus, BEV-motion, NMC-622 battery, 13m-coach-double
+  - transport, bus, BEV-opp, NMC-622 battery, 13m-coach-double
+  - transport, bus, BEV-depot, NMC-111 battery, 13m-coach-double
+  - transport, bus, BEV-motion, NMC-111 battery, 13m-coach-double
+  - transport, bus, BEV-opp, NMC-111 battery, 13m-coach-double
+  - transport, bus, BEV-depot, NMC-811 battery, 13m-coach-double
+  - transport, bus, BEV-motion, NMC-811 battery, 13m-coach-double
+  - transport, bus, BEV-opp, NMC-811 battery, 13m-coach-double
+  - transport, bus, BEV-depot, NCA battery, 13m-coach-double
+  - transport, bus, BEV-motion, NCA battery, 13m-coach-double
+  - transport, bus, BEV-opp, NCA battery, 13m-coach-double
+  - transport, bus, BEV-depot, LFP battery, 13m-coach-double
+  - transport, bus, BEV-motion, LFP battery, 13m-coach-double
+  - transport, bus, BEV-opp, LFP battery, 13m-coach-double
+  - transport, bus, BEV-depot, LTO battery, 13m-coach-double
+  - transport, bus, BEV-motion, LTO battery, 13m-coach-double
+  - transport, bus, BEV-opp, LTO battery, 13m-coach-double
+  - transport, bus, HEV-d, 13m-coach-double
+  - transport, bus, ICEV-d, 13m-coach-double
+  - transport, bus, ICEV-g, 13m-coach-double
+  - transport, bus, FCEV, 13m-coach-double
+  - transport, bus, BEV-depot, NMC-622 battery, 18m
+  - transport, bus, BEV-motion, NMC-622 battery, 18m
+  - transport, bus, BEV-opp, NMC-622 battery, 18m
+  - transport, bus, BEV-depot, NMC-111 battery, 18m
+  - transport, bus, BEV-motion, NMC-111 battery, 18m
+  - transport, bus, BEV-opp, NMC-111 battery, 18m
+  - transport, bus, BEV-depot, NMC-811 battery, 18m
+  - transport, bus, BEV-motion, NMC-811 battery, 18m
+  - transport, bus, BEV-opp, NMC-811 battery, 18m
+  - transport, bus, BEV-depot, NCA battery, 18m
+  - transport, bus, BEV-motion, NCA battery, 18m
+  - transport, bus, BEV-opp, NCA battery, 18m
+  - transport, bus, BEV-depot, LFP battery, 18m
+  - transport, bus, BEV-motion, LFP battery, 18m
+  - transport, bus, BEV-opp, LFP battery, 18m
+  - transport, bus, BEV-depot, LTO battery, 18m
+  - transport, bus, BEV-motion, LTO battery, 18m
+  - transport, bus, BEV-opp, LTO battery, 18m
+  - transport, bus, HEV-d, 18m
+  - transport, bus, ICEV-d, 18m
+  - transport, bus, ICEV-g, 18m
+  - transport, bus, FCEV, 18m
+  - transport, bus, BEV-depot, NMC-622 battery, 9m
+  - transport, bus, BEV-motion, NMC-622 battery, 9m
+  - transport, bus, BEV-opp, NMC-622 battery, 9m
+  - transport, bus, BEV-depot, NMC-111 battery, 9m
+  - transport, bus, BEV-motion, NMC-111 battery, 9m
+  - transport, bus, BEV-opp, NMC-111 battery, 9m
+  - transport, bus, BEV-depot, NMC-811 battery, 9m
+  - transport, bus, BEV-motion, NMC-811 battery, 9m
+  - transport, bus, BEV-opp, NMC-811 battery, 9m
+  - transport, bus, BEV-depot, NCA battery, 9m
+  - transport, bus, BEV-motion, NCA battery, 9m
+  - transport, bus, BEV-opp, NCA battery, 9m
+  - transport, bus, BEV-depot, LFP battery, 9m
+  - transport, bus, BEV-motion, LFP battery, 9m
+  - transport, bus, BEV-opp, LFP battery, 9m
+  - transport, bus, BEV-depot, LTO battery, 9m
+  - transport, bus, BEV-motion, LTO battery, 9m
+  - transport, bus, BEV-opp, LTO battery, 9m
+  - transport, bus, HEV-d, 9m
+  - transport, bus, ICEV-d, 9m
+  - transport, bus, ICEV-g, 9m
+  - transport, bus, FCEV, 9m
+
+truck:

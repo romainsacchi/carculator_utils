@@ -1,6 +1,6 @@
 glider:
   - market for glider
-  - Glider lightweighting
+  - glider lightweighting
   - other components
   - frame, blanks and saddle, for lorry
   - suspension, for lorry
@@ -27,28 +27,30 @@ powertrain:
   - electric motor production
   - powertrain production
   - charger production
+  - internal combustion engine
 
 energy storage:
-  - Ancillary BoP
-  - Essential BoP
-  - Stack
-  - Battery BoP
-  - Battery cell
+  - ancillary BoP
+  - essential BoP
+  - fuel cell stack
+  - battery BoP
+  - battery cell
   - lead acid
   - polyethylene production, high density
   - glass fibre reinforced plastic production
-  - Fuel tank, compressed hydrogen gas, 700bar
-  - Fuel tank, compressed natural gas, 200 bar
-  - Fuel tank, for diesel vehicle
+  - fuel tank production, compressed hydrogen gas, 700bar
+  - fuel tank production, compressed natural gas, 200 bar
+  - fuel tank production, for diesel vehicle
   - electricity supply for battery production
-  - EV charger
-  - overhead
-  - charging station
+
 
 energy chain:
   - fuel supply for
   - electricity supply for electric vehicles
   - electricity supply for fuel preparation
+  - charger, for electric vehicles
+  - overhead
+  - charging station
 
 maintenance:
   - maintenance, passenger car
@@ -64,9 +66,11 @@ EoL:
   - market for used
   - market for manual dismantling
   - manual dismantling of used
+  - market for waste plastic, industrial electronics
 
 road:
   - market for road
+
 
 direct - non-exhaust:
   - market for tyre wear emissions, passenger car

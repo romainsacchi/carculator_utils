@@ -21,6 +21,24 @@ from bw2io.export.excel import create_valid_worksheet_name, safe_filename, xlsxw
 from . import DATA_DIR, __version__
 
 
+def load_inventories() -> list[dict]:
+    """
+    Load LCIs to fetch metadata from.
+    """
+    filepath = DATA_DIR / "lci" / "lci-premise_carculator_db.xlsx"
+    if not filepath.is_file():
+        raise FileNotFoundError("The database of inventories could not be found.")
+    lci = bw2io.ExcelImporter(filepath)
+    references = {
+        lci.data[i]["name"]: {
+            "source": lci.data[i].get("source"),
+            "comment": lci.data[i].get("comment"),
+        }
+        for i in range(len(lci.data))
+    }
+    return references
+
+
 def load_mapping(
     filename,
 ) -> Dict[Tuple[str, str, str, str], Tuple[str, str, str, str]]:
@@ -114,32 +132,6 @@ def get_simapro_subcompartments() -> Dict[str, str]:
     return data
 
 
-def load_references() -> Dict[str, Dict[str, str]]:
-    """Load a dictionary with references/sources of datasets"""
-
-    # Load the matching dictionary
-    filename = "references.csv"
-    filepath = DATA_DIR / "export" / filename
-    if not filepath.is_file():
-        raise FileNotFoundError("The dictionary of references could not be found.")
-    with open(filepath, encoding="latin1") as file:
-        csv_list = [[val.strip() for val in r.split(";")] for r in file.readlines()]
-    _, *data = csv_list
-
-    dict_reference = {}
-    for row in data:
-        name, source, description, special_remark, category_1, category_2 = row
-        dict_reference[name] = {
-            "source": source,
-            "description": description,
-            "special remark": special_remark,
-            "category 1": category_1,
-            "category 2": category_2,
-        }
-
-    return dict_reference
-
-
 def get_simapro_biosphere() -> Dict[str, str]:
     # Load the matching dictionary between ecoinvent and Simapro biosphere flows
     # for each ecoinvent biosphere flow name, it gives the corresponding Simapro name
@@ -205,7 +197,7 @@ class ExportInventory:
         self.rename_vehicles()
         self.rev_rename_pwt = {v: k for k, v in self.rename_pwt.items()}
         self.db_name: str = db_name
-        self.references = load_references()
+        self.references = load_inventories()
 
         self.flow_map = {
             "3.5": load_mapping(filename="ei37_to_ei35.csv"),
@@ -230,10 +222,7 @@ class ExportInventory:
                         new_val,
                     )
 
-    def write_lci(
-        self,
-        ecoinvent_version: str,
-    ) -> List[Dict]:
+    def write_lci(self, ecoinvent_version: str, year=int) -> List[Dict]:
         """
         Return the inventory as a dictionary
         If there are several values for one exchange, uncertainty information is generated.
@@ -250,10 +239,12 @@ class ExportInventory:
             ]
         }
 
+        idx_year = self.vm.array.coords["year"].values.tolist().index(year)
+
         list_act = []
 
         # List of coordinates for non-zero values
-        non_zeroes = np.nonzero(self.array[0, :, :])
+        non_zeroes = np.nonzero(self.array[0, :, :, idx_year])
         # List of coordinates where activities present more than once
         # (to filter out "empty" activities, that is,
         # activities with only one reference product exchange)
@@ -278,45 +269,12 @@ class ExportInventory:
                 tuple_input = self.indices[row]
                 mult_factor = 1
 
-                if ecoinvent_version != "3.8":
-                    tuple_output = self.flow_map[ecoinvent_version].get(
-                        tuple_output, tuple_output
-                    )
-
-                    if ecoinvent_version != "3.9":
-                        tuple_input = self.flow_map[ecoinvent_version].get(
-                            tuple_input, tuple_input
-                        )
-                    else:
-                        if len(tuple_input) == 3:
-                            key_input = (
-                                tuple_input[0],
-                                "",
-                                tuple_input[1],
-                                tuple_input[2],
-                                "",
-                            )
-                        else:
-                            key_input = (
-                                tuple_input[0],
-                                tuple_input[1],
-                                "",
-                                tuple_input[2],
-                                tuple_input[3],
-                            )
-                        tuple_input = self.flow_map[ecoinvent_version].get(
-                            key_input, tuple_input
-                        )
-
-                        # remove blanks from tuple
-                        tuple_input = tuple([i for i in tuple_input if i != ""])
-
                 if tuple_output[0] in blacklist.get(ecoinvent_version, []):
                     continue
 
-                if len(self.array[:, row, col]) == 1:
+                if len(self.array[:, row, col, idx_year]) == 1:
                     # No uncertainty, only one value
-                    amount = self.array[0, row, col] * mult_factor
+                    amount = self.array[0, row, col, idx_year] * mult_factor
 
                 else:
                     raise ValueError(
@@ -351,27 +309,19 @@ class ExportInventory:
 
                 list_exc.append(exc)
 
-            source, description, special_remark = None, None, None
+            source, comment = None, None
 
             if tuple_output[0] in self.references:
-                source = self.references[tuple_output[0]]["source"]
-                description = self.references[tuple_output[0]]["description"]
-                special_remark = self.references[tuple_output[0]]["special remark"]
+                source = self.references[tuple_output[0]].get("source")
+                comment = self.references[tuple_output[0]].get("comment")
+            elif self.vm.vehicle_type in tuple_output[0].lower():
+                pass
+            elif tuple_output[0].startswith("fuel supply for") or tuple_output[
+                0
+            ].startswith("electricity supply for"):
+                pass
             else:
-                try:
-                    key = [
-                        k
-                        for k in self.references
-                        if k.lower() in tuple_output[0].lower()
-                    ][0]
-                    source = self.references[key]["source"]
-                    description = self.references[key]["description"]
-                    special_remark = self.references[key]["special remark"]
-                except IndexError:
-                    if self.vm.vehicle_type in tuple_output[0].lower():
-                        pass
-                    else:
-                        print(tuple_output[0])
+                print(f"Missing reference for {tuple_output[0]}")
 
             string = ""
 
@@ -380,28 +330,28 @@ class ExportInventory:
                     self.rename_pwt[p] for p in self.vm.array.powertrain.values.tolist()
                 ]
                 available_sizes = self.vm.array.coords["size"].values.tolist()
-                available_years = self.vm.array.coords["year"].values.tolist()
 
-                if (
-                    any([w in tuple_output[0] for w in available_powertrains])
-                    and any([w in tuple_output[0] for w in available_sizes])
-                    and any([str(w) in tuple_output[0] for w in available_years])
+                if any([w in tuple_output[0] for w in available_powertrains]) and any(
+                    [w in tuple_output[0] for w in available_sizes]
                 ):
                     possible_pwt = [
                         w for w in available_powertrains if w in tuple_output[0]
                     ]
-
                     if len(possible_pwt) > 1:
                         pwt = max(possible_pwt, key=len)
                     else:
                         pwt = possible_pwt[0]
-
                     pwt = self.rev_rename_pwt[pwt]
-                    size = [w for w in available_sizes if w + "," in tuple_output[0]][
-                        0
-                    ]  # ',' is required to distinguish "Medium" vehicle and "Medium SUV"
-                    year = [w for w in available_years if str(w) in tuple_output[0]][0]
 
+                    possible_sizes = [
+                        w for w in available_sizes if w in tuple_output[0]
+                    ]
+                    if len(possible_sizes) > 1:
+                        size = max(possible_sizes, key=len)
+                    else:
+                        size = possible_sizes[0]
+
+                    string += f"Manufacture year: {year}. "
                     for param, formatting in self.rename_parameters.items():
                         if param not in self.vm.array.parameter.values:
                             continue
@@ -439,12 +389,12 @@ class ExportInventory:
 
             if source is not None:
                 new_act["source"] = source
-            if description is not None:
-                new_act["description"] = description
-            if special_remark is not None:
-                new_act["special remark"] = special_remark
-            if string is not None:
+            if comment is not None:
+                new_act["comment"] = comment
+            elif string != "":
                 new_act["comment"] = string
+            else:
+                pass
 
             list_act.append(new_act)
 
@@ -465,10 +415,7 @@ class ExportInventory:
                         ("reference product", k.get("reference product")),
                         ("type", "process"),
                         ("unit", k["unit"]),
-                        ("worksheet name", "None"),
                         ("source", k.get("source")),
-                        ("description", k.get("description")),
-                        ("special remark", k.get("special remark")),
                         ("comment", k.get("comment")),
                         ["Exchanges"],
                         [
@@ -1120,54 +1067,58 @@ class ExportInventory:
         :rtype: str
         """
 
-        filename = filename or safe_filename(
-            f"carculator_export_{datetime.date.today()}"
-        )
-        filename += "_bw2.xlsx"
+        importers = []
 
-        filepath_export = self.get_export_filepath(filename, directory)
+        for year in self.vm.array.coords["year"].values:
+            file = filename or safe_filename(
+                f"carculator_export_{datetime.date.today()}"
+            )
+            file += f"_{year}_bw2.xlsx"
 
-        data = self.write_lci(
-            ecoinvent_version=ecoinvent_version,
-        )
+            filepath_export = self.get_export_filepath(file, directory)
 
-        if export_format == "bw2io":
-            lci = bw2io.importers.base_lci.LCIImporter(self.db_name)
-            lci.data = data
-            lci.db_name = self.db_name
-            return lci
+            data = self.write_lci(ecoinvent_version=ecoinvent_version, year=year)
 
-        formatted_data = self.format_data_for_lci_for_bw2(data)
-        output = io.BytesIO() if export_format == "string" else filepath_export
-        workbook = xlsxwriter.Workbook(output, {"in_memory": True})
+            if export_format == "bw2io":
+                lci = bw2io.importers.base_lci.LCIImporter(self.db_name)
+                lci.data = data
+                lci.db_name = self.db_name
+                return lci
 
-        bold = workbook.add_format({"bold": True})
-        bold.set_font_size(12)
-        highlighted = {
-            "Activity",
-            "Database",
-            "Exchanges",
-            "Parameters",
-            "Database parameters",
-            "Project parameters",
-        }
-        frmt = lambda x: bold if row[0] in highlighted else None
-        sheet = workbook.add_worksheet(create_valid_worksheet_name("inventories"))
+            formatted_data = self.format_data_for_lci_for_bw2(data)
+            output = io.BytesIO() if export_format == "string" else filepath_export
+            workbook = xlsxwriter.Workbook(output, {"in_memory": True})
 
-        for row_index, row in enumerate(formatted_data):
-            for col_index, value in enumerate(row):
-                if value is None:
-                    continue
-                elif isinstance(value, float):
-                    sheet.write_number(row_index, col_index, value, frmt(value))
-                else:
-                    sheet.write_string(row_index, col_index, value, frmt(value))
+            bold = workbook.add_format({"bold": True})
+            bold.set_font_size(12)
+            highlighted = {
+                "Activity",
+                "Database",
+                "Exchanges",
+                "Parameters",
+                "Database parameters",
+                "Project parameters",
+            }
+            frmt = lambda x: bold if row[0] in highlighted else None
+            sheet = workbook.add_worksheet(create_valid_worksheet_name("inventories"))
+
+            for row_index, row in enumerate(formatted_data):
+                for col_index, value in enumerate(row):
+                    if value is None:
+                        continue
+                    elif isinstance(value, float):
+                        sheet.write_number(row_index, col_index, value, frmt(value))
+                    else:
+                        sheet.write_string(row_index, col_index, value, frmt(value))
+
+            if export_format == "file":
+                workbook.close()
+            else:
+                # return string
+                workbook.close()
+                output.seek(0)
+                importers.append(output.read())
 
         if export_format == "file":
-            workbook.close()
             return filepath_export
-
-        # return string
-        workbook.close()
-        output.seek(0)
-        return output.read()
+        return importers

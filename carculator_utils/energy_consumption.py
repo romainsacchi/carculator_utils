@@ -366,7 +366,17 @@ class EnergyConsumptionModel:
 
         efficiency = _c(efficiency)
 
-        return auxiliary_energy / _o(efficiency)
+        if auxiliary_energy.shape[0] == 1:
+            auxiliary_energy = np.resize(
+                auxiliary_energy, (self.velocity.shape[0], *auxiliary_energy.shape[1:])
+            )
+
+        try:
+            auxiliary_energy /= _o(efficiency)
+        except ValueError:
+            auxiliary_energy /= _o(efficiency).T[None, ...]
+
+        return auxiliary_energy
 
     def calculate_efficiency(
         self,
@@ -532,16 +542,22 @@ class EnergyConsumptionModel:
             )
 
             if fuel_cell_system_efficiency is None:
-                fuel_cell_system_efficiency = np.array([1.0])
+                fuel_cell_system_efficiency = np.ones_like(engine_efficiency)
 
             fuel_cell_system_efficiency = xr.where(
                 fuel_cell_system_efficiency == 0, 1, fuel_cell_system_efficiency
             )
 
+            _t = (
+                lambda x: x.T
+                if x.shape[-4:] != motive_energy_at_wheels.shape[-4:]
+                else x
+            )
+
             motive_energy = motive_energy_at_wheels / (
-                _o(_c(engine_efficiency))
-                * _o(_c(transmission_efficiency))
-                * _o(_c(fuel_cell_system_efficiency)).T[None, ...]
+                _t(_o(_c(engine_efficiency)))
+                * _t(_o(_c(transmission_efficiency)))
+                * _t(_o(_c(fuel_cell_system_efficiency)))
             )
 
             engine_load = np.clip(
@@ -599,7 +615,25 @@ class EnergyConsumptionModel:
                 heating_consumption,
             )
 
-        auxiliary_energy *= self.velocity > 0
+        auxiliary_energy = np.where(self.velocity > 0, auxiliary_energy, 0)
+
+        # if first dimension is 1, resize it to the length of the driving cycle
+        if auxiliary_energy.shape[0] == 1:
+            auxiliary_energy = np.resize(
+                auxiliary_energy, (self.velocity.shape[0], *auxiliary_energy.shape[1:])
+            )
+        if transmission_efficiency.shape[0] != self.velocity.shape[0]:
+            transmission_efficiency = transmission_efficiency.T.values[None, ...]
+            transmission_efficiency = np.resize(
+                transmission_efficiency,
+                (self.velocity.shape[0], *transmission_efficiency.shape[1:]),
+            )
+        if engine_efficiency.shape[0] != self.velocity.shape[0]:
+            engine_efficiency = engine_efficiency.T.values[None, ...]
+            engine_efficiency = np.resize(
+                engine_efficiency,
+                (self.velocity.shape[0], *engine_efficiency.shape[1:]),
+            )
 
         all_arrays = np.concatenate(
             [
