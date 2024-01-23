@@ -5,6 +5,7 @@ inventory.py contains InventoryCalculation which provides all methods to solve i
 import csv
 import itertools
 import re
+from datetime import datetime
 from collections import defaultdict
 from functools import lru_cache
 from pathlib import Path
@@ -147,21 +148,6 @@ def get_dict_input() -> dict:
             raw[_r] = tuple(r)
 
         return {j: i for i, j in enumerate(list(raw))}
-
-
-def load_mandatory_activities(vehicle_type) -> list:
-    """
-    Load a list of mandatory activities that must be included in the A maxtrix.
-    """
-
-    # Load list from YAML file mandatory_activities.yaml
-
-    with open(
-        DATA_DIR / "lcia" / "mandatory_activities.yaml", "r", encoding="utf-8"
-    ) as stream:
-        mandatory_activities = yaml.safe_load(stream)
-
-    return mandatory_activities[vehicle_type]
 
 
 def format_array(array):
@@ -364,6 +350,9 @@ class Inventory:
             self.inputs[("Carbon dioxide, fossil", ("air",), "kilogram")],
             self.inputs[("Carbon dioxide, non-fossil", ("air",), "kilogram")],
         ]
+        idx_cats["direct - exhaust"].append(
+            self.inputs[("Sulfur dioxide", ("air",), "kilogram")]
+        )
         idx_cats["direct - exhaust"].extend(
             [self.inputs[i] for i in self.exhaust_emissions]
         )
@@ -393,8 +382,9 @@ class Inventory:
         if self.func_unit == "vkm":
             load_factor = 1
         elif self.func_unit == "pkm":
+            load_factor = self.array.sel(parameter="average passengers")
             load_factor = np.resize(
-                self.array[self.array_inputs["average passengers"]].values,
+                load_factor.values,
                 (
                     1,
                     len(self.scope["size"]),
@@ -470,6 +460,7 @@ class Inventory:
             if isinstance(self.rev_inputs[a[0]][1], tuple):
                 # it's a biosphere flow, hence no need to calculate LCA
                 new_arr[a[0], :, a[1]] = B[a[1], :, a[0]]
+
             else:
                 f_vector[:] = 0
                 f_vector[a[0]] = 1
@@ -513,6 +504,19 @@ class Inventory:
 
         arr = arr[:, :, self.split_indices].sum(axis=3)
 
+        # fetch indices not contained in self.split_indices
+        # to see if there are other flows unaccounted for
+        idx = [
+            i
+            for i in range(self.B.shape[-1])
+            if i not in list(itertools.chain.from_iterable(self.split_indices))
+        ]
+        # check if any of the first items of nonzero_idx
+        # are in idx
+        for i in nonzero_idx:
+            if i[0] in idx:
+                print(f"The flow {self.rev_inputs[i[0]][0]} is not accounted for.")
+
         # reshape the array to match the dimensions of the results table
         arr = arr.transpose(0, 3, 4, 5, 2, 1)
 
@@ -522,7 +526,24 @@ class Inventory:
         else:
             results[...] = arr
 
-        return results / self.get_load_factor()
+        load_factor = self.get_load_factor()
+
+        # check that load_factor has the same number of dimensions
+        # otherwise, resize it
+        if isinstance(load_factor, np.ndarray):
+            if load_factor.ndim > results.ndim:
+                load_factor = np.resize(
+                    load_factor,
+                    (
+                        1,
+                        len(self.scope["size"]),
+                        len(self.scope["powertrain"]),
+                        len(self.scope["year"]),
+                        1,
+                    ),
+                )
+
+        return results / load_factor
 
     def add_additional_activities(self):
         # Add as many rows and columns as cars to consider
@@ -639,12 +660,6 @@ class Inventory:
         # load matrix A
         initial_A = sparse.load_npz(filepath).toarray()
 
-        # initial_A needs resizing because it contains unecessary rows/columns
-        self.mandatory_activities = load_mandatory_activities(self.vm.vehicle_type)
-        self.idx_mandatory_activities = [
-            self.inputs[i] for i in self.inputs if i[0] in self.mandatory_activities
-        ]
-
         new_A = np.identity(len(self.inputs))
         new_A[0 : np.shape(initial_A)[0], 0 : np.shape(initial_A)[0]] = initial_A
 
@@ -657,28 +672,6 @@ class Inventory:
                 len(self.inputs),
             ),
         )
-
-        # keeps rows/columns if position in idx_mandatory_activities
-        # else remove rows/columns
-
-        new_A = new_A[
-            np.ix_(
-                range(self.iterations),
-                self.idx_mandatory_activities,
-                self.idx_mandatory_activities,
-            )
-        ]
-
-        # update self.inputs
-        self.inputs = {
-            j: i
-            for i, j in enumerate(
-                [self.rev_inputs[i] for i in self.idx_mandatory_activities]
-            )
-        }
-
-        # update self.rev_inputs
-        self.rev_inputs = {v: k for k, v in self.inputs.items()}
 
         # add a `year`dimension, with length equal to the number of years
         # in the scope
@@ -707,22 +700,12 @@ class Inventory:
             if all(x in str(fp) for x in [self.method, self.indicator, self.scenario])
         ]
 
-        filepaths = sorted(filepaths, key=lambda x: int(re.findall("\d+", x)[1]))
+        filepaths = sorted(filepaths, key=lambda x: int(x[-8:-4]))
 
         B = np.zeros((len(filepaths), len(self.impact_categories), len(self.inputs)))
 
         for f, filepath in enumerate(filepaths):
             initial_B = sparse.load_npz(filepath).toarray()
-
-            # resize "initial_B" to remove unecessary rows/columns
-            idx = [i for i in self.idx_mandatory_activities if i < initial_B.shape[1]]
-
-            initial_B = initial_B[
-                np.ix_(
-                    range(initial_B.shape[0]),
-                    idx,
-                )
-            ]
 
             new_B = np.zeros(
                 (
@@ -1257,7 +1240,9 @@ class Inventory:
         )
 
         # Energy storage
-        print(f"The country of use is {self.vm.country}.", end="\n * ")
+        print(f"The functional unit is: {self.func_unit}.", end="\n * ")
+        print(f"The background prospective scenario is: {self.scenario}.", end="\n * ")
+        print(f"The country of use is: {self.vm.country}.", end="\n * ")
 
         battery_tech = list(set(list(self.vm.energy_storage["electric"].values())))
         if len(battery_tech) == 0:
@@ -1271,7 +1256,7 @@ class Inventory:
             end="\n",
         )
 
-        # Use the NMC inventory
+        #  battery BoP for all vehicles
         self.A[
             :,
             self.find_input_indices(("battery BoP",)),
@@ -1282,15 +1267,58 @@ class Inventory:
             * -1
         )
 
-        self.A[
-            :,
-            self.find_input_indices((f"battery cell, {battery_tech[0]}",)),
-            self.find_input_indices((f"{self.vm.vehicle_type.capitalize()}, ",)),
-        ] = (
-            self.array.sel(parameter="battery cell mass")
-            * (1 + self.array.sel(parameter="battery lifetime replacements"))
-            * -1
-        )
+        # Use the NMC inventory for all non-electric vehicles
+        # because they need one in the future as they become hybrid.
+        for pwt in [
+            p
+            for p in self.scope["powertrain"]
+            if p in ["ICEV-p", "ICEV-d", "ICEV-g", "HEV-p", "HEV-d"]
+        ]:
+            for size in self.scope["size"]:
+                for year in self.scope["year"]:
+                    self.vm.energy_storage["electric"].update(
+                        {
+                            (pwt, size, year): "NMC-622",
+                        }
+                    )
+
+        for key, val in self.vm.energy_storage["electric"].items():
+            pwt, size, year = key
+            self.A[
+                :,
+                self.find_input_indices((f"battery cell, {val}",)),
+                self.find_input_indices(
+                    (
+                        f"{self.vm.vehicle_type.capitalize()}, ",
+                        pwt,
+                        size,
+                    )
+                ),
+                self.scope["year"].index(year),
+            ] = (
+                self.array.sel(
+                    parameter="battery cell mass",
+                    combined_dim=[
+                        d
+                        for d in self.array.coords["combined_dim"].values
+                        if all(x in d for x in [pwt, size])
+                    ],
+                    year=year,
+                )
+                * (
+                    1
+                    + self.array.sel(
+                        parameter="battery lifetime replacements",
+                        combined_dim=[
+                            d
+                            for d in self.array.coords["combined_dim"].values
+                            if all(x in d for x in [pwt, size])
+                        ],
+                        year=year,
+                    )
+                )
+                * -1
+            )
 
         # Battery EoL
         self.A[
@@ -1502,6 +1530,7 @@ class Inventory:
                 self.inputs[("Sulfur dioxide", ("air",), "kilogram")],
                 self.find_input_indices(
                     contains=tuple(idx),
+                    excludes=("battery",),
                 ),
             ] = (
                 self.array.sel(
@@ -1547,6 +1576,7 @@ class Inventory:
                         f"transport, {self.vm.vehicle_type}, ",
                         powertrains_short,
                     ),
+                    excludes=("battery",),
                 ),
             ] = (
                 (
@@ -1558,7 +1588,14 @@ class Inventory:
                             if any(x in d for x in powertrains)
                         ],
                     )
-                    * self.array.sel(parameter="fuel density per kg")
+                    * self.array.sel(
+                        parameter="fuel density per kg",
+                        combined_dim=[
+                            d
+                            for d in self.array.coords["combined_dim"].values
+                            if any(x in d for x in powertrains)
+                        ],
+                    )
                 )
             ) * -1
 
@@ -1734,6 +1771,7 @@ class Inventory:
         Remove vehicles from self.A that do not have a TtW energy superior to 0.
         """
         # Get the indices of the vehicles that are not compliant
+        self.A = np.nan_to_num(self.A)
         idx = self.find_input_indices((f"{self.vm.vehicle_type.capitalize()}, ",))
 
         self.A[
@@ -1763,9 +1801,9 @@ class Inventory:
                 idx_others,
                 idx_cars,
             )
-        ] *= (
-            1 / load_factor
-        ).reshape(-1, 1, len(idx_cars))
+        ] *= 1 / np.squeeze(load_factor).reshape(
+            -1, len(idx_cars), len(self.scope["year"])
+        )
 
         # iterate through self.inputs and change the unit
         keys_to_modify = {
@@ -1810,14 +1848,14 @@ class Inventory:
             array=self.A,
             vehicle_model=self.vm,
             indices=self.rev_inputs,
-            db_name=f"{filename}_{self.vm.vehicle_type}",
+            db_name=f"{filename}_{self.vm.vehicle_type}_{datetime.now().strftime('%Y%m%d')}",
         )
 
         if software == "brightway2":
             return lci.write_bw2_lci(
                 ecoinvent_version=ecoinvent_version,
                 directory=directory,
-                filename=filename,
+                filename=f"{filename}_{self.vm.vehicle_type}_{datetime.now().strftime('%Y%m%d')}",
                 export_format=format,
             )
 
@@ -1825,6 +1863,6 @@ class Inventory:
             return lci.write_simapro_lci(
                 ecoinvent_version=ecoinvent_version,
                 directory=directory,
-                filename=filename,
+                filename=f"{filename}_{self.vm.vehicle_type}_{datetime.now().strftime('%Y%m%d')}",
                 export_format=format,
             )

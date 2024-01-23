@@ -611,7 +611,7 @@ methane - synthetic - coal:
       - methane, synthetic, gaseous, 5 bar, from coal-based hydrogen, at fuelling station
       - RER
       - kilogram
-      - biomethane, high pressure
+      - methane, high pressure
   biogenic_share: 0
 
 methane - synthetic - electrochemical:

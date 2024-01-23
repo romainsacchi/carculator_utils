@@ -27,6 +27,7 @@ powertrain:
   - electric motor production
   - powertrain production
   - charger production
+  - internal combustion engine
 
 energy storage:
   - ancillary BoP
@@ -41,14 +42,15 @@ energy storage:
   - fuel tank production, compressed natural gas, 200 bar
   - fuel tank production, for diesel vehicle
   - electricity supply for battery production
-  - EV charger
-  - overhead
-  - charging station
+
 
 energy chain:
   - fuel supply for
   - electricity supply for electric vehicles
   - electricity supply for fuel preparation
+  - charger, for electric vehicles
+  - overhead
+  - charging station
 
 maintenance:
   - maintenance, passenger car
@@ -64,9 +66,11 @@ EoL:
   - market for used
   - market for manual dismantling
   - manual dismantling of used
+  - market for waste plastic, industrial electronics
 
 road:
   - market for road
+
 
 direct - non-exhaust:
   - market for tyre wear emissions, passenger car

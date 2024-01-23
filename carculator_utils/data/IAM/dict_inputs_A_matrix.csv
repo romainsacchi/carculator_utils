@@ -729,8 +729,10 @@ building machine production;RER;unit;building machine
 cabin, for lorry;RER;kilogram;cabin, for lorry
 cable Trays TI EPR;CH;unit;cable Trays TI EPR
 cable Trays TI EPR;RER;unit;cable Trays TI EPR
+cable production, unspecified;GLO;kilogram;cable, unspecified
 cable, average,  EPR;CH;meter;cable, average,  EPR
 cable, average,  EPR;RER;meter;cable, average,  EPR
+cables production, for trolleybus track;RER;kilometer;cables, for trolleybus track
 carbon black production;GLO;kilogram;carbon black
 carbon dioxide compression, transport and storage;RER;kilogram;carbon dioxide, stored
 carbon dioxide storage at hydrogen production plant, pre, pipeline 200km, storage 1000m;RER;kilogram;carbon dioxide storage at hydrogen production plant, pre, pipeline 200km, storage 1000m
@@ -794,6 +796,8 @@ carbon monoxide, from RWGS, for Fischer Tropsch process, hydrogen from wood gasi
 carbon monoxide, from RWGS, for Fischer Tropsch process, hydrogen from wood gasification, with CCS;RER;kilogram;carbon monoxide, from RWGS
 casting, brass;CH;kilogram;casting, brass
 catalyst layer production, for fuel cell system;GLO;kilowatt;catalyst layer, for fuel cell system
+catenary masts production, for catenary system;RER;kilometer;catenary masts, for catenary system
+catenary system assembly, with overhead lines, for trolleybus;RER;kilometer;catenary system, with overhead lines, for trolleybus
 cathode current collector, LFP;JP;kilogram;cathode current collector, LFP
 cathode current collector, LTO;JP;kilogram;cathode current collector, LTO
 cathode paste, LFP;JP;kilogram;cathode paste, LFP
@@ -808,6 +812,10 @@ cement production, Portland;CH;kilogram;cement, Portland
 ceramic tile production;CH;kilogram;ceramic tile
 charger assembly;RER;unit;charger
 charger production, for electric scooter;GLO;kilogram;charger, for electric scooter
+charger production, for electric vehicles, 200 kW;RER;unit;charger, for electric vehicles, 200 kW
+charger, for electric vehicles, level 3, plugin, 200 kW;RER;unit;charger, for electric vehicles, level 3, plugin, 200 kW
+charger, for electric vehicles, level 3, with pantograph, 450 kW;RER;unit;charger, for electric vehicles, level 3, with pantograph, 450 kW
+charging stand assembly, for electric vehicles;RER;unit;charging stand, for electric vehicles
 charging stand manufacture;RER;unit;charging stand
 charging station, 100W;GLO;unit;charging station, 100W
 charging station, 3kW;GLO;unit;charging station, 3kW
@@ -916,11 +924,13 @@ display production, liquid crystal, 17 inches;GLO;unit;display, liquid crystal, 
 distribution network construction, electricity, low voltage;CH;kilometer;distribution network, electricity, low voltage
 distribution pipeline for hydrogen, dedicated hydrogen pipeline;RER;kilometer;pipeline, for hydrogen distribution
 distribution pipeline for hydrogen, reassigned CNG pipeline;RER;kilometer;pipeline, for hydrogen distribution
+distribution sheds construction, for trolleybus track;RER;kilometer;distribution sheds, for trolleybus track
 drawing of pipe, steel;RER;kilogram;drawing of pipe, steel
 drilling, deep borehole;RER;meter;drilling, deep borehole
 electric bicycle production, without battery and motor;RER;unit;electric bicycle, without battery and motor
 electric cargo bicycle production, without battery and motor;RER;unit;electric cargo bicycle, without battery and motor
 electric motor production, for electric scooter;GLO;kilogram;electric motor, for electric scooter
+electrical equipment production, for trolleybus track;RER;kilometer;electrical equipment, for trolleybus track
 electricity production, Small Modular Reactor (SMR);CH;kilowatt hour;electricity, high voltage
 electricity production, at 110 MW concentrating solar power plant, with thermal energy storage;CH;kilowatt hour;electricity, high voltage
 electricity production, at biomass-fired IGCC power plant;RER;kilowatt hour;electricity, high voltage
@@ -2191,6 +2201,7 @@ o-Xylene;('air', 'non-urban air or from high stacks');kilogram
 o-Xylene;('air', 'urban air close to ground');kilogram
 other components, for electric lorry;RER;kilogram;other components, for electric lorry
 other components, for hybrid electric lorry;RER;kilogram;other components, for hybrid electric lorry
+overhead lines assembly, for trolleybus;RER;kilometer;overhead lines, for trolleybus
 packaging production, for Li-ion battery module;GLO;kilogram;battery module packaging, Li-ion
 petrol blending for two-stroke engines;CH;kilogram;petrol, two-stroke blend
 petrol production, low-sulfur;Europe without Switzerland;kilogram;petrol, low-sulfur
@@ -2267,6 +2278,7 @@ sabatier reaction methanation unit construction;RER;unit;sabatier reaction metha
 sand blasting;RER;square meter;sand blasting
 section bar extrusion, aluminium;RER;kilogram;section bar extrusion, aluminium
 selexol (Dimethylether of polyethylene glycol);RER;kilogram;selexol (Dimethylether of polyethylene glycol)
+semi-rigid roadside barriers construction, for trolleybus track;RER;kilometer;semi-rigid roadside barriers, for trolleybus track
 separator, LFP;JP;kilogram;separator, LFP
 sheet rolling, aluminium;RER;kilogram;sheet rolling, aluminium
 sheet rolling, steel;RER;kilogram;sheet rolling, steel
@@ -2288,6 +2300,7 @@ steel production, electric, chromium steel 18/8;RER;kilogram;steel, chromium ste
 steel production, electric, low-alloyed;Europe without Switzerland and Austria;kilogram;steel, low-alloyed
 steel production, low-alloyed, hot rolled;RER;kilogram;steel, low-alloyed, hot rolled
 storage battery production;RER;unit;storage battery
+storage battery production, for electric vehicles;RER;unit;storage battery, for electric vehicles
 structural timber production;RER;cubic meter;structural timber
 sulfur hexafluoride MV circuit breaker production;RER;unit;sulfur hexafluoride MV circuit breaker
 sulfuric acid production;RoW;kilogram;sulfuric acid
@@ -2334,6 +2347,7 @@ transformer 12kV;RER;unit;transformer 12kV
 transformer 500MV;CH;unit;transformer 500MV
 transformer 500MV;RER;unit;transformer 500MV
 transformer production, 315kVA, 11kV2;RER;unit;transformer, 315kVA, 11kV2
+transformers assembly, for trolleybus track;RER;kilometer;transformers, for trolleybus track
 transmission network construction, electricity, high voltage;CH;kilometer;transmission network, electricity, high voltage
 transmission network construction, electricity, medium voltage;CH;kilometer;transmission network, electricity, medium voltage
 transmission pipeline for hydrogen, dedicated hydrogen pipeline;RER;kilometer;pipeline, for hydrogen transmission
