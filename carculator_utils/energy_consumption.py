@@ -43,7 +43,7 @@ def __(obj: Union[np.ndarray, xr.DataArray]) -> Union[np.ndarray, xr.DataArray]:
 
 
 def get_default_driving_cycle_name(vehicle_type) -> str:
-    """Get the default driving cycle name"""
+    """Get the default driving_cycles name"""
     return list(get_driving_cycle_specs()["columns"][vehicle_type].keys())[0]
 
 
@@ -121,9 +121,9 @@ def convert_to_xr(data):
 class EnergyConsumptionModel:
     """
     Calculate energy consumption of a vehicle for a
-    given driving cycle and vehicle parameters.
+    given driving_cycles and vehicle parameters.
 
-    Based on a selected driving cycle, this class calculates
+    Based on a selected driving_cycles, this class calculates
     the acceleration needed and provides
     two methods:
 
@@ -140,7 +140,7 @@ class EnergyConsumptionModel:
     :type rho_air: float
     :param gradient: Road gradient per second of driving, in degrees.
     None by default. Should be passed as an array of length equal
-    to the length of the driving cycle.
+    to the length of the driving_cycles.
     :type gradient: numpy.ndarray
 
     :ivar rho_air: Mass per unit volume of air. Value of 1.204 at 23C (test temperature for WLTC).
@@ -196,7 +196,7 @@ class EnergyConsumptionModel:
 
         assert len(self.cycle) == len(
             self.gradient
-        ), "The length of the driving cycle and the gradient must be the same."
+        ), "The length of the driving_cycles and the gradient must be the same."
 
         # Unit conversion km/h to m/s
         self.velocity = np.where(np.isnan(self.cycle), 0, (self.cycle * 1000) / 3600)
@@ -295,7 +295,7 @@ class EnergyConsumptionModel:
 
     def find_last_driving_second(self) -> ndarray:
         """
-        Find the last second of the driving cycle that is not zero.
+        Find the last second of the driving_cycles that is not zero.
         """
 
         # find last index where velocity is greater than 0
@@ -617,7 +617,7 @@ class EnergyConsumptionModel:
 
         auxiliary_energy = np.where(self.velocity > 0, auxiliary_energy, 0)
 
-        # if first dimension is 1, resize it to the length of the driving cycle
+        # if first dimension is 1, resize it to the length of the driving_cycles
         if auxiliary_energy.shape[0] == 1:
             auxiliary_energy = np.resize(
                 auxiliary_energy, (self.velocity.shape[0], *auxiliary_energy.shape[1:])

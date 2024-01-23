@@ -330,9 +330,9 @@ class Inventory:
         :return: list of indices
         :rtype: list
         """
-        # read `impact_source_categories.yml` file
+        # read `impact_source_categories.yaml` file
         with open(
-            DATA_DIR / "lcia" / "impact_source_categories.yml", "r", encoding="utf-8"
+            DATA_DIR / "lcia" / "impact_source_categories.yaml", "r", encoding="utf-8"
         ) as stream:
             source_cats = yaml.safe_load(stream)
 

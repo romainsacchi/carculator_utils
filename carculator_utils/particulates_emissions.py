@@ -1,6 +1,6 @@
 """
 particulates_emissions.py contains ParticulatesEmissionsModel which calculated the amount of
-abrasion particles emitted, given a driving cycle.
+abrasion particles emitted, given a driving_cycles.
 """
 from typing import Union
 
@@ -46,7 +46,7 @@ class ParticulatesEmissionsModel:
 
     :param velocity: Driving cycle. Pandas Series of second-by-second speeds (km/h) or name (str)
         of cycle e.g., "Urban delivery", "Regional delivery", "Long haul".
-    :param cycle_name: name of the driving cycle. Str.
+    :param cycle_name: name of the driving_cycles. Str.
 
 
     """

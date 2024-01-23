@@ -1,7 +1,7 @@
 """
-driving_cycles.py loads a driving cycle based on
+driving_cycles.py loads a driving_cycles based on
 the name specific by the user.
-The driving cycle returned is a numpy
+The driving_cycles returned is a numpy
 array with speed levels (in km/h) for each
 second of driving.
 """
@@ -15,7 +15,7 @@ import yaml
 
 from . import DATA_DIR
 
-FILEPATH_DC_SPECS = DATA_DIR / "driving cycle" / "dc_specs.yaml"
+FILEPATH_DC_SPECS = DATA_DIR / "driving_cycles" / "dc_specs.yaml"
 
 
 def detect_vehicle_type(vehicle_sizes: List[str]) -> str:
@@ -35,9 +35,9 @@ def detect_vehicle_type(vehicle_sizes: List[str]) -> str:
 
 
 def get_driving_cycle_specs() -> dict:
-    """Get driving cycle specifications.
+    """Get driving_cycles specifications.
 
-    :returns: A dictionary with driving cycle specifications.
+    :returns: A dictionary with driving_cycles specifications.
     :rtype: dict
 
     """
@@ -51,7 +51,7 @@ def get_dc_column_number(
 ) -> List[int]:
     """
     Loads YAML file that contains the column number.
-    Return the column number given a vehicle type and driving cycle name.
+    Return the column number given a vehicle type and driving_cycles name.
     """
 
     dc_specs = get_driving_cycle_specs()
@@ -94,18 +94,18 @@ def get_data(
         return dc
 
     except KeyError as err:
-        print(err, "The specified driving cycle could not be found.")
+        print(err, "The specified driving_cycles could not be found.")
         raise
 
 
 def get_standard_driving_cycle_and_gradient(
     vehicle_type: str, vehicle_sizes: List[str], name: str
 ) -> Tuple[np.ndarray, np.ndarray]:
-    """Get driving cycle and gradient data as a Pandas `Series`.
+    """Get driving_cycles and gradient data as a Pandas `Series`.
 
     Driving cycles are given as km/h per second up to 3200 seconds.
 
-    :param name: The name of the driving cycle.
+    :param name: The name of the driving_cycles.
     e.g., WLTC (Worldwide harmonized Light vehicles Test Cycles)
     :type name: str
 
@@ -115,12 +115,12 @@ def get_standard_driving_cycle_and_gradient(
 
     """
 
-    filepath_dc = DATA_DIR / "driving cycle" / f"{vehicle_type}.csv"
+    filepath_dc = DATA_DIR / "driving_cycles" / f"{vehicle_type}.csv"
     filepath_gradient = DATA_DIR / "gradient" / f"{vehicle_type}.csv"
 
     # definition of columns to select in the CSV file
     # each column corresponds to a size class
-    # since the driving cycle is simulated for each size class
+    # since the driving_cycles is simulated for each size class
     return (
         get_data(filepath_dc, vehicle_type, vehicle_sizes, name),
         get_data(filepath_gradient, vehicle_type, vehicle_sizes, name),

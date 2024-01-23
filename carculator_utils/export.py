@@ -172,7 +172,7 @@ def get_simapro_technosphere() -> Dict[Tuple[str, str], str]:
 
 def rename_mapping(filename: str) -> Dict[str, str]:
     """
-    Load the file rename_powertrains.yml and return a dictionary
+    Load the file rename_powertrains.yaml and return a dictionary
     """
     with open(DATA_DIR / "export" / filename, encoding="utf-8") as f:
         rename_map = yaml.safe_load(f)
@@ -192,8 +192,8 @@ class ExportInventory:
         self.array: xr.DataArray = array
         self.indices: Dict[int, Tuple[str, str, str, str]] = indices
         self.vm = vehicle_model
-        self.rename_pwt = rename_mapping("rename_powertrains.yml")
-        self.rename_parameters = rename_mapping("rename_parameters.yml")
+        self.rename_pwt = rename_mapping("rename_powertrains.yaml")
+        self.rename_parameters = rename_mapping("rename_parameters.yaml")
         self.rename_vehicles()
         self.rev_rename_pwt = {v: k for k, v in self.rename_pwt.items()}
         self.db_name: str = db_name
@@ -463,15 +463,15 @@ class ExportInventory:
         self, data: List[Dict], ei_version: str
     ) -> List[List]:
         # not all biosphere flows exist in simapro
-        # load list from `simapro_blacklist.yml`
+        # load list from `simapro_blacklist.yaml`
         with open(
-            DATA_DIR / "export" / "simapro_blacklist.yml", "r", encoding="utf-8"
+            DATA_DIR / "export" / "simapro_blacklist.yaml", "r", encoding="utf-8"
         ) as f:
             blacklist = yaml.safe_load(f)
 
-        # load fields list from `simapro_fields.yml`
+        # load fields list from `simapro_fields.yaml`
         with open(
-            DATA_DIR / "export" / "simapro_fields.yml", "r", encoding="utf-8"
+            DATA_DIR / "export" / "simapro_fields.yaml", "r", encoding="utf-8"
         ) as f:
             fields = yaml.safe_load(f)
 

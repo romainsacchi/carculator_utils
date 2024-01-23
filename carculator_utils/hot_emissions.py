@@ -14,7 +14,7 @@ from xarray import DataArray
 
 from . import DATA_DIR
 
-FILEPATH_DC_SPECS = DATA_DIR / "driving cycle" / "dc_specs.yaml"
+FILEPATH_DC_SPECS = DATA_DIR / "driving_cycles" / "dc_specs.yaml"
 
 MAP_PWT = {
     "Human": "BEV",
@@ -194,7 +194,7 @@ class HotEmissionsModel:
 
         :param powertrain_type: "diesel", "petrol" or "CNG"
         :param euro_class: integer, corresponding to the EURO pollution class
-        :param energy_consumption: tank-to-wheel energy consumption for each second of the driving cycle
+        :param energy_consumption: tank-to-wheel energy consumption for each second of the driving_cycles
         :param yearly_km: annual mileage, to calculate cold start emissions
         :return: Pollutants emission per km driven, per air compartment.
         """
@@ -227,7 +227,7 @@ class HotEmissionsModel:
 
         distance = self.velocity.sum(dim="second") / 3600
 
-        # Emissions for each second of the driving cycle equal:
+        # Emissions for each second of the driving_cycles equal:
         # a * energy consumption
         # with a being a coefficient given by fitting HBEFA 4.1 data
         # the fitting of emissions function of energy consumption
@@ -313,7 +313,7 @@ class HotEmissionsModel:
 
             # Cold start and soak emissions are defined per start and stop
             # Therefore, we need to normalize per km
-            # And add cold start emissions to the first second of the driving cycle
+            # And add cold start emissions to the first second of the driving_cycles
 
             yearly_km = yearly_km.transpose("value", "year", "powertrain", "size")
 
@@ -327,7 +327,7 @@ class HotEmissionsModel:
                 * non_exhaust.sel(type="cold start").values
             )
 
-            # And add soak emissions to the last second of the driving cycle
+            # And add soak emissions to the last second of the driving_cycles
             emissions.loc[
                 dict(
                     second=emissions.second.values[-1],
@@ -340,7 +340,7 @@ class HotEmissionsModel:
 
             # Diurnal emissions are defined in g/day
             # And need to be evenly distributed
-            # throughout the driving cycle
+            # throughout the driving_cycles
 
             daily_km_to_year = distance / (yearly_km / 365)
 
@@ -351,7 +351,7 @@ class HotEmissionsModel:
             )
 
             # Running losses are in g/km (no conversion needed)
-            # And need to be evenly distributed throughout the driving cycle
+            # And need to be evenly distributed throughout the driving_cycles
 
             emissions.loc[dict(component=non_exhaust.component.values)] += (
                 _(distance)

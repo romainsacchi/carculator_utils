@@ -1,6 +1,6 @@
 """
 noise_emissions.py contains NoiseEmissionsModel which calculates noise emissions, in joules,
-given a driving cycle and a powertrain type.
+given a driving_cycles and a powertrain type.
 """
 
 from pathlib import Path
@@ -126,7 +126,7 @@ class NoiseEmissionsModel:
         (http://publications.jrc.ec.europa.eu/repository/bitstream/JRC72550/cnossos-eu%20jrc%20reference%20report_final_on%20line%20version_10%20august%202012.pdf)
 
         :returns: A numpy array with rolling noise (dB)
-        for each 8 octaves, per second of driving cycle
+        for each 8 octaves, per second of driving_cycles
         :rtype: numpy.array
 
         """
@@ -170,7 +170,7 @@ class NoiseEmissionsModel:
 
         Also, for electric cars, a warning signal of 56 dB is added when the car drives at 20 km/h or lower.
 
-        :returns: A numpy array with propulsion noise (dB) for all 8 octaves, per second of driving cycle
+        :returns: A numpy array with propulsion noise (dB) for all 8 octaves, per second of driving_cycles
         :rtype: numpy.array
 
         """
@@ -226,19 +226,19 @@ class NoiseEmissionsModel:
 
     def get_sound_power_per_compartment(self) -> np.ndarray:
         """
-        Calculate sound energy (in J/s) over the driving cycle duration from
+        Calculate sound energy (in J/s) over the driving_cycles duration from
         sound power (in dB). The sound energy sums are further divided into
         `geographical compartments`: urban, suburban and rural,
-        based on the profile of the driving cycle.
+        based on the profile of the driving_cycles.
 
 
         :return: Sound energy (in Joules) per km driven, per geographical compartment.
         :rtype: numpy.ndarray
         """
 
-        # rolling noise, in dB, for each second of the driving cycle
+        # rolling noise, in dB, for each second of the driving_cycles
         rolling = self.rolling_noise()
-        # propulsion noise, in dB, for each second of the driving cycle
+        # propulsion noise, in dB, for each second of the driving_cycles
         propulsion = self.propulsion_noise()
 
         # sum of rolling and propulsion noise sources
@@ -252,11 +252,11 @@ class NoiseEmissionsModel:
         # convert dBs to Watts (or J/s)
         sound_power = (10**-12) * (10 ** (total_noise / 10))
 
-        # If the driving cycle selected is one of the driving cycle for
+        # If the driving_cycles selected is one of the driving_cycles for
         # which carculator_utils has specifications,
-        # we use the driving cycle "official" road section types to
+        # we use the driving_cycles "official" road section types to
         # compartmentalize emissions.
-        # If the driving cycle selected is instead specified by the
+        # If the driving_cycles selected is instead specified by the
         # user (passed directly as an array), we used
         # speed levels to compartmentalize emissions.
 

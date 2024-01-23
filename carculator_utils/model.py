@@ -35,8 +35,8 @@ class VehicleModel:
     all the vehicles parameters.
 
     :ivar array: multi-dimensional numpy-like array that contains parameters' value(s)
-    :ivar cycle: name of a driving cycle, or custom driving cycle
-    :ivar gradient: series of gradients, for each second of the driving cycle
+    :ivar cycle: name of a driving_cycles, or custom driving_cycles
+    :ivar gradient: series of gradients, for each second of the driving_cycles
     :ivar energy_storage: dictionary with selection of battery chemistry for each powertrain
 
     """
@@ -68,8 +68,8 @@ class VehicleModel:
         """
         :param array: multi-dimensional numpy-like array that contains parameters' value(s)
         :param country: country code
-        :param cycle: name of a driving cycle, or custom driving cycle
-        :param gradient: series of gradients, for each second of the driving cycle
+        :param cycle: name of a driving_cycles, or custom driving_cycles
+        :param gradient: series of gradients, for each second of the driving_cycles
         :param energy_storage: dictionary with selection of battery chemistry, capacity and origin for each powertrain-size-year combination
         :param electric_utility_factor: fraction of electricity that is generated from renewable sources
         :param drop_hybrids: boolean, if True, hybrid vehicles are dropped from the inventory
@@ -1329,10 +1329,10 @@ class VehicleModel:
 
     def set_hot_emissions(self) -> None:
         """
-        Calculate hot pollutant emissions based on ``driving cycle``.
-        The driving cycle is passed to the :class:`HotEmissionsModel` class
+        Calculate hot pollutant emissions based on ``driving_cycles``.
+        The driving_cycles is passed to the :class:`HotEmissionsModel` class
         and :meth:`get_emissions_per_powertrain`
-        return emissions per substance per second of driving cycle.
+        return emissions per substance per second of driving_cycles.
         Those are summed up and divided by
         the distance driven, to obtain emissions, in kg per km.
         :return: Does not return anything. Modifies ``self.array`` in place.
@@ -1442,11 +1442,11 @@ class VehicleModel:
 
     def set_noise_emissions(self) -> None:
         """
-        Calculate noise emissions based on ``driving cycle``.
-        The driving cycle is passed to the :class:`NoiseEmissionsModel` class
+        Calculate noise emissions based on ``driving_cycles``.
+        The driving_cycles is passed to the :class:`NoiseEmissionsModel` class
         and :meth:`get_sound_power_per_compartment`
         returns emissions per compartment type ("rural", "non-urban" and "urban")
-        per second of driving cycle.
+        per second of driving_cycles.
 
         Noise emissions are not differentiated by size classes at the moment,
         but only by powertrain "type"
