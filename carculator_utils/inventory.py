@@ -4,6 +4,7 @@ inventory.py contains InventoryCalculation which provides all methods to solve i
 
 import csv
 import re
+import warnings
 from collections import defaultdict
 from functools import lru_cache
 from pathlib import Path
@@ -17,7 +18,7 @@ from . import DATA_DIR
 from .background_systems import BackgroundSystemModel
 from .export import ExportInventory
 
-np.warnings.filterwarnings("ignore", category=np.VisibleDeprecationWarning)
+warnings.filterwarnings("ignore", category=np.VisibleDeprecationWarning)
 
 IAM_FILES_DIR = DATA_DIR / "IAM"
 
