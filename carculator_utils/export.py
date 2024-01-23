@@ -504,19 +504,23 @@ class ExportInventory:
                 source = self.references.get(a["name"]).get("source")
                 comment = self.references.get(a["name"]).get("comment")
 
-            main_category = "waste treatment" if any(
-                i.lower() in a["name"].lower()
-                for i in (
-                    "waste",
-                    "emissions",
-                    "treatment",
-                    "scrap",
-                    "used powertrain",
-                    "disposal",
-                    "sludge",
-                    "used li-ion",
+            main_category = (
+                "waste treatment"
+                if any(
+                    i.lower() in a["name"].lower()
+                    for i in (
+                        "waste",
+                        "emissions",
+                        "treatment",
+                        "scrap",
+                        "used powertrain",
+                        "disposal",
+                        "sludge",
+                        "used li-ion",
+                    )
                 )
-            ) else "process"
+                else "process"
+            )
             category = "carculator"
 
             # We loop through the fields SimaPro expects to see
