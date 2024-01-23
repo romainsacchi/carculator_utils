@@ -5,8 +5,8 @@ inventory.py contains InventoryCalculation which provides all methods to solve i
 import csv
 import itertools
 import re
-from datetime import datetime
 from collections import defaultdict
+from datetime import datetime
 from functools import lru_cache
 from pathlib import Path
 from typing import Any
@@ -15,7 +15,7 @@ import numpy as np
 import pyprind
 import xarray as xr
 import yaml
-from numpy import ndarray, dtype
+from numpy import dtype, ndarray
 from scipy import sparse
 
 from . import DATA_DIR
