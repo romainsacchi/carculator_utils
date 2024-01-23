@@ -52,6 +52,8 @@ unit:
   vehicle-kilometer: vkm
   person-kilometer: personkm
   meter-year: my
+  kilo Becquerel: kBq
+  hectare: ha
   
 headers:
   - "{SimaPro 9.1.1.1}"

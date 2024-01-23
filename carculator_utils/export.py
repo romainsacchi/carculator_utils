@@ -499,38 +499,25 @@ class ExportInventory:
         # We loop through the activities
         for a in data:
             # We fetch the main and sub categories (sub category is in fact a path)
+            comment, source = None, None
             if a["name"] in self.references:
-                main_category = self.references[a["name"]]["category 1"]
-                category = self.references[a["name"]]["category 2"]
-                source = self.references[a["name"]]["source"]
-                description = self.references[a["name"]]["description"]
-                special_remark = self.references[a["name"]]["special remark"]
-            else:
-                # if we cannot find it, it's because some keys are more general
-                try:
-                    key = [
-                        k
-                        for k in self.references.keys()
-                        if k.lower() in a["name"].lower()
-                    ][0]
-                except IndexError:
-                    if self.vm.vehicle_type in a["name"].lower():
-                        pass
-                    else:
-                        print(a["name"])
-                main_category = self.references.get(key, {"category 1": None}).get(
-                    "category 1"
+                source = self.references.get(a["name"]).get("source")
+                comment = self.references.get(a["name"]).get("comment")
+
+            main_category = "waste treatment" if any(
+                i.lower() in a["name"].lower()
+                for i in (
+                    "waste",
+                    "emissions",
+                    "treatment",
+                    "scrap",
+                    "used powertrain",
+                    "disposal",
+                    "sludge",
+                    "used li-ion",
                 )
-                category = self.references.get(key, {"category 2": None}).get(
-                    "category 2"
-                )
-                source = self.references.get(key, {"source": None}).get("source")
-                description = self.references.get(key, {"description": None}).get(
-                    "description"
-                )
-                special_remark = self.references.get(key, {"special remark": None}).get(
-                    "special remark"
-                )
+            ) else "process"
+            category = "carculator"
 
             # We loop through the fields SimaPro expects to see
             for item in fields["fields"]:
@@ -553,14 +540,10 @@ class ExportInventory:
 
                 if item == "Comment":
                     string = ""
-                    if a["comment"]:
+                    if comment is not None:
                         string = f"{a['comment']}. "
 
                     string += f"Originally published in: {source}. "
-                    if description:
-                        string += f"Description: {description}. "
-                    if special_remark:
-                        string += f"Special remark: {special_remark}. "
 
                     rows.append([string])
 
@@ -733,7 +716,7 @@ class ExportInventory:
                             if e["name"] not in blacklist:
                                 rows.append(
                                     [
-                                        dict_bio[e["name"]],
+                                        dict_bio.get(e["name"], e["name"]),
                                         "",
                                         fields["unit"][e["unit"]],
                                         "{:.3E}".format(e["amount"]),
@@ -1001,43 +984,45 @@ class ExportInventory:
         filename: str = None,
         export_format: str = "file",
     ):
-        filename = filename or safe_filename(
-            f"carculator_export_{datetime.date.today()}"
-        )
+        for year in self.vm.array.coords["year"].values:
+            filename = filename or safe_filename(
+                f"carculator_export_{datetime.date.today()}"
+            )
 
-        filename += "_simapro.csv"
+            filename += f"_{year}_simapro.csv"
 
-        filepath_export = self.get_export_filepath(filename, directory)
+            filepath_export = self.get_export_filepath(filename, directory)
 
-        list_act = self.write_lci(
-            ecoinvent_version=ecoinvent_version,
-        )
+            list_act = self.write_lci(
+                ecoinvent_version=ecoinvent_version,
+                year=year,
+            )
 
-        rows = self.format_data_for_lci_for_simapro(
-            data=list_act, ei_version=ecoinvent_version
-        )
+            rows = self.format_data_for_lci_for_simapro(
+                data=list_act, ei_version=ecoinvent_version
+            )
 
-        if export_format == "file":
-            with open(filepath_export, "w", newline="", encoding="latin1") as csvFile:
-                writer = csv.writer(csvFile, delimiter=";")
-                for row in rows:
-                    writer.writerow(row)
-            csvFile.close()
-            return filepath_export
+            if export_format == "file":
+                with open(filepath_export, "w", newline="", encoding="utf8") as csvFile:
+                    writer = csv.writer(csvFile, delimiter=";")
+                    for row in rows:
+                        writer.writerow(row)
+                csvFile.close()
+                return filepath_export
 
-        # string format
-        csvFile = io.StringIO()
-        writer = csv.writer(
-            csvFile,
-            delimiter=";",
-            quoting=csv.QUOTE_NONE,
-            quotechar="",
-            escapechar="\\",
-        )
-        for row in rows:
-            writer.writerow(row)
-        csvFile.seek(0)
-        return csvFile.read()
+            # string format
+            csvFile = io.StringIO()
+            writer = csv.writer(
+                csvFile,
+                delimiter=";",
+                quoting=csv.QUOTE_NONE,
+                quotechar="",
+                escapechar="\\",
+            )
+            for row in rows:
+                writer.writerow(row)
+            csvFile.seek(0)
+            return csvFile.read()
 
     def write_bw2_lci(
         self,

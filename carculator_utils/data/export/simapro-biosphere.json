@@ -661,6 +661,11 @@
   ],
   [
     "natural resource",
+    "Copper, Cu 5.2E-2%, Pt 4.8E-4%, Pd 2.0E-4%, Rh 2.4E-5%, Ni 3.7E-2% in ore",
+    "Copper"
+  ],
+  [
+    "natural resource",
     "Diatomite",
     "Diatomite, in ground"
   ],
@@ -914,10 +919,15 @@
     "Nickel, Ni 3.7E-2%, Pt 4.8E-4%, Pd 2.0E-4%, Rh 2.4E-5%, Cu 5.2E-2% in ore",
     "Ni, Ni 3.7E-2%, Pt 4.8E-4%, Pd 2.0E-4%, Rh 2.4E-5%, Cu 5.2E-2% in ore, in ground"
   ],
-    [
+  [
     "natural resource",
     "Occupation, construction site",
     "Occupation, construction site"
+  ],
+  [
+    "natural resource",
+    "Occupation, unspecified",
+    "Occupation, unspecified"
   ],
   [
     "natural resource",
@@ -1493,6 +1503,16 @@
     "natural resource",
     "Transformation, to traffic area, rail embankment",
     "Transformation, to traffic area, rail/road embankment"
+  ],
+  [
+    "natural resource",
+    "Transformation, to traffic area, rail network",
+    "Transformation, to traffic area, rail network"
+  ],
+  [
+    "natural resource",
+    "Transformation, to traffic area, road network",
+    "Transformation, to traffic area, road network"
   ],
   [
     "natural resource",
