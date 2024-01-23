@@ -222,7 +222,7 @@ class ExportInventory:
                         new_val,
                     )
 
-    def write_lci(self, ecoinvent_version: str, year=int) -> List[Dict]:
+    def write_lci(self, ecoinvent_version: str, year: int) -> List[Dict]:
         """
         Return the inventory as a dictionary
         If there are several values for one exchange, uncertainty information is generated.
