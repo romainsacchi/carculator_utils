@@ -38,7 +38,7 @@ setup(
     version="1.2.0.dev4",
     packages=packages,
     author="Romain Sacchi <romain.sacchi@psi.ch>",
-    python_requires=">=3.9",
+    python_requires=">=3.10",
     license=open("LICENSE").read(),
     package_data={
         "carculator_utils": package_files(os.path.join("carculator_utils", "data"))
