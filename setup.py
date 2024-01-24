@@ -35,7 +35,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="carculator_utils",
-    version="1.2.0.dev3",
+    version="1.2.0.dev4",
     packages=packages,
     author="Romain Sacchi <romain.sacchi@psi.ch>",
     python_requires=">=3.9",
@@ -50,7 +50,7 @@ setup(
         "klausen",
         "xlrd",
         "numexpr",
-        "bw2io",
+        "bw2io<=0.8.12",
         "pycountry",
         "wurst",
         "pyyaml",
