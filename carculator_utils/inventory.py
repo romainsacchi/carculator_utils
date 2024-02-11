@@ -721,9 +721,11 @@ class Inventory:
         return xr.DataArray(
             B,
             coords=[
-                [2005, 2010, 2020, 2030, 2040, 2050]
-                if self.scenario != "static"
-                else [2020],
+                (
+                    [2005, 2010, 2020, 2030, 2040, 2050]
+                    if self.scenario != "static"
+                    else [2020]
+                ),
                 np.asarray(list(self.impact_categories.keys()), dtype="object"),
                 np.asarray(list(self.inputs.keys()), dtype="object"),
             ],
@@ -807,26 +809,28 @@ class Inventory:
                 country = self.vm.country
 
             mix = [
-                self.bs.electricity_mix.sel(
-                    country=country,
-                    variable=self.electricity_technologies,
+                (
+                    self.bs.electricity_mix.sel(
+                        country=country,
+                        variable=self.electricity_technologies,
+                    )
+                    .interp(
+                        year=use_year[y],
+                        kwargs={"fill_value": "extrapolate"},
+                    )
+                    .mean(axis=0)
+                    .values
+                    if use_year[y][-1] <= 2050
+                    else self.bs.electricity_mix.sel(
+                        country=country,
+                        variable=self.electricity_technologies,
+                    )
+                    .interp(
+                        year=np.arange(year, 2051), kwargs={"fill_value": "extrapolate"}
+                    )
+                    .mean(axis=0)
+                    .values
                 )
-                .interp(
-                    year=use_year[y],
-                    kwargs={"fill_value": "extrapolate"},
-                )
-                .mean(axis=0)
-                .values
-                if use_year[y][-1] <= 2050
-                else self.bs.electricity_mix.sel(
-                    country=country,
-                    variable=self.electricity_technologies,
-                )
-                .interp(
-                    year=np.arange(year, 2051), kwargs={"fill_value": "extrapolate"}
-                )
-                .mean(axis=0)
-                .values
                 for y, year in enumerate(self.scope["year"])
             ]
 

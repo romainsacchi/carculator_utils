@@ -4,7 +4,6 @@ the evolution of fuel blends, sulfur content in fuels, and electricity mixes in 
 countries over time.
 """
 
-
 from typing import Dict, List
 
 import numpy as np
