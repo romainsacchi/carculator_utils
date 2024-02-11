@@ -548,10 +548,8 @@ class EnergyConsumptionModel:
                 fuel_cell_system_efficiency == 0, 1, fuel_cell_system_efficiency
             )
 
-            _t = (
-                lambda x: x.T
-                if x.shape[-4:] != motive_energy_at_wheels.shape[-4:]
-                else x
+            _t = lambda x: (
+                x.T if x.shape[-4:] != motive_energy_at_wheels.shape[-4:] else x
             )
 
             motive_energy = motive_energy_at_wheels / (

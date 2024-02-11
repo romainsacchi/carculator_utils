@@ -28,7 +28,6 @@ def load_default_specs_for_fuels():
 
 
 class VehicleModel:
-
     """
     This class represents the entirety of the vehicles considered,
     with useful attributes, such as an array that stores
@@ -1065,11 +1064,15 @@ class VehicleModel:
             secondary = specs.get(
                 "secondary",
                 {
-                    "type": default_specs[fuel]["secondary"]
-                    if default_specs[fuel]["secondary"] != primary["type"]
-                    else [
-                        f for f in default_specs[fuel]["all"] if f != primary["type"]
-                    ][0],
+                    "type": (
+                        default_specs[fuel]["secondary"]
+                        if default_specs[fuel]["secondary"] != primary["type"]
+                        else [
+                            f
+                            for f in default_specs[fuel]["all"]
+                            if f != primary["type"]
+                        ][0]
+                    ),
                     "share": np.array([1]) - primary["share"],
                 },
             )
@@ -1462,9 +1465,9 @@ class VehicleModel:
         ) as stream:
             list_noise_emissions = yaml.safe_load(stream)
 
-        self.array.loc[
-            dict(parameter=list_noise_emissions)
-        ] = nem.get_sound_power_per_compartment()
+        self.array.loc[dict(parameter=list_noise_emissions)] = (
+            nem.get_sound_power_per_compartment()
+        )
 
     def calculate_cost_impacts(self, sensitivity=False) -> xr.DataArray:
         """

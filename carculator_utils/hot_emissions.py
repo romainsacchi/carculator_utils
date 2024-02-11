@@ -284,9 +284,11 @@ class HotEmissionsModel:
         if self.non_exhaust is not None:
             non_exhaust = self.non_exhaust.sel(
                 powertrain=[
-                    MAP_PWT[pt]
-                    if MAP_PWT[pt] in self.non_exhaust.powertrain.values
-                    else "BEV"
+                    (
+                        MAP_PWT[pt]
+                        if MAP_PWT[pt] in self.non_exhaust.powertrain.values
+                        else "BEV"
+                    )
                     for pt in emissions.powertrain.values
                 ],
                 euro_class=euro_class,
@@ -401,9 +403,11 @@ class HotEmissionsModel:
 
         engine_wear = self.engine_wear.sel(
             powertrain=[
-                MAP_PWT[pt]
-                if MAP_PWT[pt] in self.engine_wear.powertrain.values
-                else "BEV"
+                (
+                    MAP_PWT[pt]
+                    if MAP_PWT[pt] in self.engine_wear.powertrain.values
+                    else "BEV"
+                )
                 for pt in emissions.powertrain.values
             ]
         )

@@ -2,6 +2,7 @@
 particulates_emissions.py contains ParticulatesEmissionsModel which calculated the amount of
 abrasion particles emitted, given a driving_cycles.
 """
+
 from typing import Union
 
 import numpy as np
