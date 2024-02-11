@@ -1273,7 +1273,7 @@ class Inventory:
         for pwt in [
             p
             for p in self.scope["powertrain"]
-            if p in ["ICEV-p", "ICEV-d", "ICEV-g", "HEV-p", "HEV-d"]
+            if p in ["ICEV-p", "ICEV-d", "ICEV-g", "HEV-p", "HEV-d", "FCEV"]
         ]:
             for size in self.scope["size"]:
                 for year in self.scope["year"]:
