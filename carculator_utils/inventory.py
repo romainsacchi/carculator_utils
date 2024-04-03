@@ -417,7 +417,7 @@ class Inventory:
                 year=self.scope["year"], kwargs={"fill_value": "extrapolate"}
             ).values
         else:
-            B = self.B[0].values
+            B = self.B.values
 
         # Prepare an array to store the results
         results = self.get_results_table(sensitivity=sensitivity)
@@ -701,7 +701,8 @@ class Inventory:
             if all(x in str(fp) for x in [self.method, self.indicator, self.scenario])
         ]
 
-        filepaths = sorted(filepaths, key=lambda x: int(x[-8:-4]))
+        if self.scenario != "static":
+            filepaths = sorted(filepaths, key=lambda x: int(x[-8:-4]))
 
         B = np.zeros((len(filepaths), len(self.impact_categories), len(self.inputs)))
 
