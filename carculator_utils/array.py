@@ -1,4 +1,5 @@
 import itertools
+
 import numpy as np
 import pandas as pd
 
@@ -112,10 +113,10 @@ def fill_xarray_from_input_parameters(input_parameters, sensitivity=False, scope
             powertrains = list(pwt.intersection(scope["powertrain"]))
             years = list(year.intersection(scope["year"]))
             sizes = list(size.intersection(scope["size"]))
-            if len(sizes)>1 and len(powertrains)>1:
-                pwt_size_couple = np.array(list(itertools.product(powertrains,sizes)))
-                powertrains = pwt_size_couple[:,0]
-                sizes = pwt_size_couple[:,1]
+            if len(sizes) > 1 and len(powertrains) > 1:
+                pwt_size_couple = np.array(list(itertools.product(powertrains, sizes)))
+                powertrains = pwt_size_couple[:, 0]
+                sizes = pwt_size_couple[:, 1]
             data_dict.append(
                 {
                     "size": sizes,
@@ -141,7 +142,7 @@ def fill_xarray_from_input_parameters(input_parameters, sensitivity=False, scope
                 "value": 0.0,
             }
         )
-        
+
     cols = ["powertrain", "size", "value", "year", "parameter"]
     df1 = pd.concat(
         [
@@ -157,7 +158,7 @@ def fill_xarray_from_input_parameters(input_parameters, sensitivity=False, scope
 
     df = df.drop(cols, axis=1).join(df1.droplevel(1))
     df[cols] = df[cols].apply(lambda x: x.fillna(method="ffill"))
-    df.set_index(["size", "powertrain","parameter",  "year", "value"], inplace=True)
+    df.set_index(["size", "powertrain", "parameter", "year", "value"], inplace=True)
     df.dropna(inplace=True)
     array = df.to_xarray().to_dataarray().drop_vars("variable")[0]
     array = array.astype("float32")
@@ -172,4 +173,4 @@ def fill_xarray_from_input_parameters(input_parameters, sensitivity=False, scope
         for param in list_params:
             array.loc[dict(parameter=param, value=param)] *= 1.1
 
-    return ((size_dict, powertrain_dict, parameter_dict, year_dict),array)
+    return ((size_dict, powertrain_dict, parameter_dict, year_dict), array)
