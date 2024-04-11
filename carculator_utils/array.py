@@ -153,7 +153,7 @@ def fill_xarray_from_input_parameters(input_parameters, sensitivity=False, scope
             data["value"] = params
         data_dict.append(data)
 
-    df2 = df = pd.DataFrame.from_dict(data_dict)
+    df = pd.DataFrame.from_dict(data_dict)
     cols = ["powertrain", "size", "value", "year", "parameter"]
     df1 = pd.concat(
         [
@@ -182,4 +182,4 @@ def fill_xarray_from_input_parameters(input_parameters, sensitivity=False, scope
         for param in params[1:]:
             array.loc[dict(parameter=param, value=param)] *= 1.1
 
-    return (size_dict, powertrain_dict, parameter_dict, year_dict), array, df2
+    return (size_dict, powertrain_dict, parameter_dict, year_dict), array
