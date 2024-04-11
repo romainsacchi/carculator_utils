@@ -2,6 +2,7 @@ import itertools
 
 import numpy as np
 import pandas as pd
+import xarray as xr
 
 from .vehicle_input_parameters import VehicleInputParameters as vip
 
@@ -143,6 +144,7 @@ def fill_xarray_from_input_parameters(input_parameters, sensitivity=False, scope
             }
         )
 
+    df = pd.DataFrame.from_dict(data_dict)
     cols = ["powertrain", "size", "value", "year", "parameter"]
     df1 = pd.concat(
         [
@@ -160,7 +162,7 @@ def fill_xarray_from_input_parameters(input_parameters, sensitivity=False, scope
     df[cols] = df[cols].apply(lambda x: x.fillna(method="ffill"))
     df.set_index(["size", "powertrain", "parameter", "year", "value"], inplace=True)
     df.dropna(inplace=True)
-    array = df.to_xarray().to_dataarray().drop_vars("variable")[0]
+    array = xr.DataArray.from_series(df["data"])
     array = array.astype("float32")
     array.coords["year"] = array.coords["year"].astype(int)
     array = array.fillna(0.0)
@@ -173,4 +175,4 @@ def fill_xarray_from_input_parameters(input_parameters, sensitivity=False, scope
         for param in list_params:
             array.loc[dict(parameter=param, value=param)] *= 1.1
 
-    return ((size_dict, powertrain_dict, parameter_dict, year_dict), array)
+    return (size_dict, powertrain_dict, parameter_dict, year_dict), array
