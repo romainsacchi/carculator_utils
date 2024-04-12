@@ -2,7 +2,6 @@ import itertools
 
 import numpy as np
 import pandas as pd
-import stats_arrays as sa
 import xarray as xr
 
 from .vehicle_input_parameters import VehicleInputParameters as vip
@@ -10,7 +9,6 @@ from .vehicle_input_parameters import VehicleInputParameters as vip
 
 def fill_xarray_from_input_parameters(input_parameters, sensitivity=False, scope=None):
     """Create an `xarray` labeled array from the sampled input parameters.
-
 
     This function extracts the parameters' names and values contained in the
     `parameters` attribute of the :class:`CarInputParameters` class
@@ -82,59 +80,15 @@ def fill_xarray_from_input_parameters(input_parameters, sensitivity=False, scope
     # the number of iterations to perform
     # that is, 1 in `static` mode, or several in `stochastic` mode.
 
-    d = {v: k for k, v in enumerate(scope["size"])}
-
-    if not sensitivity:
-        array = xr.DataArray(
-            np.zeros(
-                (
-                    len(scope["size"]),
-                    len(scope["powertrain"]),
-                    len(input_parameters.parameters),
-                    len(scope["year"]),
-                    input_parameters.iterations or 1,
-                )
-            ),
-            coords=[
-                sorted(scope["size"], key=lambda x: d[x]),
-                scope["powertrain"],
-                input_parameters.parameters,
-                scope["year"],
-                np.arange(input_parameters.iterations or 1),
-            ],
-            dims=["size", "powertrain", "parameter", "year", "value"],
-        ).astype("float32")
-
-    # if the purpose is to do a sensitivity analysis
-    # then the length of the dimensions `value` equals the number of parameters
-    else:
-        params = ["reference"]
-        params.extend([a for a in input_parameters.input_parameters])
-        array = xr.DataArray(
-            np.zeros(
-                (
-                    len(scope["size"]),
-                    len(scope["powertrain"]),
-                    len(input_parameters.parameters),
-                    len(scope["year"]),
-                    len(params),
-                )
-            ),
-            coords=[
-                scope["size"],
-                scope["powertrain"],
-                input_parameters.parameters,
-                scope["year"],
-                params,
-            ],
-            dims=["size", "powertrain", "parameter", "year", "value"],
-        ).astype("float32")
-
     size_dict = {k: i for i, k in enumerate(scope["size"])}
     powertrain_dict = {k: i for i, k in enumerate(scope["powertrain"])}
     year_dict = {k: i for i, k in enumerate(scope["year"])}
     parameter_dict = {k: i for i, k in enumerate(input_parameters.parameters)}
 
+    params = ["reference"] + input_parameters.input_parameters
+
+    data_dict = [dict()]
+    parameter_list = set()
     for param in input_parameters:
         pwt = (
             set(input_parameters.metadata[param]["powertrain"])
@@ -153,27 +107,79 @@ def fill_xarray_from_input_parameters(input_parameters, sensitivity=False, scope
             if isinstance(input_parameters.metadata[param]["year"], list)
             else set([input_parameters.metadata[param]["year"]])
         )
-
         if (
             pwt.intersection(scope["powertrain"])
             and size.intersection(scope["size"])
             and year.intersection(scope["year"])
         ):
-            array.loc[
-                dict(
-                    powertrain=[p for p in pwt if p in scope["powertrain"]],
-                    size=[s for s in size if s in scope["size"]],
-                    year=[y for y in year if y in scope["year"]],
-                    parameter=input_parameters.metadata[param]["name"],
-                )
-            ] = input_parameters.values[param]
+
+            powertrains = list(pwt.intersection(scope["powertrain"]))
+            years = list(year.intersection(scope["year"]))
+            sizes = list(size.intersection(scope["size"]))
+            if len(sizes) > 1 and len(powertrains) > 1:
+                pwt_size_couple = np.array(list(itertools.product(powertrains, sizes)))
+                powertrains = pwt_size_couple[:, 0]
+                sizes = pwt_size_couple[:, 1]
+
+            data = {
+                "size": sizes,
+                "powertrain": powertrains,
+                "parameter": input_parameters.metadata[param]["name"],
+                "year": years,
+                "data": input_parameters.values[param],
+            }
+            if not sensitivity:
+                data["value"] = np.arange(input_parameters.iterations or 1)
+            else:
+                data["value"] = params
+
+            data_dict.append(data)
+
+            parameter_list.add(input_parameters.metadata[param]["name"])
+
+    parameter_diff = parameter_list.symmetric_difference(input_parameters.parameters)
+
+    for param in parameter_diff:
+        data = {
+            "size": scope["size"],
+            "powertrain": scope["powertrain"],
+            "parameter": param,
+            "year": scope["year"],
+            "data": 0.0,
+        }
+        if not sensitivity:
+            data["value"] = np.arange(input_parameters.iterations or 1)
+        else:
+            data["value"] = params
+        data_dict.append(data)
+
+    df = pd.DataFrame.from_dict(data_dict)
+    cols = ["powertrain", "size", "value", "year", "parameter"]
+    df1 = pd.concat(
+        [
+            df[x]
+            .explode()
+            .to_frame()
+            .assign(g=lambda x: x.groupby(level=0).cumcount())
+            .set_index("g", append=True)
+            for x in cols
+        ],
+        axis=1,
+    )
+
+    df = df.drop(cols, axis=1).join(df1.droplevel(1))
+    df[cols] = df[cols].apply(lambda x: x.fillna(method="ffill"))
+    df.set_index(["size", "powertrain", "parameter", "year", "value"], inplace=True)
+    df.dropna(inplace=True)
+    array = xr.DataArray.from_series(df["data"])
+    array = array.astype("float32")
+    array.coords["year"] = array.coords["year"].astype(int)
+    array = array.fillna(0.0)
 
     if sensitivity:
-        # we increase each value by 10%
+        # we increase each value by 10% for each params excepting reference one
 
-        list_params = list(set([a for a in input_parameters.input_parameters]))
-
-        for param in list_params:
+        for param in params[1:]:
             array.loc[dict(parameter=param, value=param)] *= 1.1
 
     return (size_dict, powertrain_dict, parameter_dict, year_dict), array
