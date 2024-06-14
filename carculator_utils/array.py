@@ -63,8 +63,9 @@ def fill_xarray_from_input_parameters(input_parameters, sensitivity=False, scope
 
     for missing_pwt in missing_pwts:
         if missing_pwt[0] in scope["powertrain"]:
-            if not any(p in scope["powertrain"] for p in missing_pwt[1:]):
-                scope["powertrain"].extend(missing_pwt[1:])
+            for p in missing_pwt[1:]:
+                if not p in scope["powertrain"]:
+                    scope["powertrain"].append(p)
 
     if any(s for s in scope["size"] if s not in input_parameters.sizes):
         raise ValueError("One of the size types is not valid.")
