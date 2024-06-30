@@ -113,7 +113,6 @@ def fill_xarray_from_input_parameters(input_parameters, sensitivity=False, scope
             and size.intersection(scope["size"])
             and year.intersection(scope["year"])
         ):
-
             powertrains = list(pwt.intersection(scope["powertrain"]))
             years = list(year.intersection(scope["year"]))
             sizes = list(size.intersection(scope["size"]))
@@ -169,9 +168,10 @@ def fill_xarray_from_input_parameters(input_parameters, sensitivity=False, scope
     )
 
     df = df.drop(cols, axis=1).join(df1.droplevel(1))
-    df[cols] = df[cols].apply(lambda x: x.fillna(method="ffill"))
+    df[cols] = df[cols].apply(lambda x: x.ffill())
     df.set_index(["size", "powertrain", "parameter", "year", "value"], inplace=True)
     df.dropna(inplace=True)
+    df = df[~df.index.duplicated(keep="first")]
     array = xr.DataArray.from_series(df["data"])
     array = array.astype("float32")
     array.coords["year"] = array.coords["year"].astype(int)
