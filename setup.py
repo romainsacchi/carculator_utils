@@ -35,7 +35,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="carculator_utils",
-    version="1.2.0.dev6",
+    version="1.2.0",
     packages=packages,
     author="Romain Sacchi <romain.sacchi@psi.ch>",
     python_requires=">=3.10",
