@@ -2,7 +2,7 @@ scipy
 pyprind
 pandas
 xarray
-numpy
+numpy<=2.0.0
 klausen
 xlrd
 numexpr
