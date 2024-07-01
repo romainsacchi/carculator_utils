@@ -877,6 +877,26 @@ class VehicleModel:
                     dict(parameter="TtW energy, electric mode", powertrain=pwt)
                 ] = self.array.loc[dict(parameter="TtW energy", powertrain="PHEV-e")]
 
+                # We need to recalculate the tank-to-wheel efficiency
+
+                distance = (
+                    self.energy.sel(
+                        parameter="velocity",
+                        powertrain=pwtc,
+                    ).sum(dim="second")
+                    / 1000
+                )
+
+                self.array.loc[
+                    dict(parameter="TtW efficiency", powertrain=pwt)
+                ] = (
+                    self.energy.sel(
+                        parameter=["motive energy at wheels","negative motive energy"],
+                        powertrain=pwt,
+                    ).sum(dim=["second","parameter"])
+                    / distance                    
+                ) / self.array.loc[dict(parameter="TtW energy", powertrain=pwt)]
+                
                 # We need to recalculate the range as well
 
                 var = (
@@ -1313,22 +1333,15 @@ class VehicleModel:
         calculated by `calculate_ttw_efficiency`.
         :return:
         """
-        _ = lambda array: np.where(array == 0, 1, array)
 
-        if "fuel cell system efficiency" not in self.array.coords["parameter"].values:
-            self["TtW efficiency"] = (
-                self["transmission efficiency"] * self["engine efficiency"]
-            )
-        else:
-            self["TtW efficiency"] = (
-                _(self["fuel cell system efficiency"])
-                * self["transmission efficiency"]
-                * self["engine efficiency"]
-            )
-
-        self["TtW efficiency"] *= np.where(
-            self["charger mass"] > 0, self["battery discharge efficiency"], 1
-        )
+        self["TtW efficiency"] = (
+            self.energy.sel(
+                parameter=["motive energy at wheels","negative motive energy"],
+                size=self.array.coords["size"].values,
+                powertrain=self.array.coords["powertrain"].values,
+            ).sum(dim=["second","parameter"])
+            / distance
+        ) / self["TtW energy"]    
 
     def set_hot_emissions(self) -> None:
         """
