@@ -1332,6 +1332,7 @@ class VehicleModel:
         :return:
         """
 
+        distance = self.energy.sel(parameter="velocity").sum(dim="second") / 1000
         self["TtW efficiency"] = (
             self.energy.sel(
                 parameter=["motive energy at wheels", "negative motive energy"],
@@ -1476,9 +1477,9 @@ class VehicleModel:
         ) as stream:
             list_noise_emissions = yaml.safe_load(stream)
 
-        self.array.loc[dict(parameter=list_noise_emissions)] = (
-            nem.get_sound_power_per_compartment()
-        )
+        self.array.loc[
+            dict(parameter=list_noise_emissions)
+        ] = nem.get_sound_power_per_compartment()
 
     def calculate_cost_impacts(self, sensitivity=False) -> xr.DataArray:
         """
