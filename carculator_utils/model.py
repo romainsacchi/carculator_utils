@@ -887,16 +887,14 @@ class VehicleModel:
                     / 1000
                 )
 
-                self.array.loc[
-                    dict(parameter="TtW efficiency", powertrain=pwt)
-                ] = (
+                self.array.loc[dict(parameter="TtW efficiency", powertrain=pwt)] = (
                     self.energy.sel(
-                        parameter=["motive energy at wheels","negative motive energy"],
+                        parameter=["motive energy at wheels", "negative motive energy"],
                         powertrain=pwt,
-                    ).sum(dim=["second","parameter"])
-                    / distance                    
+                    ).sum(dim=["second", "parameter"])
+                    / distance
                 ) / self.array.loc[dict(parameter="TtW energy", powertrain=pwt)]
-                
+
                 # We need to recalculate the range as well
 
                 var = (
@@ -1336,12 +1334,12 @@ class VehicleModel:
 
         self["TtW efficiency"] = (
             self.energy.sel(
-                parameter=["motive energy at wheels","negative motive energy"],
+                parameter=["motive energy at wheels", "negative motive energy"],
                 size=self.array.coords["size"].values,
                 powertrain=self.array.coords["powertrain"].values,
-            ).sum(dim=["second","parameter"])
+            ).sum(dim=["second", "parameter"])
             / distance
-        ) / self["TtW energy"]    
+        ) / self["TtW energy"]
 
     def set_hot_emissions(self) -> None:
         """
