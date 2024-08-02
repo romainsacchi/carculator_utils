@@ -1278,15 +1278,19 @@ class Inventory:
         for pwt in [
             p
             for p in self.scope["powertrain"]
-            if p in ["ICEV-p", "ICEV-d", "ICEV-g", "HEV-p", "HEV-d", "FCEV"]
+            if p
+            in [
+                "ICEV-p",
+                "ICEV-d",
+                "ICEV-g",
+            ]
         ]:
             for size in self.scope["size"]:
                 for year in self.scope["year"]:
-                    self.vm.energy_storage["electric"].update(
-                        {
-                            (pwt, size, year): "NMC-622",
-                        }
-                    )
+                    if (pwt, size, year) not in self.vm.energy_storage["electric"]:
+                        self.vm.energy_storage["electric"][
+                            (pwt, size, year)
+                        ] = "NMC-622"
 
         for key, val in self.vm.energy_storage["electric"].items():
             pwt, size, year = key

@@ -35,7 +35,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="carculator_utils",
-    version="1.2.0",
+    version="1.2.1",
     packages=packages,
     author="Romain Sacchi <romain.sacchi@psi.ch>",
     python_requires=">=3.10",
@@ -45,7 +45,7 @@ setup(
     },
     install_requires=[
         "pandas",
-        "xarray",
+        "xarray>=2024.1.0",
         "numpy<2.0.0",
         "klausen",
         "xlrd",
