@@ -872,7 +872,6 @@ class Inventory:
 
         return rates
 
-    # @lru_cache
     def find_input_indices(self, contains: [tuple, str], excludes: tuple = ()) -> list:
         """
         This function finds the indices of the inputs in the A matrix
@@ -1273,32 +1272,15 @@ class Inventory:
             * -1
         )
 
-        # Use the NMC inventory for all non-electric vehicles
-        # because they need one in the future as they become hybrid.
-        for pwt in [
-            p
-            for p in self.scope["powertrain"]
-            if p
-            in [
-                "ICEV-p",
-                "ICEV-d",
-                "ICEV-g",
-            ]
-        ]:
-            for size in self.scope["size"]:
-                for year in self.scope["year"]:
-                    if (pwt, size, year) not in self.vm.energy_storage["electric"]:
-                        self.vm.energy_storage["electric"][
-                            (pwt, size, year)
-                        ] = "NMC-622"
-
         for key, val in self.vm.energy_storage["electric"].items():
             pwt, size, year = key
+            if pwt.startswith("HEV"):
+                pwt = " " + pwt
             self.A[
                 :,
                 self.find_input_indices((f"battery cell, {val}",)),
                 self.find_input_indices(
-                    (
+                    contains=(
                         f"{self.vm.vehicle_type.capitalize()}, ",
                         pwt,
                         size,
