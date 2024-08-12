@@ -413,9 +413,24 @@ class Inventory:
 
     def calculate_impacts(self, sensitivity=False):
         if self.scenario != "static":
-            B = self.B.interp(
-                year=self.scope["year"], kwargs={"fill_value": "extrapolate"}
-            ).values
+            list_b_arrays = []
+            for year in self.scope["year"]:
+                if year < min(self.B.year.values):
+                    arr = self.B.sel(
+                        year=min(self.B.year.values),
+                    ).values
+                elif year > max(self.B.year.values):
+                    arr = self.B.sel(
+                        year=max(self.B.year.values),
+                    ).values
+                else:
+                    arr = self.B.interp(
+                        year=year, method="linear", kwargs={"fill_value": "extrapolate"}
+                    ).values
+                list_b_arrays.append(arr)
+
+            B = np.array(list_b_arrays)
+
         else:
             B = self.B.values
 

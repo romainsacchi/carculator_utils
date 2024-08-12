@@ -18,7 +18,7 @@ __all__ = (
     "ExportInventory",
     "VehicleInputParameters",
 )
-__version__ = (1, 2, 2)
+__version__ = (1, 2, 3)
 
 from pathlib import Path
 
