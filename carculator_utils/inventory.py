@@ -432,7 +432,9 @@ class Inventory:
             B = np.array(list_b_arrays)
 
         else:
-            B = self.B.values
+            # if static scenario, use the B matrix
+            # but we duplicate it for each year
+            B = np.repeat(self.B.values, len(self.scope["year"]), axis=0)
 
         # Prepare an array to store the results
         results = self.get_results_table(sensitivity=sensitivity)
