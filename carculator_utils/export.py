@@ -21,21 +21,17 @@ from bw2io.export.excel import create_valid_worksheet_name, safe_filename, xlsxw
 from . import DATA_DIR, __version__
 
 
-def load_inventories() -> list[dict]:
+def load_references() -> list[dict]:
     """
     Load LCIs to fetch metadata from.
     """
-    filepath = DATA_DIR / "lci" / "lci-premise_carculator_db.xlsx"
+    filepath = DATA_DIR / "export" / "references.json"
     if not filepath.is_file():
-        raise FileNotFoundError("The database of inventories could not be found.")
-    lci = bw2io.ExcelImporter(filepath)
-    references = {
-        lci.data[i]["name"]: {
-            "source": lci.data[i].get("source"),
-            "comment": lci.data[i].get("comment"),
-        }
-        for i in range(len(lci.data))
-    }
+        raise FileNotFoundError("The references file could not be found.")
+
+    with open(filepath, encoding="utf-8") as f:
+        references = json.load(f)
+
     return references
 
 
@@ -197,7 +193,7 @@ class ExportInventory:
         self.rename_vehicles()
         self.rev_rename_pwt = {v: k for k, v in self.rename_pwt.items()}
         self.db_name: str = db_name
-        self.references = load_inventories()
+        self.references = load_references()
 
         self.flow_map = {
             "3.5": load_mapping(filename="ei37_to_ei35.csv"),
@@ -412,11 +408,11 @@ class ExportInventory:
                         ["Activity", k["name"]],
                         ("location", k["location"]),
                         ("production amount", float(k["production amount"])),
-                        ("reference product", k.get("reference product")),
+                        ("reference product", k.get("reference product"), ""),
                         ("type", "process"),
                         ("unit", k["unit"]),
-                        ("source", k.get("source")),
-                        ("comment", k.get("comment")),
+                        ("source", k.get("source", "")),
+                        ("comment", k.get("comment", "")),
                         ["Exchanges"],
                         [
                             "name",
@@ -1068,10 +1064,16 @@ class ExportInventory:
 
             data = self.write_lci(ecoinvent_version=ecoinvent_version, year=year)
 
+            # update database name in datasets
+            for d in data:
+                d["database"] = f"{self.db_name}_{year}"
+
             if export_format == "bw2io":
                 lci = bw2io.importers.base_lci.LCIImporter(self.db_name)
                 lci.data = data
-                lci.db_name = self.db_name
+                # remove keys with empty values
+                lci.data = [{k: v for k, v in d.items() if v} for d in lci.data]
+                lci.db_name = f"{self.db_name}_{year}"
                 return lci
 
             formatted_data = self.format_data_for_lci_for_bw2(data)

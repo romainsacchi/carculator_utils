@@ -23,24 +23,17 @@ powertrain:
   - retarder, for lorry
   - transmission, for lorry
   - exhaust system, for lorry
-  - market for internal combustion engine
   - electric motor production
   - powertrain production
   - charger production
   - internal combustion engine
 
 energy storage:
-  - ancillary BoP
-  - essential BoP
-  - fuel cell stack
-  - battery BoP
-  - battery cell
-  - lead acid
+  - fuel cell
+  - market for battery,
   - polyethylene production, high density
   - glass fibre reinforced plastic production
-  - fuel tank production, compressed hydrogen gas, 700bar
-  - fuel tank production, compressed natural gas, 200 bar
-  - fuel tank production, for diesel vehicle
+  - fuel tank
   - electricity supply for battery production
 
 
@@ -48,35 +41,29 @@ energy chain:
   - fuel supply for
   - electricity supply for electric vehicles
   - electricity supply for fuel preparation
-  - charger, for electric vehicles
+  - charger
   - overhead
-  - charging station
 
 maintenance:
-  - maintenance, passenger car
-  - maintenance, lorry
-  - maintenance, bus
-  - maintenance, motor scooter
-  - maintenance, bicycle
-  - maintenance, electric bicycle
+  - maintenance,
   - market for refrigerant R134a
 
 EoL:
-  - treatment of used
-  - market for used
-  - market for manual dismantling
-  - manual dismantling of used
+  - treatment of used bicycle
+  - treatment of used electric bicycle
+  - treatment of used lorry, 16 metric ton
+  - treatment of used lorry, 28 metric ton
+  - treatment of used lorry, 40 metric ton
+  - market for used Li
+  - manual dismantling of used electric scooter
+  - market for used powertrain from electric passenger car, manual dismantling
   - market for waste plastic, industrial electronics
 
 road:
   - market for road
 
-
 direct - non-exhaust:
-  - market for tyre wear emissions, passenger car
-  - market for road wear emissions, passenger car
-  - market for brake wear emissions, passenger car
   - treatment of road wear
   - treatment of tyre wear
   - treatment of brake wear
-  - Ethane, 1,1,1,2-tetrafluoro-, HFC-134a
+  - 1,1,1,2-Tetrafluoroethane

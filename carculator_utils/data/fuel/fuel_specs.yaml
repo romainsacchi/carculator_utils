@@ -3,10 +3,10 @@ hydrogen - electrolysis - PEM:
   co2: 0
   density: 0.042
   name:
-      - hydrogen supply, distributed by pipeline, produced by Electrolysis, PEM using electricity from grid
+      - hydrogen production, gaseous, 30 bar, from PEM electrolysis, from grid electricity
       - RER
       - kilogram
-      - hydrogen, gaseous, from pipeline
+      - hydrogen, gaseous, 30 bar
   biogenic_share: 1
 
 hydrogen - electrolysis - SOEC:
@@ -14,10 +14,10 @@ hydrogen - electrolysis - SOEC:
   co2: 0
   density: 0.042
   name:
-      - hydrogen supply, distributed by pipeline, produced by Electrolysis, SOEC using electricity from grid
-      - RER
+      - hydrogen production, gaseous, 1 bar, from SOEC electrolysis, from grid electricity
+      - CH
       - kilogram
-      - hydrogen, gaseous, from pipeline
+      - hydrogen, gaseous, 1 bar
   biogenic_share: 1
 
 hydrogen - electrolysis - AEC:
@@ -25,10 +25,10 @@ hydrogen - electrolysis - AEC:
   co2: 0
   density: 0.042
   name:
-      - hydrogen supply, distributed by pipeline, produced by Electrolysis, AEC using electricity from grid
-      - RER
+      - hydrogen production, gaseous, 20 bar, from AEC electrolysis, from grid electricity
+      - CH
       - kilogram
-      - hydrogen, gaseous, from pipeline
+      - hydrogen, gaseous, 20 bar
   biogenic_share: 1
 
 hydrogen - pyrolysis:
@@ -36,10 +36,10 @@ hydrogen - pyrolysis:
   co2: 0
   density: 0.042
   name:
-      - hydrogen supply, distributed by pipeline, produced by methane pyrolysis using natural gas
+      - hydrogen production, gaseous, 100 bar, from methane pyrolysis
       - RER
       - kilogram
-      - hydrogen, gaseous, from pipeline
+      - hydrogen, gaseous, 100 bar
   biogenic_share: 1
 
 hydrogen - thermochemical water splitting:
@@ -47,10 +47,10 @@ hydrogen - thermochemical water splitting:
   co2: 0
   density: 0.042
   name:
-      - hydrogen supply, distributed by pipeline, produced by thermochemical water splitting
+      - hydrogen production, gaseous, 25 bar, from thermochemical water splitting, at solar tower
       - RER
       - kilogram
-      - hydrogen, gaseous, from pipeline
+      - hydrogen, gaseous, 25 bar
   biogenic_share: 1
 
 hydrogen - smr - natural gas:
@@ -58,10 +58,10 @@ hydrogen - smr - natural gas:
   co2: 0
   density: 0.042
   name:
-      - hydrogen supply, distributed by pipeline, produced by SMR using natural gas
+      - hydrogen production, steam methane reforming
       - RER
       - kilogram
-      - hydrogen, gaseous, from pipeline
+      - hydrogen, gaseous, low pressure
   biogenic_share: 1
 
 hydrogen - smr - natural gas with CCS:
@@ -69,7 +69,7 @@ hydrogen - smr - natural gas with CCS:
   co2: 0
   density: 0.042
   name:
-      - hydrogen supply, distributed by pipeline, produced by SMR using natural gas, with carbon capture and storage
+      - hydrogen production, steam methane reforming, with CCS
       - RER
       - kilogram
       - hydrogen, gaseous, from pipeline
@@ -80,7 +80,7 @@ hydrogen - smr - biogas:
   co2: 0
   density: 0.042
   name:
-      - hydrogen supply, distributed by pipeline, produced by SMR using biomethane
+      - hydrogen production, steam methane reforming, from biomethane
       - RER
       - kilogram
       - hydrogen, gaseous, from pipeline
@@ -91,7 +91,7 @@ hydrogen - smr - biogas with CCS:
   co2: 0
   density: 0.042
   name:
-      - hydrogen supply, distributed by pipeline, produced by SMR using biomethane, with carbon capture and storage
+      - hydrogen production, steam methane reforming, from biomethane, with CCS
       - RER
       - kilogram
       - hydrogen, gaseous, from pipeline
@@ -102,7 +102,7 @@ hydrogen - coal gasification:
   co2: 0
   density: 0.042
   name:
-      - hydrogen supply, distributed by pipeline, produced by coal gasification
+      - hydrogen production, gaseous, from coal gasification
       - RER
       - kilogram
       - hydrogen, gaseous, from pipeline
@@ -113,7 +113,7 @@ hydrogen - coal gasification with CCS:
   co2: 0
   density: 0.042
   name:
-      - hydrogen supply, distributed by pipeline, produced by coal gasification, with carbon capture and storage
+      - hydrogen production, gaseous, from coal gasification, with CCS
       - RER
       - kilogram
       - hydrogen, gaseous, from pipeline
@@ -124,7 +124,7 @@ hydrogen - wood gasification:
   co2: 0
   density: 0.042
   name:
-      - hydrogen supply, distributed by pipeline, produced by wood gasification
+      - hydrogen production, gaseous, from wood gasification
       - RER
       - kilogram
       - hydrogen, gaseous, from pipeline
@@ -135,7 +135,7 @@ hydrogen - wood gasification with CCS:
   co2: 0
   density: 0.042
   name:
-      - hydrogen supply, distributed by pipeline, produced by wood gasification, with carbon capture and storage
+      - hydrogen production, gaseous, from wood gasification, with CCS
       - RER
       - kilogram
       - hydrogen, gaseous, from pipeline
@@ -146,10 +146,10 @@ hydrogen - atr - natural gas:
   co2: 0
   density: 0.042
   name:
-      - hydrogen supply, distributed by pipeline, produced by ATR using natural gas
+      - hydrogen production, auto-thermal reforming
       - RER
       - kilogram
-      - hydrogen, gaseous, from pipeline
+      - hydrogen, gaseous, low pressure
   biogenic_share: 1
 
 hydrogen - atr - natural gas with CCS:
@@ -157,10 +157,10 @@ hydrogen - atr - natural gas with CCS:
   co2: 0
   density: 0.042
   name:
-      - hydrogen supply, distributed by pipeline, produced by ATR using natural gas, with carbon capture and storage
+      - hydrogen production, auto-thermal reforming, with CCS
       - RER
       - kilogram
-      - hydrogen, gaseous, from pipeline
+      - hydrogen, gaseous, low pressure
   biogenic_share: 1
 
 hydrogen - atr - biogas:
@@ -168,10 +168,10 @@ hydrogen - atr - biogas:
   co2: 0
   density: 0.042
   name:
-      - hydrogen supply, distributed by pipeline, produced by ATR using biomethane
+      - hydrogen production, auto-thermal reforming, from biomethane
       - RER
       - kilogram
-      - hydrogen, gaseous, from pipeline
+      - hydrogen, gaseous, low pressure
   biogenic_share: 1
 
 hydrogen - atr - biogas with CCS:
@@ -179,10 +179,10 @@ hydrogen - atr - biogas with CCS:
   co2: 0
   density: 0.042
   name:
-      - hydrogen supply, distributed by pipeline, produced by ATR using biomethane, with carbon capture and storage
+      - hydrogen production, auto-thermal reforming, from biomethane, with CCS
       - RER
       - kilogram
-      - hydrogen, gaseous, from pipeline
+      - hydrogen, gaseous, low pressure
   biogenic_share: 1
 
 petrol:

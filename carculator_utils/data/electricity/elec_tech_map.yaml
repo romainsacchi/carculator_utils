@@ -1,12 +1,12 @@
 Hydro:
   - electricity production, hydro, run-of-river
-  - DE
+  - CH
   - kilowatt hour
   - electricity, high voltage
 
 Nuclear:
   - electricity production, nuclear, pressure water reactor
-  - DE
+  - CH
   - kilowatt hour
   - electricity, high voltage
 
@@ -18,19 +18,19 @@ Gas:
 
 Solar:
   - electricity production, photovoltaic, 3kWp slanted-roof installation, multi-Si, panel, mounted
-  - DE
+  - CH
   - kilowatt hour
   - electricity, low voltage
 
 Wind:
   - electricity production, wind, 1-3MW turbine, onshore
-  - DE
+  - CH
   - kilowatt hour
   - electricity, high voltage
 
 Biomass:
   - heat and power co-generation, wood chips, 6667 kW, state-of-the-art 2014
-  - DE
+  - CH
   - kilowatt hour
   - electricity, high voltage
 
@@ -48,15 +48,16 @@ Oil:
 
 Geothermal:
   - electricity production, deep geothermal
-  - DE
+  - CH
   - kilowatt hour
   - electricity, high voltage
 
 Waste:
-  - treatment of municipal solid waste, incineration
-  - DE
+  - treatment of municipal solid waste, municipal incineration FAE
+  - CH
   - kilowatt hour
   - electricity, for reuse in municipal waste incineration only
+
 
 Biogas CCS:
   - electricity production, at biomethane-fired power plant, post, pipeline 200km, storage 1000m
@@ -96,7 +97,7 @@ Hydro, reservoir:
 
 Gas CCGT:
   - electricity production, natural gas, combined cycle power plant
-  - DE
+  - CH
   - kilowatt hour
   - electricity, high voltage
 

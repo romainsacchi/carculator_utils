@@ -202,9 +202,7 @@ class VehicleModel:
                         powertrain=pwt,
                         size=size,
                         year=year,
-                        parameter=[
-                            f"{p}, {val.split('-')[0].strip()}" for p in l_parameters
-                        ],
+                        parameter=[f"{p}, {val}" for p in l_parameters],
                     )
                 ]
 
@@ -1477,9 +1475,9 @@ class VehicleModel:
         ) as stream:
             list_noise_emissions = yaml.safe_load(stream)
 
-        self.array.loc[dict(parameter=list_noise_emissions)] = (
-            nem.get_sound_power_per_compartment()
-        )
+        self.array.loc[
+            dict(parameter=list_noise_emissions)
+        ] = nem.get_sound_power_per_compartment()
 
     def calculate_cost_impacts(self, sensitivity=False) -> xr.DataArray:
         """

@@ -1,46 +1,74 @@
-recipe;IPCC 2021;climate change;midpoint;GWP h;kg CO2-Eq;
-recipe;IPCC 2021;climate change w bio CO2;midpoint;GWP h+bio;kg CO2-Eq;
-recipe;ReCiPe 2016 v1.03, midpoint (H);acidification: terrestrial;midpoint;TAP;kg SO2-Eq;
-recipe;ReCiPe 2016 v1.03, midpoint (H);ecotoxicity: freshwater;midpoint;FETP;kg 1,4-DCB-Eq;
-recipe;ReCiPe 2016 v1.03, midpoint (H);ecotoxicity: marine;midpoint;METP;kg 1,4-DCB-Eq;
-recipe;ReCiPe 2016 v1.03, midpoint (H);ecotoxicity: terrestrial;midpoint;TETP;kg 1,4-DCB-Eq;
-recipe;ReCiPe 2016 v1.03, midpoint (H);energy resources: non-renewable, fossil;midpoint;FFP;kg oil-Eq;
-recipe;ReCiPe 2016 v1.03, midpoint (H);eutrophication: freshwater;midpoint;FEP;kg P-Eq;
-recipe;ReCiPe 2016 v1.03, midpoint (H);eutrophication: marine;midpoint;MEP;kg N-Eq;
-recipe;ReCiPe 2016 v1.03, midpoint (H);human toxicity: carcinogenic;midpoint;HTPc;kg 1,4-DCB-Eq;
-recipe;ReCiPe 2016 v1.03, midpoint (H);human toxicity: non-carcinogenic;midpoint;HTPnc;kg 1,4-DCB-Eq;
-recipe;ReCiPe 2016 v1.03, midpoint (H);ionising radiation potential (IRP);midpoint;IRP;kg Co-60-Eq;
-recipe;ReCiPe 2016 v1.03, midpoint (H);agricultural land occupation (LOP);midpoint;LOP;m2*a crop-Eq;
-recipe;ReCiPe 2016 v1.03, midpoint (H);material resources: metals/minerals;midpoint;SOP;kg Cu-Eq;
-recipe;ReCiPe 2016 v1.03, midpoint (H);ozone depletion;midpoint;ODP;kg CFC-11-Eq;
-recipe;ReCiPe 2016 v1.03, midpoint (H);particulate matter formation;midpoint;PMFP;kg PM2.5-Eq;
-recipe;ReCiPe 2016 v1.03, midpoint (H);photochemical oxidant formation: human health;midpoint;HOFP;kg NOx-Eq;
-recipe;ReCiPe 2016 v1.03, midpoint (H);photochemical oxidant formation: terrestrial ecosystems;midpoint;EOFP;kg NOx-Eq;
-recipe;ReCiPe 2016 v1.03, midpoint (H);water consumption potential;midpoint;WCP;cubic meter;
-recipe;Cucurachi et al.;Human noise impacts;midpoint;HN;person-Pa/W;
-recipe;Cumulative Energy Demand (CED);non-renewable energy;midpoint;NREN;MJ-Eq;
-recipe;Cumulative Energy Demand (CED);renewable energy;midpoint;REN;MJ-Eq;
-recipe;Cumulative Energy Demand (CED);total energy;midpoint;TEN;MJ-Eq;
-recipe;ReCiPe 2008 Endpoint (H, A) V1.13;Ecosystems;endpoint;;species.lost;https://www.rivm.nl/documenten/6recipe111
-recipe;ReCiPe 2008 Endpoint (H, A) V1.13;Human health;endpoint;;DALY;https://www.rivm.nl/documenten/6recipe111
-recipe;ReCiPe 2008 Endpoint (H, A) V1.13;Resources;endpoint;;USD;https://www.rivm.nl/documenten/6recipe111
-recipe;Cucurachi et al. 2019;Noise;endpoint;;DALY;https://onlinelibrary.wiley.com/doi/full/10.1111/jiec.12837
-ilcd;ILCD 2.0 2018 midpoint;ecosystem quality - freshwater ecotoxicity;midpoint;;CTUe;https://eplca.jrc.ec.europa.eu/permalink/supporting_Information_final.pdf
-ilcd;ILCD 2.0 2018 midpoint;human health - non-carcinogenic effects;midpoint;;CTUh;https://eplca.jrc.ec.europa.eu/permalink/supporting_Information_final.pdf
-ilcd;ILCD 2.0 2018 midpoint;human health - carcinogenic effects;midpoint;;CTUh;https://eplca.jrc.ec.europa.eu/permalink/supporting_Information_final.pdf
-ilcd;ILCD 2.0 2018 midpoint;resources - minerals and metals;midpoint;;kg Sb-Eq.;https://eplca.jrc.ec.europa.eu/permalink/supporting_Information_final.pdf
-ilcd;ILCD 2.0 2018 midpoint;climate change - climate change biogenic;midpoint;;kg CO2-Eq.;https://eplca.jrc.ec.europa.eu/permalink/supporting_Information_final.pdf
-ilcd;ILCD 2.0 2018 midpoint;climate change - climate change fossil;midpoint;;kg CO2-Eq.;https://eplca.jrc.ec.europa.eu/permalink/supporting_Information_final.pdf
-ilcd;ILCD 2.0 2018 midpoint;climate change - climate change land use and land use change;midpoint;;kg CO2-Eq.;https://eplca.jrc.ec.europa.eu/permalink/supporting_Information_final.pdf
-ilcd;ILCD 2.0 2018 midpoint;climate change - climate change total;midpoint;;kg CO2-Eq.;https://eplca.jrc.ec.europa.eu/permalink/supporting_Information_final.pdf
-ilcd;ILCD 2.0 2018 midpoint;ecosystem quality - freshwater and terrestrial acidification;midpoint;;mol H+-Eq.;https://eplca.jrc.ec.europa.eu/permalink/supporting_Information_final.pdf
-ilcd;ILCD 2.0 2018 midpoint;ecosystem quality - freshwater eutrophication;midpoint;;kg P-Eq.;https://eplca.jrc.ec.europa.eu/permalink/supporting_Information_final.pdf
-ilcd;ILCD 2.0 2018 midpoint;ecosystem quality - marine eutrophication;midpoint;;kg N-Eq.;https://eplca.jrc.ec.europa.eu/permalink/supporting_Information_final.pdf
-ilcd;ILCD 2.0 2018 midpoint;ecosystem quality - terrestrial eutrophication;midpoint;;mol N-Eq.;https://eplca.jrc.ec.europa.eu/permalink/supporting_Information_final.pdf
-ilcd;ILCD 2.0 2018 midpoint;human health - ionising radiation;midpoint;;kg U235-Eq.;https://eplca.jrc.ec.europa.eu/permalink/supporting_Information_final.pdf
-ilcd;ILCD 2.0 2018 midpoint;human health - ozone layer depletion;midpoint;;kg CFC-11-Eq.;https://eplca.jrc.ec.europa.eu/permalink/supporting_Information_final.pdf
-ilcd;ILCD 2.0 2018 midpoint;human health - photochemical ozone creation;midpoint;;kg NMVOC-Eq.;https://eplca.jrc.ec.europa.eu/permalink/supporting_Information_final.pdf
-ilcd;ILCD 2.0 2018 midpoint;human health - respiratory effects;midpoint;;disease incidences;https://eplca.jrc.ec.europa.eu/permalink/supporting_Information_final.pdf
-ilcd;ILCD 2.0 2018 midpoint;resources - dissipated water;midpoint;;m3 water-.;https://eplca.jrc.ec.europa.eu/permalink/supporting_Information_final.pdf
-ilcd;ILCD 2.0 2018 midpoint;resources - fossils;midpoint;;megajoule;https://eplca.jrc.ec.europa.eu/permalink/supporting_Information_final.pdf
-ilcd;ILCD 2.0 2018 midpoint;resources - land use;midpoint;;dimensionless;https://eplca.jrc.ec.europa.eu/permalink/supporting_Information_final.pdf
+recipe,midpoint,IPCC 2021,climate change,GWP 100a,GWP,kg CO2-Eq
+recipe,midpoint,IPCC 2021,climate change w bio,GWP 100a,GWPb,kg CO2-Eq
+recipe,midpoint,ReCiPe 2016,acidification: terrestrial,terrestrial acidification potential (TAP),TAP,kg SO2-Eq
+recipe,midpoint,ReCiPe 2016,ecotoxicity: freshwater,freshwater ecotoxicity potential (FETP),FETP,"kg 1,4-DCB-Eq"
+recipe,midpoint,ReCiPe 2016,ecotoxicity: marine,marine ecotoxicity potential (METP),METP,"kg 1,4-DCB-Eq"
+recipe,midpoint,ReCiPe 2016,ecotoxicity: terrestrial,terrestrial ecotoxicity potential (TETP),TETP,"kg 1,4-DCB-Eq"
+recipe,midpoint,ReCiPe 2016,energy resources depletion: non-renewable,energy resources: non-renewable,NREN,MJ
+recipe,midpoint,ReCiPe 2016,eutrophication: freshwater,freshwater eutrophication potential (FEP),FEP,kg P-Eq
+recipe,midpoint,ReCiPe 2016,eutrophication: marine,marine eutrophication potential (MEP),MEP,kg N-Eq
+recipe,midpoint,ReCiPe 2016,human toxicity: carcinogenic,human toxicity potential (HTPc),HTPc,"kg 1,4-DCB-Eq"
+recipe,midpoint,ReCiPe 2016,human toxicity: non-carcinogenic,human toxicity potential (HTPnc),HTPnc,"kg 1,4-DCB-Eq"
+recipe,midpoint,ReCiPe 2016,ionising radiation,ionising radiation potential (IRP),IRP,kg Co-60-Eq
+recipe,midpoint,ReCiPe 2016,land use,agricultural land occupation (LOP),LOP,m2*a crop-Eq
+recipe,midpoint,ReCiPe 2016,material resources: metals/minerals,surplus ore potential (SOP),SOP,kg Cu-Eq
+recipe,midpoint,ReCiPe 2016,ozone depletion,ozone depletion potential (ODPinfinite),ODP,kg CFC-11-Eq
+recipe,midpoint,ReCiPe 2016,particulate matter formation,particulate matter formation potential (PMFP),PMFP,kg PM2.5-Eq
+recipe,midpoint,ReCiPe 2016,photochemical oxidant formation: human health,photochemical oxidant formation potential: humans (HOFP),HOFP,kg NOx-Eq
+recipe,midpoint,ReCiPe 2016,photochemical oxidant formation: terrestrial ecosystems,photochemical oxidant formation potential: ecosystems (EOFP),EOFP,kg NOx-Eq
+recipe,midpoint,ReCiPe 2016,water use,water consumption potential (WCP),WCP,cubic meter
+recipe,midpoint,Cumulative Energy Demand (CED),energy resources: non-renewable,energy content (HHV),NREN,MJ-Eq
+recipe,midpoint,Cumulative Energy Demand (CED),energy resources: renewable,energy content (HHV),REN,MJ-Eq
+recipe,midpoint,Cumulative Energy Demand (CED),total,energy content (HHV),TEN,MJ-Eq
+recipe,midpoint,Cucurachi et al.,Human noise impacts,noise,HN,person-Pa/W
+ef,midpoint,EF v3.1,acidification,accumulated exceedance (AE),,mol H+-Eq
+ef,midpoint,EF v3.1,climate change,global warming potential (GWP100),,kg CO2-Eq
+ef,midpoint,EF v3.1,climate change: biogenic,global warming potential (GWP100),,kg CO2-Eq
+ef,midpoint,EF v3.1,climate change: fossil,global warming potential (GWP100),,kg CO2-Eq
+ef,midpoint,EF v3.1,climate change: land use and land use change,global warming potential (GWP100),,kg CO2-Eq
+ef,midpoint,EF v3.1,ecotoxicity: freshwater,comparative toxic unit for ecosystems (CTUe),,CTUe
+ef,midpoint,EF v3.1,"ecotoxicity: freshwater, inorganics ",comparative toxic unit for ecosystems (CTUe),,CTUe
+ef,midpoint,EF v3.1,"ecotoxicity: freshwater, organics ",comparative toxic unit for ecosystems (CTUe),,
+ef,midpoint,EF v3.1,energy resources: non-renewable,abiotic depletion potential (ADP): fossil fuels,,"MJ, net calorific value"
+ef,midpoint,EF v3.1,eutrophication: freshwater,fraction of nutrients reaching freshwater end compartment (P),,kg P-Eq
+ef,midpoint,EF v3.1,eutrophication: marine,fraction of nutrients reaching marine end compartment (N),,kg N-Eq
+ef,midpoint,EF v3.1,eutrophication: terrestrial,accumulated exceedance (AE),,mol N-Eq
+ef,midpoint,EF v3.1,human toxicity: carcinogenic,comparative toxic unit for human (CTUh),,CTUh
+ef,midpoint,EF v3.1,"human toxicity: carcinogenic, inorganics ",comparative toxic unit for human (CTUh),,CTUh
+ef,midpoint,EF v3.1,"human toxicity: carcinogenic, organics ",comparative toxic unit for human (CTUh),,CTUh
+ef,midpoint,EF v3.1,human toxicity: non-carcinogenic,comparative toxic unit for human (CTUh),,CTUh
+ef,midpoint,EF v3.1,"human toxicity: non-carcinogenic, inorganics ",comparative toxic unit for human (CTUh),,CTUh
+ef,midpoint,EF v3.1,"human toxicity: non-carcinogenic, organics ",comparative toxic unit for human (CTUh),,CTUh
+ef,midpoint,EF v3.1,ionising radiation: human health,human exposure efficiency relative to u235,,kBq U235-Eq
+ef,midpoint,EF v3.1,land use,soil quality index,,dimensionless
+ef,midpoint,EF v3.1,material resources: metals/minerals,abiotic depletion potential (ADP): elements (ultimate reserves),,kg Sb-Eq
+ef,midpoint,EF v3.1,ozone depletion,ozone depletion potential (ODP),,kg CFC-11-Eq
+ef,midpoint,EF v3.1,particulate matter formation,impact on human health,,disease incidence
+ef,midpoint,EF v3.1,photochemical oxidant formation: human health,tropospheric ozone concentration increase,,kg NMVOC-Eq
+ef,midpoint,EF v3.1,water use,user deprivation potential (deprivation-weighted water consumption),,m3 world Eq deprived
+recipe,endpoint,"ReCiPe 2016 v1.03, endpoint (H)",acidification: terrestrial,acidification: terrestrial,,species.yr
+recipe,endpoint,"ReCiPe 2016 v1.03, endpoint (H)",climate change: freshwater ecosystems,climate change: freshwater ecosystems,,species.yr
+recipe,endpoint,"ReCiPe 2016 v1.03, endpoint (H)",climate change: terrestrial ecosystems,climate change: terrestrial ecosystems,,species.yr
+recipe,endpoint,"ReCiPe 2016 v1.03, endpoint (H)",ecotoxicity: freshwater,ecotoxicity: freshwater,,species.yr
+recipe,endpoint,"ReCiPe 2016 v1.03, endpoint (H)",ecotoxicity: marine,ecotoxicity: marine,,species.yr
+recipe,endpoint,"ReCiPe 2016 v1.03, endpoint (H)",ecotoxicity: terrestrial,ecotoxicity: terrestrial,,species.yr
+recipe,endpoint,"ReCiPe 2016 v1.03, endpoint (H)",eutrophication: freshwater,eutrophication: freshwater,,species.yr
+recipe,endpoint,"ReCiPe 2016 v1.03, endpoint (H)",eutrophication: marine,eutrophication: marine,,species.yr
+recipe,endpoint,"ReCiPe 2016 v1.03, endpoint (H)",land use,land use,,species.yr
+recipe,endpoint,"ReCiPe 2016 v1.03, endpoint (H)",photochemical oxidant formation: terrestrial ecosystems,photochemical oxidant formation: terrestrial ecosystems,,species.yr
+recipe,endpoint,"ReCiPe 2016 v1.03, endpoint (H)",water use: aquatic ecosystems,water use: aquatic ecosystems,,species.yr
+recipe,endpoint,"ReCiPe 2016 v1.03, endpoint (H)",water use: terrestrial ecosystems,water use: terrestrial ecosystems,,species.yr
+recipe,endpoint,"ReCiPe 2016 v1.03, endpoint (H)",climate change: human health,climate change: human health,,DALYs
+recipe,endpoint,"ReCiPe 2016 v1.03, endpoint (H)",human toxicity: carcinogenic,human toxicity: carcinogenic,,DALYs
+recipe,endpoint,"ReCiPe 2016 v1.03, endpoint (H)",human toxicity: non-carcinogenic,human toxicity: non-carcinogenic,,DALYs
+recipe,endpoint,"ReCiPe 2016 v1.03, endpoint (H)",ionising radiation,ionising radiation,,DALYs
+recipe,endpoint,"ReCiPe 2016 v1.03, endpoint (H)",ozone depletion,ozone depletion,,DALYs
+recipe,endpoint,"ReCiPe 2016 v1.03, endpoint (H)",particulate matter formation,particulate matter formation,,DALYs
+recipe,endpoint,"ReCiPe 2016 v1.03, endpoint (H)",photochemical oxidant formation: human health,photochemical oxidant formation: human health,,DALYs
+recipe,endpoint,"ReCiPe 2016 v1.03, endpoint (H)",water use: human health,water use: human health,,DALYs
+recipe,endpoint,"ReCiPe 2016 v1.03, endpoint (H)","energy resources: non-renewable, fossil ","energy resources: non-renewable, fossil ",,USD 2013
+recipe,endpoint,"ReCiPe 2016 v1.03, endpoint (H)",material resources: metals/minerals,material resources: metals/minerals,,USD 2013
+recipe,endpoint,"ReCiPe 2016 v1.03, endpoint (H)",total: ecosystem quality,ecosystem quality,,species.yr
+recipe,endpoint,"ReCiPe 2016 v1.03, endpoint (H)",total: human health,human health,,DALYs
+recipe,endpoint,"ReCiPe 2016 v1.03, endpoint (H)",total: natural resources,natural resources,,USD 2013
+recipe,endpoint,Cucurachi et al.,Human noise impacts,noise,HN,DALYs
