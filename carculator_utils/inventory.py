@@ -714,10 +714,7 @@ class Inventory:
 
         B = np.zeros((len(filepaths), len(self.impact_categories), len(self.inputs)))
 
-        print("B.shape: ", B.shape)
-
         for f, filepath in enumerate(filepaths):
-            print(filepath)
             initial_B = sparse.load_npz(filepath).toarray()
 
             new_B = np.zeros(
