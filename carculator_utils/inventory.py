@@ -724,8 +724,6 @@ class Inventory:
                 )
             )
 
-            print("new_B.shape: ", new_B.shape)
-
             new_B[0 : initial_B.shape[0], 0 : initial_B.shape[1]] = initial_B
             B[f, :, :] = new_B
 
@@ -1153,8 +1151,7 @@ class Inventory:
                     self.A[
                         np.ix_(np.arange(0, self.A.shape[0]), replace_by, outs)
                     ] += amount
-                else:
-                    print(f"Input {self.rev_inputs[i][0]} already replaced.")
+
         return
 
     def get_fuel_blend_carbon_intensity(
@@ -1567,7 +1564,7 @@ class Inventory:
                 self.inputs[("Sulfur dioxide", ("air",), "kilogram")],
                 self.find_input_indices(
                     contains=tuple(idx),
-                    excludes=("battery",),
+                    excludes=("BEV",),
                 ),
             ] = (
                 self.array.sel(
@@ -1613,7 +1610,7 @@ class Inventory:
                         f"transport, {self.vm.vehicle_type}, ",
                         powertrains_short,
                     ),
-                    excludes=("battery",),
+                    excludes=("BEV",),
                 ),
             ] = (
                 (

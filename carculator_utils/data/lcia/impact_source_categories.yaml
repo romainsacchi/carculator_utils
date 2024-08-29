@@ -35,6 +35,7 @@ energy storage:
   - glass fibre reinforced plastic production
   - fuel tank
   - electricity supply for battery production
+  - lead acid battery, for lorry
 
 
 energy chain:
@@ -54,6 +55,7 @@ EoL:
   - treatment of used lorry, 16 metric ton
   - treatment of used lorry, 28 metric ton
   - treatment of used lorry, 40 metric ton
+  - treatment of used bus
   - market for used Li
   - manual dismantling of used electric scooter
   - market for used powertrain from electric passenger car, manual dismantling

@@ -72,7 +72,7 @@ hydrogen - smr - natural gas with CCS:
       - hydrogen production, steam methane reforming, with CCS
       - RER
       - kilogram
-      - hydrogen, gaseous, from pipeline
+      - hydrogen, gaseous, low pressure
   biogenic_share: 1
 
 hydrogen - smr - biogas:
@@ -124,10 +124,10 @@ hydrogen - wood gasification:
   co2: 0
   density: 0.042
   name:
-      - hydrogen production, gaseous, from wood gasification
+      - hydrogen production, gaseous, 25 bar, from gasification of woody biomass in entrained flow gasifier, at gasification plant
       - RER
       - kilogram
-      - hydrogen, gaseous, from pipeline
+      - hydrogen, gaseous, 25 bar
   biogenic_share: 1
 
 hydrogen - wood gasification with CCS:
@@ -135,10 +135,10 @@ hydrogen - wood gasification with CCS:
   co2: 0
   density: 0.042
   name:
-      - hydrogen production, gaseous, from wood gasification, with CCS
+      - hydrogen production, gaseous, 25 bar, from gasification of woody biomass in entrained flow gasifier, with CCS, at gasification plant
       - RER
       - kilogram
-      - hydrogen, gaseous, from pipeline
+      - hydrogen, gaseous, 25 bar
   biogenic_share: 1
 
 hydrogen - atr - natural gas:
@@ -652,32 +652,10 @@ methane - synthetic - biological:
   co2: 2.68
   density: 0.639
   name:
-      - methane, synthetic, gaseous, 5 bar, from biological methanation and carbon from atmosphere, at fuelling station
+      - biomethane, gaseous, 5 bar, from sewage sludge fermentation, at fuelling station
       - RER
       - kilogram
-      - methane, high pressure
-  biogenic_share: 1
-
-methane - synthetic - biological - cement:
-  lhv: 47.5
-  co2: 2.68
-  density: 0.639
-  name:
-      - methane, synthetic, gaseous, 5 bar, from biological methanation and carbon from cement plant, at fuelling station
-      - RER
-      - kilogram
-      - methane, high pressure
-  biogenic_share: 1
-
-methane - synthetic - biological - MSWI:
-  lhv: 47.5
-  co2: 2.68
-  density: 0.639
-  name:
-      - methane, synthetic, gaseous, 5 bar, from biological methanation and carbon from MSWI plant, at fuelling station
-      - RER
-      - kilogram
-      - methane, high pressure
+      - biomethane, high pressure
   biogenic_share: 1
 
 kerosene:
