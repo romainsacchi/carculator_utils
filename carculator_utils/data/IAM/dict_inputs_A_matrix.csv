@@ -442,6 +442,10 @@ battery management system assembly, for VRFB system;RER;kilogram;battery managem
 vanadium pentoxide bearing cast iron, production;ZA;kilogram;vanadium pentoxide bearing cast iron
 pre-reduced vanadium pentoxide bearing magnetite production;ZA;kilogram;pre-reduced vanadium pentoxide bearing magnetite
 vanadium bearing magnetite production;ZA;kilogram;vanadium bearing magnetite
+charging station, 500W;GLO;unit;charging station, 500W
+charging station, 100W;GLO;unit;charging station, 100W
+charging station, 3kW;GLO;unit;charging station, 3kW
+electric cargo bicycle production, without battery and motor;RER;unit;electric cargo bicycle, without battery and motor
 bicycle production;RER;unit;bicycle
 charger production, for electric scooter;GLO;kilogram;charger, for electric scooter
 diesel production, low-sulfur, petroleum refinery operation;Europe without Switzerland;kilogram;diesel, low-sulfur
@@ -1250,6 +1254,10 @@ market for petrol, unleaded;RoW;kilogram;petrol, unleaded
 market for recultivation, ilmenite mine;GLO;square meter;recultivation, ilmenite mine
 market group for heat, central or small-scale, natural gas;GLO;megajoule;heat, central or small-scale, natural gas
 ilmenite - magnetite mine operation;GLO;kilogram;ilmenite, 54% titanium dioxide
+maintenance, bus;CH;unit;maintenance, bus
+treatment of used bus;CH;unit;used bus
+transport, freight, sea, container ship;GLO;ton kilometer;transport, freight, sea, container ship
+glued laminated timber production, average glue mix;Europe without Switzerland;cubic meter;glued laminated timber, average glue mix
 Copper ion;('water', 'ground-');kilogram
 Ammonium;('water',);kilogram
 Radon-220;('air', 'non-urban air or from high stacks');kilo Becquerel
