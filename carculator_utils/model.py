@@ -197,6 +197,7 @@ class VehicleModel:
                 & (year in self.array.year.values)
                 & (size in self.array["size"].values)
             ):
+
                 cell_params = self.array.loc[
                     dict(
                         powertrain=pwt,

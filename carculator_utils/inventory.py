@@ -906,6 +906,11 @@ class Inventory:
             ):
                 indices.append(i)
 
+        if len(indices) == 0:
+            print(
+                f"No input found for {contains} and exclude {excludes} in the A matrix."
+            )
+
         return indices
 
     def add_electricity_infrastructure(self, dataset, losses):
