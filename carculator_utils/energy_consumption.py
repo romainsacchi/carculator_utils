@@ -366,20 +366,25 @@ class EnergyConsumptionModel:
 
         efficiency = _c(efficiency)
 
-        if auxiliary_energy.shape[0] == 1:
+        if efficiency.shape[0] != auxiliary_energy.shape[0]:
+            efficiency = efficiency.T
+
+        try:
+            auxiliary_energy /= _o(efficiency)
+            # zero-out values when efficiency is zero
+            auxiliary_energy = np.where(efficiency == 0, 0, auxiliary_energy)
+        except:
+            auxiliary_energy = auxiliary_energy / _o(efficiency).T
+            # zero-out values when efficiency is zero
+            auxiliary_energy = np.where(_o(efficiency).T == 0, 0, auxiliary_energy)
+
+        if auxiliary_energy.shape[0] != self.velocity.shape[0]:
             auxiliary_energy = np.resize(
                 auxiliary_energy, (self.velocity.shape[0], *auxiliary_energy.shape[1:])
             )
 
-        try:
-            auxiliary_energy /= _o(efficiency)
-        except ValueError:
-            auxiliary_energy /= _o(efficiency).T[None, ...]
-
         # clip negative values to zero
         auxiliary_energy = np.where(auxiliary_energy < 0, 0, auxiliary_energy)
-        # zero-out values when efficiency is zero
-        auxiliary_energy = np.where(efficiency == 0, 0, auxiliary_energy)
 
         return auxiliary_energy
 
@@ -620,8 +625,11 @@ class EnergyConsumptionModel:
 
         auxiliary_energy = np.where(self.velocity > 0, auxiliary_energy, 0)
 
+        print("aux.shape", auxiliary_energy.shape)
+
         # if first dimension is 1, resize it to the length of the driving_cycles
         if auxiliary_energy.shape[0] == 1:
+            print("YES")
             auxiliary_energy = np.resize(
                 auxiliary_energy, (self.velocity.shape[0], *auxiliary_energy.shape[1:])
             )
@@ -637,6 +645,24 @@ class EnergyConsumptionModel:
                 engine_efficiency,
                 (self.velocity.shape[0], *engine_efficiency.shape[1:]),
             )
+
+        print(_(rolling_resistance).shape)
+        print(_(air_resistance).shape)
+        print(_(gradient_resistance).shape)
+        print(_(inertia).shape)
+        print(_(motive_energy_at_wheels).shape)
+        print(_(motive_energy).shape)
+        print(_(negative_motive_energy).shape)
+        print(_(recuperated_energy).shape)
+        print(_(auxiliary_energy).shape)
+        print(_(cooling_energy).shape)
+        print(_(heating_energy).shape)
+        print(_(battery_cooling).shape)
+        print(_(battery_heating).shape)
+        print(_(engine_load).shape)
+        print(_(transmission_efficiency).shape)
+        print(_(engine_efficiency).shape)
+        print(_(self.velocity * np.ones_like(motive_energy)).shape)
 
         all_arrays = np.concatenate(
             [
