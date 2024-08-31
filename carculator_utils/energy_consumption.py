@@ -376,6 +376,11 @@ class EnergyConsumptionModel:
         except ValueError:
             auxiliary_energy /= _o(efficiency).T[None, ...]
 
+        # clip negative values to zero
+        auxiliary_energy = np.where(auxiliary_energy < 0, 0, auxiliary_energy)
+        # zero-out values when efficiency is zero
+        auxiliary_energy = np.where(efficiency == 0, 0, auxiliary_energy)
+
         return auxiliary_energy
 
     def calculate_efficiency(
@@ -423,7 +428,7 @@ class EnergyConsumptionModel:
                         dtype=float,
                     ),
                 ),
-                0.00,
+                0.0,
                 1.0,
             )
 
