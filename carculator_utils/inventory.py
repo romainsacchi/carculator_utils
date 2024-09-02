@@ -1873,7 +1873,7 @@ class Inventory:
         """
         Export the inventory. Can export to Simapro (as csv), or brightway2 (as bw2io object, file or string).
         :param db_name:
-        :param ecoinvent_version: str. "3.5", "3.6", "3.7", "3.8", "3.9" or "3.10"
+        :param ecoinvent_version: str. "3.9" or "3.10"
         :param filename: str. Name of the file to be exported
         :param directory: str. Directory where the file is saved
         :param software: str. "brightway2" or "simapro"
@@ -1881,6 +1881,9 @@ class Inventory:
         ::return: inventory, or the filepath where the file is saved.
         :rtype: list
         """
+
+        if ecoinvent_version not in ["3.9", "3.10"]:
+            raise ValueError("ecoinvent_version must be either '3.9' or '3.10'")
 
         if self.func_unit != "vkm":
             self.change_functional_unit()

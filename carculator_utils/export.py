@@ -55,53 +55,34 @@ def load_mapping(
 
     dict_map = {}
 
-    if "39" in filename:
-        for row in data:
+    for row in data:
+        (
+            name_to,
+            location_to,
+            categories_to,
+            unit_to,
+            ref_prod_to,
+            name_from,
+            location_from,
+            categories_from,
+            unit_from,
+            ref_prod_from,
+        ) = row
+        dict_map[
             (
                 name_to,
                 location_to,
-                categories_to,
+                tuple(categories_to.split("::")) if categories_to != "" else "",
                 unit_to,
                 ref_prod_to,
-                name_from,
-                location_from,
-                categories_from,
-                unit_from,
-                ref_prod_from,
-            ) = row
-            dict_map[
-                (
-                    name_to,
-                    location_to,
-                    tuple(categories_to.split("::")) if categories_to != "" else "",
-                    unit_to,
-                    ref_prod_to,
-                )
-            ] = (
-                name_from,
-                location_from,
-                tuple(categories_from.split("::")) if categories_from != "" else "",
-                unit_from,
-                ref_prod_from,
             )
-    else:
-        for row in data:
-            (
-                name_to,
-                location_to,
-                unit_to,
-                ref_prod_to,
-                name_from,
-                location_from,
-                unit_from,
-                ref_prod_from,
-            ) = row
-            dict_map[(name_to, location_to, unit_to, ref_prod_to)] = (
-                name_from,
-                location_from,
-                unit_from,
-                ref_prod_from,
-            )
+        ] = (
+            name_from,
+            location_from,
+            tuple(categories_from.split("::")) if categories_from != "" else "",
+            unit_from,
+            ref_prod_from,
+        )
 
     return dict_map
 
@@ -196,11 +177,7 @@ class ExportInventory:
         self.references = load_references()
 
         self.flow_map = {
-            "3.5": load_mapping(filename="ei37_to_ei35.csv"),
-            "3.6": load_mapping(filename="ei37_to_ei36.csv"),
-            "3.7": load_mapping(filename="ei38_to_ei37.csv"),
-            "3.7.1": load_mapping(filename="ei38_to_ei37.csv"),
-            "3.9": load_mapping(filename="ei38_to_ei39.csv"),
+            "3.9": load_mapping(filename="ei310_to_ei39.csv"),
         }
 
     def rename_vehicles(self) -> None:
@@ -228,12 +205,6 @@ class ExportInventory:
         :returns: a dictionary that contains all the exchanges
         :rtype: dict
         """
-
-        blacklist = {
-            "3.5": [
-                "latex production",
-            ]
-        }
 
         idx_year = self.vm.array.coords["year"].values.tolist().index(year)
 
@@ -265,8 +236,41 @@ class ExportInventory:
                 tuple_input = self.indices[row]
                 mult_factor = 1
 
-                if tuple_output[0] in blacklist.get(ecoinvent_version, []):
-                    continue
+                # check migration dictionary self.flow_map
+                if ecoinvent_version in self.flow_map:
+                    if len(tuple_input) == 3:
+                        tupled = (
+                            tuple_input[0],
+                            "",
+                            tuple_input[1],
+                            tuple_input[2],
+                            "",
+                        )
+                        if tupled in self.flow_map[ecoinvent_version]:
+                            tuple_input = self.flow_map[ecoinvent_version][tupled]
+                            # remove the ""
+                            tuple_input = (
+                                tuple_input[0],
+                                tuple_input[2],
+                                tuple_input[3],
+                            )
+                    else:
+                        tupled = (
+                            tuple_input[0],
+                            tuple_input[1],
+                            "",
+                            tuple_input[2],
+                            tuple_input[3],
+                        )
+                        if tupled in self.flow_map[ecoinvent_version]:
+                            tuple_input = self.flow_map[ecoinvent_version][tupled]
+                            # remove the ""
+                            tuple_input = (
+                                tuple_input[0],
+                                tuple_input[1],
+                                tuple_input[3],
+                                tuple_input[4],
+                            )
 
                 if len(self.array[:, row, col, idx_year]) == 1:
                     # No uncertainty, only one value
@@ -738,7 +742,7 @@ class ExportInventory:
                             if e["name"] not in blacklist:
                                 if e["name"].lower() == "water":
                                     e["unit"] = "kilogram"
-                                    e["amount"] /= 1000
+                                    e["amount"] *= 1000
 
                                 if e["name"] in [
                                     "Carbon dioxide, to soil or biomass stock"
@@ -776,7 +780,7 @@ class ExportInventory:
                             if e["name"] not in blacklist:
                                 if e["name"].lower() == "water":
                                     e["unit"] = "kilogram"
-                                    e["amount"] /= 1000
+                                    e["amount"] *= 1000
 
                                 rows.append(
                                     [

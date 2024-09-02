@@ -1,0 +1,56 @@
+name;location;categories;unit;reference product;name ei39;location ei39;ei39 categories;unit ei39;reference product ei39
+1,1,1,2-Tetrafluoroethane;;air;kilogram;;Ethane, 1,1,1,2-tetrafluoro-, HFC-134a;;air;kilogram;
+AOX, Adsorbable Organic Halides;;water::surface water;kilogram;;AOX, Adsorbable Organic Halogen;;water::surface water;kilogram;
+Argon;;air;kilogram;;Argon-40;;air;kilogram;
+Calcium II;;air::urban air close to ground;kilogram;;Calcium;;air::urban air close to ground;kilogram;
+Dichloromethane;;water::surface water;kilogram;;Methane, dichloro-, HCC-30;;water::surface water;kilogram;
+Dimethenamide;;soil::agricultural;kilogram;;Dimethenamid;;soil::agricultural;kilogram;
+Ethyl benzene;;air::urban air close to ground;kilogram;;Benzene, ethyl-;;air::urban air close to ground;kilogram;
+Hexachlorobenzene;;air::urban air close to ground;kilogram;;Benzene, hexachloro-;;air::urban air close to ground;kilogram;
+Hexachlorobenzene;;air;kilogram;;Benzene, hexachloro-;;air;kilogram;
+Manganese;;water::surface water;kilogram;;Manganese II;;water::surface water;kilogram;
+Methylchloride;;air;kilogram;;Methane, monochloro-, R-40;;air;kilogram;
+Pentachlorophenol;;air::urban air close to ground;kilogram;;Phenol, pentachloro-;;air::urban air close to ground;kilogram;
+Propylene;;air::low population density, long-term;kilogram;;Propene;;air::low population density, long-term;kilogram;
+Propylene;;air::non-urban air or from high stacks;kilogram;;Propene;;air::non-urban air or from high stacks;kilogram;
+Propylene;;air::urban air close to ground;kilogram;;Propene;;air::urban air close to ground;kilogram;
+Sodium I;;air::urban air close to ground;kilogram;;Sodium;;air::urban air close to ground;kilogram;
+Strontium II;;air::non-urban air or from high stacks;kilogram;;Strontium;;air::non-urban air or from high stacks;kilogram;
+Strontium II;;water::surface water;kilogram;;Strontium;;water::surface water;kilogram;
+Xylenes, unspecified;;air::non-urban air or from high stacks;kilogram;;Xylene;;air::non-urban air or from high stacks;kilogram;
+ethylene glycols production, thermal hydrolysis of ethylene oxide;RER;;kilogram;ethylene glycol;ethylene glycol production;RER;;kilogram;ethylene glycol
+industrial gases production, cryogenic air separation;RER;;kilogram;oxygen, liquid;air separation, cryogenic;RER;;kilogram;oxygen, liquid
+lithium production, lithium chloride electrolysis;GLO;;kilogram;lithium;electrolysis of lithium chloride;GLO;;kilogram;lithium
+market for chromium trioxide, flakes;GLO;;kilogram;chromium trioxide, flakes;market for chromium oxide, flakes;GLO;;kilogram;chromium oxide, flakes
+market for clay brick;RoW;;kilogram;clay brick;market for clay brick;GLO;;kilogram;clay brick
+market for ethylene glycol;RoW;;kilogram;ethylene glycol;market for ethylene glycol;GLO;;kilogram;ethylene glycol
+market for hard coal;Europe, without Russia and Türkiye;;kilogram;hard coal;market for hard coal;Europe, without Russia and Turkey;;kilogram;hard coal
+market for hydrogen, gaseous, medium pressure, merchant;RER;;kilogram;hydrogen, gaseous, medium pressure, merchant;market for hydrogen, gaseous;GLO;;kilogram;hydrogen, gaseous
+market for methanol;RER;;kilogram;methanol;market for methanol;GLO;;kilogram;methanol
+market for methylsulfonic acid;GLO;;kilogram;methylsulfonic acid;market for methane sulfonic acid;GLO;;kilogram;methane sulfonic acid
+market for neutralising agent, sodium hydroxide-equivalent;RoW;;kilogram;neutralising agent, sodium hydroxide-equivalent;market for neutralising agent, sodium hydroxide-equivalent;GLO;;kilogram;neutralising agent, sodium hydroxide-equivalent
+market for polycarbonate;RoW;;kilogram;polycarbonate;market for polycarbonate;GLO;;kilogram;polycarbonate
+market for rape seed;RoW;;kilogram;rape seed;market for rape seed;GLO;;kilogram;rape seed
+market for soda ash, light;RoW;;kilogram;soda ash, light;market for soda ash, light;GLO;;kilogram;soda ash, light
+market for sodium hydroxide, without water, in 50% solution state;RoW;;kilogram;sodium hydroxide, without water, in 50% solution state;market for sodium hydroxide, without water, in 50% solution state;GLO;;kilogram;sodium hydroxide, without water, in 50% solution state
+phthalic anhydride production, o-xylene oxidation;RER;;kilogram;phthalic anhydride;phthalic anhydride production;RER;;kilogram;phthalic anhydride
+soda ash, light, crystalline, heptahydrate, to generic market for neutralising agent;RoW;;kilogram;neutralising agent, sodium hydroxide-equivalent;soda ash, light, crystalline, heptahydrate, to generic market for neutralising agent;GLO;;kilogram;neutralising agent, sodium hydroxide-equivalent
+sodium production, sodium chloride electrolysis, molten salt cell;RER;;kilogram;sodium;sodium chloride electrolysis;RER;;kilogram;sodium
+treatment of inert waste, sanitary landfill;RER;;kilogram;inert waste;treatment of inert waste, sanitary landfill;Europe without Switzerland;;kilogram;inert waste
+treatment of lead in car shredder residue, municipal incineration FAE;CH;;kilogram;lead in car shredder residue;treatment of lead in car shredder residue, municipal incineration with fly ash extraction;CH;;kilogram;lead in car shredder residue
+treatment of municipal solid waste, municipal incineration FAE;CH;;kilogram;municipal solid waste;treatment of municipal solid waste, municipal incineration with fly ash extraction;CH;;kilogram;municipal solid waste
+treatment of municipal solid waste, municipal incineration FAE;CH;;kilowatt hour;electricity, for reuse in municipal waste incineration only;treatment of municipal solid waste, municipal incineration with fly ash extraction;CH;;kilowatt hour;electricity, for reuse in municipal waste incineration only
+treatment of residue from shredder fraction from manual dismantling, municipal incineration FAE;CH;;kilogram;residue from shredder fraction from manual dismantling;treatment of residue from shredder fraction from manual dismantling, municipal incineration with fly ash extraction;CH;;kilogram;residue from shredder fraction from manual dismantling
+treatment of scrap aluminium, municipal incineration FAE;CH;;kilogram;scrap aluminium;treatment of scrap aluminium, municipal incineration with fly ash extraction;CH;;kilogram;scrap aluminium
+treatment of scrap copper, municipal incineration FAE;CH;;kilogram;scrap copper;treatment of scrap copper, municipal incineration with fly ash extraction;CH;;kilogram;scrap copper
+treatment of spent anion exchange resin from potable water production, municipal incineration FAE;CH;;kilogram;spent anion exchange resin from potable water production;treatment of spent anion exchange resin from potable water production, municipal incineration with fly ash extraction;CH;;kilogram;spent anion exchange resin from potable water production
+treatment of waste glass, municipal incineration FAE;CH;;kilogram;waste glass;treatment of waste glass, municipal incineration with fly ash extraction;CH;;kilogram;waste glass
+treatment of waste plastic, mixture, municipal incineration FAE;CH;;kilogram;waste plastic, mixture;treatment of waste plastic, mixture, municipal incineration with fly ash extraction;CH;;kilogram;waste plastic, mixture
+treatment of waste polyethylene, municipal incineration FAE;CH;;kilogram;waste polyethylene;treatment of waste polyethylene, municipal incineration with fly ash extraction;CH;;kilogram;waste polyethylene
+treatment of waste polypropylene, municipal incineration FAE;CH;;kilogram;waste polypropylene;treatment of waste polypropylene, municipal incineration with fly ash extraction;CH;;kilogram;waste polypropylene
+treatment of waste polystyrene, municipal incineration FAE;CH;;kilogram;waste polystyrene;treatment of waste polystyrene, municipal incineration with fly ash extraction;CH;;kilogram;waste polystyrene
+treatment of waste polyurethane, municipal incineration FAE;CH;;kilogram;waste polyurethane;treatment of waste polyurethane, municipal incineration with fly ash extraction;CH;;kilogram;waste polyurethane
+treatment of waste polyvinylchloride, municipal incineration FAE;CH;;kilogram;waste polyvinylchloride;treatment of waste polyvinylchloride, municipal incineration with fly ash extraction;CH;;kilogram;waste polyvinylchloride
+treatment of waste wood, untreated, municipal incineration FAE;CH;;kilogram;waste wood, untreated;treatment of waste wood, untreated, municipal incineration with fly ash extraction;CH;;kilogram;waste wood, untreated
+treatment of wood ash mixture, pure, municipal incineration FAE;CH;;kilogram;wood ash mixture, pure;treatment of wood ash mixture, pure, municipal incineration with fly ash extraction;CH;;kilogram;wood ash mixture, pure
+treatment of zinc in car shredder residue, municipal incineration FAE;CH;;kilogram;zinc in car shredder residue;treatment of zinc in car shredder residue, municipal incineration with fly ash extraction;CH;;kilogram;zinc in car shredder residue
