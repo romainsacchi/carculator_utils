@@ -471,14 +471,11 @@ class VehicleModel:
                 ]
             )
 
-            self.array.loc[
-                dict(parameter="energy battery mass", powertrain="FCEV")
-            ] = self.array.loc[
-                dict(parameter="battery cell mass", powertrain="FCEV")
-            ] + self.array.loc[
-                dict(parameter="battery BoP mass", powertrain="FCEV")
-            ]
-            
+            self.array.loc[dict(parameter="energy battery mass", powertrain="FCEV")] = (
+                self.array.loc[dict(parameter="battery cell mass", powertrain="FCEV")]
+                + self.array.loc[dict(parameter="battery BoP mass", powertrain="FCEV")]
+            )
+
             self.array.loc[
                 dict(parameter="electric energy stored", powertrain="FCEV")
             ] = (
